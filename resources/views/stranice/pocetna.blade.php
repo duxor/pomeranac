@@ -7,14 +7,14 @@
 @section('body')
     <div
             class="parallax-image-wrapper parallax-image-wrapper-100"
-            data-anchor-target="#dragons + .gap"
+            data-anchor-target="#pocetna + .gap"
             data-bottom-top="transform:translate3d(0px, 200%, 0px)"
             data-top-bottom="transform:translate3d(0px, 0%, 0px)">
 
         <div
                 class="parallax-image parallax-image-100"
                 style="background-image:url(slike/9.jpg)"
-                data-anchor-target="#dragons + .gap"
+                data-anchor-target="#pocetna + .gap"
                 data-bottom-top="transform: translate3d(0px, -80%, 0px);"
                 data-top-bottom="transform: translate3d(0px, 80%, 0px);"
                 ></div>
@@ -22,14 +22,14 @@
 
     <div
             class="parallax-image-wrapper parallax-image-wrapper-100"
-            data-anchor-target="#bacons + .gap"
+            data-anchor-target="#o-nama + .gap"
             data-bottom-top="transform:translate3d(0px, 200%, 0px)"
             data-top-bottom="transform:translate3d(0px, 0%, 0px)">
 
         <div
                 class="parallax-image parallax-image-100"
                 style="background-image:url(slike/8.jpg)"
-                data-anchor-target="#bacons + .gap"
+                data-anchor-target="#o-nama + .gap"
                 data-bottom-top="transform: translate3d(0px, -80%, 0px);"
                 data-top-bottom="transform: translate3d(0px, 80%, 0px);"
                 ></div>
@@ -37,14 +37,57 @@
 
     <div
             class="parallax-image-wrapper parallax-image-wrapper-50"
-            data-anchor-target="#kittens + .gap"
+            data-anchor-target="#rasa-pomeranac + .gap"
             data-bottom-top="transform:translate3d(0px, 300%, 0px)"
             data-top-bottom="transform:translate3d(0px, 0%, 0px)">
 
         <div
                 class="parallax-image parallax-image-50"
                 style="background-image:url(slike/3.jpg)"
-                data-anchor-target="#kittens + .gap"
+                data-anchor-target="#rasa-pomeranac + .gap"
+                data-bottom-top="transform: translate3d(0px, -60%, 0px);"
+                data-top-bottom="transform: translate3d(0px, 60%, 0px);"
+                ></div>
+    </div>
+    {{--test--}}
+    <div
+            class="parallax-image-wrapper parallax-image-wrapper-50"
+            data-anchor-target="#pas-boo + .gap"
+            data-bottom-top="transform:translate3d(0px, 300%, 0px)"
+            data-top-bottom="transform:translate3d(0px, 0%, 0px)">
+
+        <div
+                class="parallax-image parallax-image-50"
+                style="background-image:url(slike/4.jpg)"
+                data-anchor-target="#pas-boo + .gap"
+                data-bottom-top="transform: translate3d(0px, -60%, 0px);"
+                data-top-bottom="transform: translate3d(0px, 60%, 0px);"
+                ></div>
+    </div>
+    <div
+            class="parallax-image-wrapper parallax-image-wrapper-50"
+            data-anchor-target="#galerija + .gap"
+            data-bottom-top="transform:translate3d(0px, 300%, 0px)"
+            data-top-bottom="transform:translate3d(0px, 0%, 0px)">
+
+        <div
+                class="parallax-image parallax-image-50"
+                style="background-image:url(slike/11.jpg)"
+                data-anchor-target="#galerija + .gap"
+                data-bottom-top="transform: translate3d(0px, -60%, 0px);"
+                data-top-bottom="transform: translate3d(0px, 60%, 0px);"
+                ></div>
+    </div>
+    <div
+            class="parallax-image-wrapper parallax-image-wrapper-50"
+            data-anchor-target="#kontakt + .gap"
+            data-bottom-top="transform:translate3d(0px, 300%, 0px)"
+            data-top-bottom="transform:translate3d(0px, 0%, 0px)">
+
+        <div
+                class="parallax-image parallax-image-50"
+                style="background-image:url(slike/10.jpg)"
+                data-anchor-target="#kontakt + .gap"
                 data-bottom-top="transform: translate3d(0px, -60%, 0px);"
                 data-top-bottom="transform: translate3d(0px, 60%, 0px);"
                 ></div>
@@ -83,25 +126,48 @@
             </div>
         </nav>
         {{--navigacija#################################################################################################--}}
-        <div class="header" id="dragons">
+        <div class="header" id="pocetna">
         </div>
 
         <div class="gap gap-100" style="background-image:url(slike/9.jpg);"></div>
-        <div class="content" id="bacons">
+        <div class="content" id="o-nama">
+            <h1>O nama</h1>
             <p>tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst </p>
 
+            <p>tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
+            <p>tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
             <p>tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
             <p>tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
 
         </div>
         <div class="gap gap-100" style="background-image:url(slike/8.jpg);"></div>
-        <div class="content content-full" id="kittens">
-            Here be kittens
+        <div class="content content-full" id="rasa-pomeranac">
+            <h1>Rasa Pomeranac</h1>
         </div>
-        <div class="gap gap-50" style="background-image:url(slike/3.jpg);"></div>
-        <div class="content" id="done">
-            <p>tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
+        <div class="gap gap-50" style="background-image:url(slike/4.jpg);"></div>
+        <div class="content" id="pas-boo">
+            <h1>Pas Boo</h1>
+            <p>poslednji red tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
 
         </div>
+        <div class="gap gap-100" style="background-image:url(slike/4.jpg);"></div>
+        <div class="content" id="galerija">
+            <h1>Glaerija</h1>
+            <p>poslednji red tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
+
+        </div>
+        <div class="gap gap-100" style="background-image:url(slike/4.jpg);"></div>
+        <div class="content" id="kontakt">
+            <h1>Kontakt</h1>
+            <p>poslednji red tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
+
+        </div>
+
+        <div class="gap gap-50" style="background-image:url(slike/3.jpg);"></div>
+        <div class="content" id="done">
+            <p>poslednji red tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
+
+        </div>
+
     </div>
 @stop
