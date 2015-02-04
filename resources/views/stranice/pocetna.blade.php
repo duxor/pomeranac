@@ -114,7 +114,7 @@
                         <li><a href="#" class="scroll-link" data-id="rasa-pomeranac">Rasa Pomeranac</a></li>
                         <li><a href="#" class="scroll-link" data-id="pas-boo">Pas Boo</a></li>
                         <li><a href="#" class="scroll-link" data-id="galerija">Galerija</a></li>
-                        <li @yield('kontakt')><a href="#" class="scroll-link" data-id="kontakt">Kontakt</a></li>
+                        <li><a href="#" class="scroll-link" data-id="kontakt">Kontakt</a></li>
 
                         </li>
                     </ul>
@@ -128,11 +128,12 @@
         <div class="header" id="pocetna">
         </div>
 
-        <div class="gap gap-100" style="background-image:url(slike/9.jpg);">
+        <div class="gap gap-100">
             <div class="okvir">
                 <h1>Početna</h1>
                 <p>tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
                 <p>tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
+                <a href="#" class="scroll-link btn btn-info" data-id="kontakt">Kontaktirajte nas</a>
             </div>
         </div>
         <div class="content" id="o-nama">
@@ -146,13 +147,13 @@
                 <p>tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
             </div>
         </div>
-        <div class="gap gap-100" style="background-image:url(slike/8.jpg);"></div>
+        <div class="gap gap-100"></div>
         <div class="content content-full" id="rasa-pomeranac">
             <div class="container">
                 <h1>Rasa Pomeranac</h1>
             </div>
         </div>
-        <div class="gap gap-50" style="background-image:url(slike/4.jpg);"></div>
+        <div class="gap gap-50"></div>
         <div class="content" id="pas-boo">
             <div class="container">
                 <h1>Pas Boo</h1>
@@ -160,7 +161,7 @@
             </div>
         </div>
         <div class="gap gap-100"></div>
-        <div class="content" id="galerija">
+        <div class="content content-full" id="galerija">
             <div class="container">
                 <h1>Galerija</h1>
                 <p>poslednji red tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
