@@ -9,6 +9,8 @@
     <link href="{{ URL::asset('css/templejt.css') }}" rel="stylesheet" >
     <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('css/parallax.css') }}" rel="stylesheet">
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script src="{{ URL::asset('js/gmap1.js') }}"></script>
     <style>@yield('style')</style>
 </head>
 

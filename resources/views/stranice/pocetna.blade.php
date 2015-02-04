@@ -172,7 +172,16 @@
         <div class="content" id="kontakt">
             <div class="container">
                 <h1>Kontakt</h1>
-                <p>poslednji red tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
+
+                <div id="googleMap" style="height:300px;"></div>
+
+                <p>kontakt tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
+
+                <p>tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
+
+                <p>tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
+
+                <button class="btn btn-success" data-toggle="modal" data-target="#posaljiMail">Kontaktirajte nas putem email-a</button>
             </div>
         </div>
 
@@ -183,5 +192,28 @@
             </p>
         </div>
 
+    </div>
+
+    <div class="modal fade" id="posaljiMail">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    Kontaktirajte nas putem email-a
+                </div>
+                <div class="modal-body">
+                    {!! Form::open() !!}
+                        {!! Form::text('ime', null, ['class'=>'form-control', 'placeholder'=>'Ime i Prezime']) !!}
+                        {!! Form::email('email', null, ['class'=>'form-control', 'placeholder'=>'E-mail']) !!}
+                        {!! Form::text('telefon', null, ['class'=>'form-control', 'placeholder'=>'Telefon']) !!}
+                        {!! Form::textarea('poruka', null, ['class'=>'form-control', 'placeholder'=>'Poruka...']) !!}
+                    </div>
+                <div class="modal-footer">
+                        {!! Form::submit('Pošalji', ['class'=>'btn btn-success']) !!}
+                        {!! Form::reset('Obriši sve', ['class'=>'btn btn-danger']) !!}
+                    {!! Form::close() !!}
+                </div>
+            </div>
+        </div>
     </div>
 @stop
