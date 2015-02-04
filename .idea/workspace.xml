@@ -28,12 +28,12 @@
       <file leaf-file-name="pocetna.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/stranice/pocetna.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8152174" vertical-offset="3120" max-vertical-offset="3808">
-              <caret line="210" column="42" selection-start-line="210" selection-start-column="42" selection-end-line="210" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.8152174" vertical-offset="3579" max-vertical-offset="4148">
+              <caret line="237" column="32" selection-start-line="237" selection-start-column="32" selection-end-line="237" selection-end-column="32" />
               <folding>
                 <element signature="e#431#472#0#HTML" expanded="true" />
-                <element signature="e#10370#10391#0#HTML" expanded="true" />
-                <element signature="e#11971#11993#0#HTML" expanded="true" />
+                <element signature="e#10722#10743#0#HTML" expanded="true" />
+                <element signature="e#12384#12406#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -425,8 +425,8 @@
           <caret line="160" column="23" selection-start-line="160" selection-start-column="23" selection-end-line="160" selection-end-column="23" />
           <folding>
             <element signature="e#431#472#0#HTML" expanded="true" />
-            <element signature="e#10370#10391#0#HTML" expanded="true" />
-            <element signature="e#11971#11993#0#HTML" expanded="true" />
+            <element signature="e#10722#10743#0#HTML" expanded="true" />
+            <element signature="e#12384#12406#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -522,12 +522,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/stranice/pocetna.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8152174" vertical-offset="3120" max-vertical-offset="3808">
-          <caret line="210" column="42" selection-start-line="210" selection-start-column="42" selection-end-line="210" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.8152174" vertical-offset="3579" max-vertical-offset="4148">
+          <caret line="237" column="32" selection-start-line="237" selection-start-column="32" selection-end-line="237" selection-end-column="32" />
           <folding>
             <element signature="e#431#472#0#HTML" expanded="true" />
-            <element signature="e#10370#10391#0#HTML" expanded="true" />
-            <element signature="e#11971#11993#0#HTML" expanded="true" />
+            <element signature="e#10722#10743#0#HTML" expanded="true" />
+            <element signature="e#12384#12406#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>

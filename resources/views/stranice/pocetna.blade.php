@@ -125,9 +125,9 @@
             </div>
         </nav>
 {{--navigacija END::--}}
-        <div class="header" id="pocetna">
-        </div>
 
+        {{--pocetna START::--}}
+        <div class="header" id="pocetna"></div>
         <div class="gap gap-100">
             <div class="okvir">
                 <h1>Početna</h1>
@@ -136,6 +136,9 @@
                 <a href="#" class="scroll-link btn btn-info" data-id="kontakt">Kontaktirajte nas</a>
             </div>
         </div>
+        {{--pocetna END::--}}
+
+        {{--O nama START::--}}
         <div class="content" id="o-nama">
             <div class="container">
                 <h1>O nama</h1>
@@ -148,12 +151,18 @@
             </div>
         </div>
         <div class="gap gap-100"></div>
+        {{--O nama END::--}}
+
+        {{--Rasa pomeranac START::--}}
         <div class="content content-full" id="rasa-pomeranac">
             <div class="container">
                 <h1>Rasa Pomeranac</h1>
             </div>
         </div>
         <div class="gap gap-50"></div>
+        {{--Rasa pomeranac END::--}}
+
+        {{--pas Boo START::--}}
         <div class="content" id="pas-boo">
             <div class="container">
                 <h1>Pas Boo</h1>
@@ -161,6 +170,9 @@
             </div>
         </div>
         <div class="gap gap-100"></div>
+        {{--pas Boo END::--}}
+
+        {{--galerija START::--}}
         <div class="content content-full" id="galerija">
             <div class="container">
                 <h1>Galerija</h1>
@@ -169,6 +181,9 @@
             </div>
         </div>
         <div class="gap gap-100"></div>
+        {{--galerija END::--}}
+
+        {{--kontakt START::--}}
         <div class="content" id="kontakt">
             <div class="container">
                 <h1>Kontakt</h1>
@@ -184,16 +199,20 @@
                 <button class="btn btn-success" data-toggle="modal" data-target="#posaljiMail">Kontaktirajte nas putem email-a</button>
             </div>
         </div>
-
         <div class="gap gap-50"></div>
+        {{--kontakt END::--}}
+
+        {{--footer START::--}}
         <div class="content" id="done" style="height: 200px;">
             <p class="container">
                 <a href="http://dusanperisic.com">web developer & dizajner</a>
             </p>
         </div>
+        {{--footer END::--}}
 
     </div>
 
+    {{--MODAL:: posalji mail START::--}}
     <div class="modal fade" id="posaljiMail">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -216,4 +235,5 @@
             </div>
         </div>
     </div>
+    {{--MODAL:: posalji mail END::--}}
 @stop
