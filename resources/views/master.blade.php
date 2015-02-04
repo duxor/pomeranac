@@ -28,5 +28,6 @@
 </script>
 <script src="{{ URL::asset('js/jquery-3.0.js') }}"></script>
 <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ URL::asset('js/funkcije.js') }}"></script>
 </body>
 </html>
