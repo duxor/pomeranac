@@ -49,9 +49,8 @@
                 data-top-bottom="transform: translate3d(0px, 60%, 0px);"
                 ></div>
     </div>
-    {{--test--}}
     <div
-            class="parallax-image-wrapper parallax-image-wrapper-50"
+            class="parallax-image-wrapper parallax-image-wrapper-100"
             data-anchor-target="#pas-boo + .gap"
             data-bottom-top="transform:translate3d(0px, 300%, 0px)"
             data-top-bottom="transform:translate3d(0px, 0%, 0px)">
@@ -65,7 +64,7 @@
                 ></div>
     </div>
     <div
-            class="parallax-image-wrapper parallax-image-wrapper-50"
+            class="parallax-image-wrapper parallax-image-wrapper-100"
             data-anchor-target="#galerija + .gap"
             data-bottom-top="transform:translate3d(0px, 300%, 0px)"
             data-top-bottom="transform:translate3d(0px, 0%, 0px)">
@@ -110,11 +109,11 @@
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li @yield('pocetna')><a href="#pocetna" class="scroll-link" data-id="pocetna">Početna</a></li>
-                        <li @yield('o-nama')><a href="#" class="scroll-link" data-id="o-nama">O nama</a></li>
-                        <li @yield('o-rasi')><a href="#" class="scroll-link" data-id="rasa-pomeranac">Rasa Pomeranac</a></li>
-                        <li @yield('o-psu')><a href="#" class="scroll-link" data-id="pas-boo">Pas Boo</a></li>
-                        <li @yield('galerija')><a href="#" class="scroll-link" data-id="galerija">Galerija</a></li>
+                        <li><a href="#pocetna" class="scroll-link" data-id="pocetna">Početna</a></li>
+                        <li><a href="#" class="scroll-link" data-id="o-nama">O nama</a></li>
+                        <li><a href="#" class="scroll-link" data-id="rasa-pomeranac">Rasa Pomeranac</a></li>
+                        <li><a href="#" class="scroll-link" data-id="pas-boo">Pas Boo</a></li>
+                        <li><a href="#" class="scroll-link" data-id="galerija">Galerija</a></li>
                         <li @yield('kontakt')><a href="#" class="scroll-link" data-id="kontakt">Kontakt</a></li>
 
                         </li>
@@ -129,43 +128,56 @@
         <div class="header" id="pocetna">
         </div>
 
-        <div class="gap gap-100" style="background-image:url(slike/9.jpg);"></div>
-        <div class="content container" id="o-nama">
-            <h1>O nama</h1>
-            <p>tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst </p>
+        <div class="gap gap-100" style="background-image:url(slike/9.jpg);">
+            <div class="okvir">
+                <h1>Početna</h1>
+                <p>tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
+                <p>tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
+            </div>
+        </div>
+        <div class="content" id="o-nama">
+            <div class="container">
+                <h1>O nama</h1>
+                <p>tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst </p>
 
-            <p>tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
-            <p>tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
-            <p>tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
-            <p>tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
-
+                <p>tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
+                <p>tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
+                <p>tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
+                <p>tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
+            </div>
         </div>
         <div class="gap gap-100" style="background-image:url(slike/8.jpg);"></div>
-        <div class="content content-full container" id="rasa-pomeranac">
-            <h1>Rasa Pomeranac</h1>
+        <div class="content content-full" id="rasa-pomeranac">
+            <div class="container">
+                <h1>Rasa Pomeranac</h1>
+            </div>
         </div>
         <div class="gap gap-50" style="background-image:url(slike/4.jpg);"></div>
-        <div class="content container" id="pas-boo">
-            <h1>Pas Boo</h1>
-            <p>poslednji red tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
-
+        <div class="content" id="pas-boo">
+            <div class="container">
+                <h1>Pas Boo</h1>
+                <p>poslednji red tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
+            </div>
         </div>
         <div class="gap gap-100"></div>
-        <div class="content container" id="galerija">
-            <h1>Galerija</h1>
-            <p>poslednji red tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
+        <div class="content" id="galerija">
+            <div class="container">
+                <h1>Galerija</h1>
+                <p>poslednji red tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
 
+            </div>
         </div>
         <div class="gap gap-100"></div>
-        <div class="content container" id="kontakt">
-            <h1>Kontakt</h1>
-            <p>poslednji red tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
-
+        <div class="content" id="kontakt">
+            <div class="container">
+                <h1>Kontakt</h1>
+                <p>poslednji red tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
+            </div>
         </div>
 
         <div class="gap gap-50"></div>
-        <div class="content container" id="done" style="height: 200px;">
-            <p class>
+        <div class="content" id="done" style="height: 200px;">
+            <p class="container">
                 <a href="http://dusanperisic.com">web developer & dizajner</a>
             </p>
         </div>

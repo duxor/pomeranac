@@ -6,3 +6,12 @@
 *
 *******************************/
 
+.okvir{
+    //background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    margin: 4%;
+    padding: 3%;
+    float: left;
+    width: 40%;
+}
