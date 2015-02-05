@@ -188,7 +188,7 @@
             <div class="container">
                 <h1>Kontakt</h1>
 
-                <div id="googleMap" style="height:300px;"></div>
+                <div id="googleMap" style="height:300px;" scrolling="no"></div>
 
                 <p>kontakt tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst tekst</p>
 

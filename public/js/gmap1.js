@@ -1,9 +1,15 @@
-var myCenter=new google.maps.LatLng(44.796885,20.4700183);
+var myCenter=new google.maps.LatLng(mx, my);
 var marker;
 
 function initialize()
 {
     var mapProp = {
+        scrollwheel: false,
+        navigationControl: false,
+        mapTypeControl: false,
+        scaleControl: false,
+        draggable: false,
+
         center:myCenter,
         zoom:15,
         mapTypeId:google.maps.MapTypeId.ROADMAP
