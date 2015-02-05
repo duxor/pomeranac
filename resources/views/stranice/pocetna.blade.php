@@ -241,6 +241,7 @@
             <div class="modal-content">
 
                 <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     Kontaktirajte nas putem email-a
                 </div>
                 <div class="modal-body">
