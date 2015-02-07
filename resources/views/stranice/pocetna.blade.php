@@ -9,6 +9,8 @@
 //konfiguracija
         $meni = [1 => 'Početna', 2 => 'O nama', 3 => 'Rasa Pomeranac', 4 => 'Pas Boo', 5 => 'Galerija', 6 => 'Kontakt' ];
         $pozadina = [1 => 'slike/9.jpg', 2 => 'slike/8.jpg', 3 => 'slike/3.jpg', 4 => 'slike/4.jpg', 5 => 'slike/11.jpg', 6 => 'slike/10.jpg' ];
+        $jezik = ['SR' => 'srpski', 'EN' => 'english'];
+        $trenutniJezik = 'SR';
 
 //pocetna
         $pocetnaNaslov = "<h1>Početna</h1>";
@@ -155,7 +157,16 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Login</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <img src="slike/jezik/{{$jezik[$trenutniJezik]}}.jpg" height="20px"> {{$trenutniJezik}}
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" aria-label="dropdownJezik">
+                                @foreach($jezik as $oznaka => $slika)
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="slike/jezik/{{$slika}}.jpg" height="20px" class="media-object"> {{$oznaka}}</a></li>
+                                @endforeach
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -227,9 +238,15 @@
 
         {{--footer START::--}}
         <div class="content" id="done" style="height: 200px;">
-            <p class="container">
-                <a href="http://dusanperisic.com">web developer & dizajner</a>
-            </p>
+            <div class="container">
+                <div class="col-sm-3 thumbnail">
+                    <img src="slike/banner/web-design-develop-dusan-perisic.jpg" alt="...">
+                    <div class="caption">
+                        <h3>Web develop & design</h3>
+                        <p><a href="http://dusanperisic.com" class="btn btn-primary" role="button">Poseti stranicu</a></p>
+                    </div>
+                </div>
+            </div>
         </div>
         {{--footer END::--}}
 
