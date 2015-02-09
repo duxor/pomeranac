@@ -28,15 +28,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">Pomeranac</a>
+              <a class="navbar-brand" href="./">Pomeranac</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">O nama</a></li>
-                <li><a href="#about">O rasi</a></li>
-                <li><a href="#contact">O psu</a></li>
-                <li><a href="#contact">Galerija</a></li>
-                <li><a href="#contact">Kontakt</a></li>
+                <li class="active"><a href="o-nama">O nama</a></li>
+                <li><a href="o-nama">O rasi</a></li>
+                <li><a href="o-nama">O psu</a></li>
+                <li><a href="galerija-fotografija">Galerija</a></li>
+                <li><a href="#">Kontakt</a></li>
                 <li><a href="#contact">Analitika</a></li>
               </ul>
             </div><!--/.nav-collapse -->

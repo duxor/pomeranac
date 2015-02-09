@@ -16,7 +16,11 @@ Route::get('pocetna', 'GlavniController@index');
 
 
 //Administracija START::
-
+Route::get('administracija', 'AdministracijaController@index');
+Route::get('administracija/pocetna', 'AdministracijaController@index');
+Route::get('administracija/login', 'AdministracijaController@login');
+Route::get('administracija/o-nama', 'AdministracijaController@oNama');
+Route::get('administracija/galerija-fotografija', 'AdministracijaController@galerijaFotografija');
 //Administracija END::
 
 
