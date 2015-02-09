@@ -14,6 +14,12 @@
 Route::get('/', 'GlavniController@index');
 Route::get('pocetna', 'GlavniController@index');
 
+
+//Administracija START::
+
+//Administracija END::
+
+
 //Route::controllers([
 //	'auth' => 'Auth\AuthController',
 //	'password' => 'Auth\PasswordController',
