@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="google-translate-customization" content="63955273670ebbdc-a0af1b075be7ac02-g352fbbe38eded318-d">
 
     <title>@yield('title')</title>
     <link href="{{ URL::asset('css/templejt.css') }}" rel="stylesheet" >
@@ -29,6 +30,7 @@
         mobileDeceleration: 0.004
     });
 </script>
+
 <script src="{{ URL::asset('js/jquery-3.0.js') }}"></script>
 <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
 <script src="{{ URL::asset('js/funkcije.js') }}"></script>

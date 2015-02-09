@@ -157,16 +157,17 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                <img src="slike/jezik/{{$jezik[$trenutniJezik]}}.jpg" height="20px"> {{$trenutniJezik}}
-                                <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu" aria-label="dropdownJezik">
-                                @foreach($jezik as $oznaka => $slika)
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="slike/jezik/{{$slika}}.jpg" height="20px" class="media-object"> {{$oznaka}}</a></li>
-                                @endforeach
-                            </ul>
-                        </li>
+                        {{--<li class="dropdown">--}}
+                            {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">--}}
+                                {{--<img src="slike/jezik/{{$jezik[$trenutniJezik]}}.jpg" height="20px"> {{$trenutniJezik}}--}}
+                                {{--<span class="caret"></span></a>--}}
+                            {{--<ul class="dropdown-menu" role="menu" aria-label="dropdownJezik">--}}
+                                {{--@foreach($jezik as $oznaka => $slika)--}}
+                                    {{--<li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="slike/jezik/{{$slika}}.jpg" height="20px" class="media-object"> {{$oznaka}}</a></li>--}}
+                                {{--@endforeach--}}
+                            {{--</ul>--}}
+                        {{--</li>--}}
+                        <button class='navbar-btn btn btn-default'><?php require_once'php/dugme-prevodioca.php'?></button>
                     </ul>
                 </div>
             </div>
