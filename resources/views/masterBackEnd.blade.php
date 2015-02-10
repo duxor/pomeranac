@@ -61,5 +61,8 @@
         <script src="{{ URL::asset('js/jquery-3.0.js') }}"></script>
         <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
         <script src="{{ URL::asset('js/funkcije.js') }}"></script>
+        <script src="{{ URL::asset('tinymce/tinymce.min.js') }}"></script>
+        <!-- JavaScript fje -->
+            @yield('javascript')
     </body>
 </html>
