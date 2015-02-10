@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Sadrzaj;
 use \Illuminate\Http\Request;
 use App\Security;
 
@@ -46,6 +47,13 @@ class AdministracijaController extends Controller {
 
     public function oNama()
     {
+        return view('stranice.administracija.o-nama');
+    }
+
+    public function oNamaPost(Sadrzaj $sdr)
+    {
+        $sadrzaj = new Sadrzaj();
+        $sadrzaj->naslov = $sdr.naslov;
         return view('stranice.administracija.o-nama');
     }
 

@@ -21,6 +21,7 @@ Route::get('administracija/pocetna', 'AdministracijaController@index');
 Route::get('administracija/login', 'AdministracijaController@login');
 Route::post('administracija/login/login','AdministracijaController@testLogin');
 Route::get('administracija/o-nama', 'AdministracijaController@oNama');
+Route::post('administracija/o-nama', 'AdministracijaController@oNamaPost');
 Route::get('administracija/galerija-fotografija', 'AdministracijaController@galerijaFotografija');
 //Administracija END::
 

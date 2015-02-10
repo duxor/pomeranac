@@ -4,7 +4,6 @@ O nama
 @endsection
 <?php use App\TipSadrzaja; ?>
 @section('content')
-
 <div style="width: 70%">
 <h1>Sadržaj</h1>
 <hr/>
@@ -22,6 +21,9 @@ O nama
 @endsection
 @section('javascript')
 <script type="text/javascript">
+//$( "select").change(function() {
+//  alert($(this).val());
+//});
 tinymce.init({
     selector: "textarea",
     theme: "modern",
