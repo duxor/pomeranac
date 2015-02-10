@@ -19,11 +19,14 @@ class Security {////////////////////// IZRADA U TOKU
     private $salt = 'ix501^@)5MwfP39ijJDr27g';
     private $test;
     private $token;
-    private $redirectURL; // URL na koji se prosledjuje u slucaju da autentifikacija nije zadovoljena
+    private $redirectURL;
     private $minLenPass = 4; //minimalna duzina sifre i korisnickog imena
 
-    public function setRedirectUrl($url){
+    public function setRedirectURL($url){
         $this->redirectURL = $url;
+    }
+    public function redirect(){
+        return redirect($this->redirectURL);
     }
     private function setUsername($username){
         $this->username = $username;
@@ -59,17 +62,24 @@ class Security {////////////////////// IZRADA U TOKU
                 $this->generateToken();
                 DB::table('korisnici')->where('id', $this->id)->update(['token' => $this->token]);
                 $this->setSessions();
-            }
+            }else DB::table('korisnici')->where('id', $this->id)->update(['token' => null]);
             return $this->test;
         }else return false;
     }
-    public function setSessions(){
+    private function setSessions(){
         Session::put('token', $this->token);
         Session::put('id', $this->id);
         Session::put('username', $this->username);
     }
-    public function autentifikacija($id,$token){
-        //autentifikacija  u izradi
+    public function logout(){
+        Session::flush();
+        return $this->redirect();
+    }
+    public function autentifikacija($target){
+        if(Session::has('id') and Session::has('token')) {
+            $korisnik = Korisnici::all(['id', 'token'])->where('id', Session::get('id'))->where('token', Session::get('token'))->first();
+            return $korisnik ? view($target) : $this->logout();
+        }else return $this->logout();
     }
 
 }

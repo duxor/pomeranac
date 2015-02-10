@@ -1,4 +1,4 @@
-@extends('masterBackEnd')
+@extends('masterBackEndLogin')
 @section('title')
 Logovanje
 @endsection

@@ -32,16 +32,8 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="o-nama">O nama</a></li>
-                <li><a href="o-nama">O rasi</a></li>
-                <li><a href="o-nama">O psu</a></li>
-                <li><a href="galerija-fotografija">Galerija</a></li>
-                <li><a href="#">Kontakt</a></li>
-                <li><a href="#contact">Analitika</a></li>
+
               </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/administracija/logout">Logout</a></li>
-                </ul>
             </div><!--/.nav-collapse -->
           </div>
         </nav>
@@ -55,8 +47,5 @@
         <script src="{{ URL::asset('js/jquery-3.0.js') }}"></script>
         <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
         <script src="{{ URL::asset('js/funkcije.js') }}"></script>
-        <script src="{{ URL::asset('tinymce/tinymce.min.js') }}"></script>
-        <!-- JavaScript fje -->
-            @yield('javascript')
     </body>
 </html>

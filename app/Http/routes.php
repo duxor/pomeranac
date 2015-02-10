@@ -23,6 +23,7 @@ Route::post('administracija/login/login','AdministracijaController@testLogin');
 Route::get('administracija/o-nama', 'AdministracijaController@oNama');
 Route::post('administracija/o-nama', 'AdministracijaController@oNamaPost');
 Route::get('administracija/galerija-fotografija', 'AdministracijaController@galerijaFotografija');
+Route::get('administracija/logout', 'AdministracijaController@logout');
 //Administracija END::
 
 
