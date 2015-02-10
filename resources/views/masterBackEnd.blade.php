@@ -1,3 +1,12 @@
+<?php
+    use App\Security;
+
+    $sec = new Security();
+    if(Session::has('id') && Session::has('token')){
+        $sec->setRedirectUrl('/administration/login');
+        $sec->autentifikacija(Session::get('id'), Session::get('token'));
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>

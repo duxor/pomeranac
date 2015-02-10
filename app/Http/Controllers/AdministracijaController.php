@@ -1,5 +1,8 @@
 <?php namespace App\Http\Controllers;
 
+use \Illuminate\Http\Request;
+use App\Security;
+
 class AdministracijaController extends Controller {
 
     /*
@@ -49,5 +52,16 @@ class AdministracijaController extends Controller {
     public function galerijaFotografija()
     {
         return view('stranice.administracija.galerija-fotografija');
+    }
+
+    public function testLogin(Request $request){
+        $sec = new Security();
+        $sec->setRedirectUrl('/administracija/login');
+
+        return $sec->login($request->get('username'),$request->get('password'))?
+            redirect('/administracija/pocetna')
+            :
+            view('stranice.administracija.poruke',['poruka'
+            => '<h1>Pogrešan unos!</h1><a href="/administracija/login" class="btn btn-lg btn-danger">Pokušajte ponovo</a>']);
     }
 }
