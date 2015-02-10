@@ -18,6 +18,10 @@ class AdministracijaController extends Controller {
      * User: Andrija
      * Date: 09-Feb-15
      * Time: 18:23
+     *
+     * Edit: duXor
+     * Date: 10-Feb-15
+     * Time:23:21
      */
     /**
      * Create a new controller instance.
@@ -34,9 +38,10 @@ class AdministracijaController extends Controller {
      *
      * @return Response
      */
+
     public function index()
     {
-        return view('stranice.administracija.pocetna');
+        return $this->autentifikacija('stranice.administracija.pocetna');
     }
 
     public function login()
@@ -46,17 +51,16 @@ class AdministracijaController extends Controller {
 
     public function oNama()
     {
-        return view('stranice.administracija.o-nama');
+        return $this->autentifikacija('stranice.administracija.o-nama');
     }
 
     public function galerijaFotografija()
     {
-        return view('stranice.administracija.galerija-fotografija');
+        return $this->autentifikacija('stranice.administracija.galerija-fotografija');
     }
 
     public function testLogin(Request $request){
         $sec = new Security();
-        $sec->setRedirectUrl('/administracija/login');
 
         return $sec->login($request->get('username'),$request->get('password'))?
             redirect('/administracija/pocetna')
@@ -64,4 +68,15 @@ class AdministracijaController extends Controller {
             view('stranice.administracija.poruke',['poruka'
             => '<h1>Pogrešan unos!</h1><a href="/administracija/login" class="btn btn-lg btn-danger">Pokušajte ponovo</a>']);
     }
+    public function logout(){
+        $sec = new Security();
+        $sec->setRedirectURL('/administracija/login');
+        return $sec->logout();
+    }
+    public function autentifikacija($target){
+        $sec = new Security();
+        $sec->setRedirectURL('/administracija/login');
+        return $sec->autentifikacija($target);
+    }
+
 }
