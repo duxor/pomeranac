@@ -42,7 +42,7 @@ class AdministracijaController extends Controller {
 
     public function index()
     {
-        return $this->autentifikacija('stranice.administracija.pocetna');
+        return $this->autentifikacija('stranice.administracija.pocetna', null);
     }
 
     public function login()
@@ -52,7 +52,7 @@ class AdministracijaController extends Controller {
 
     public function oNama()
     {
-        return $this->autentifikacija('stranice.administracija.o-nama');
+        return $this->autentifikacija('stranice.administracija.o-nama', ['naslov'=>'Naslov']);
     }
 
     public function oNamaPost(Sadrzaj $sdr)
@@ -64,7 +64,7 @@ class AdministracijaController extends Controller {
 
     public function galerijaFotografija()
     {
-        return $this->autentifikacija('stranice.administracija.galerija-fotografija');
+        return $this->autentifikacija('stranice.administracija.galerija-fotografija', null);
     }
 
     public function testLogin(Request $request){
@@ -81,10 +81,10 @@ class AdministracijaController extends Controller {
         $sec->setRedirectURL('/administracija/login');
         return $sec->logout();
     }
-    public function autentifikacija($target){
+    public function autentifikacija($target, $dodaci){
         $sec = new Security();
         $sec->setRedirectURL('/administracija/login');
-        return $sec->autentifikacija($target);
+        return $sec->autentifikacija($target, $dodaci);
     }
 
 }

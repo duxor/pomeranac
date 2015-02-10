@@ -75,10 +75,10 @@ class Security {////////////////////// IZRADA U TOKU
         Session::flush();
         return $this->redirect();
     }
-    public function autentifikacija($target){
+    public function autentifikacija($target, $dodaci){
         if(Session::has('id') and Session::has('token')) {
             $korisnik = Korisnici::all(['id', 'token'])->where('id', Session::get('id'))->where('token', Session::get('token'))->first();
-            return $korisnik ? view($target) : $this->logout();
+            return $korisnik ? $dodaci ? view($target, $dodaci) : view($target) : $this->logout();
         }else return $this->logout();
     }
 
