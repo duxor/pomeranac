@@ -2,7 +2,7 @@
 <script src="js/stylinggt.js"></script>
 <script type="text/javascript">
 function googleTranslateElementInit() {
-  	new google.translate.TranslateElement({pageLanguage: 'sr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+  	new google.translate.TranslateElement({pageLanguage: 'sr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element', false);
 	changeLeftIcon('slike/jezik/srpski.jpg');
 	changeCenterText('SR');
 	changeBorderColor('rgba(0,0,0,0)');
