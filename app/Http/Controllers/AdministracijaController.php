@@ -1,8 +1,10 @@
 <?php namespace App\Http\Controllers;
 
 use App\Sadrzaj;
+use App\TipSadrzaja;
 use \Illuminate\Http\Request;
 use App\Security;
+use Illuminate\Support\Facades\Session;
 
 class AdministracijaController extends Controller {
 
@@ -57,13 +59,16 @@ class AdministracijaController extends Controller {
 
     public function oNamaPost(Request $request)
     {
-        $sadrzaj = Sadrzaj::where('slug', $request->get('slug'))->first();
-        $sadrzaj->naslov = $request->get('naslov');
-        $sadrzaj->slug = $request->get('slug');
-        $sadrzaj->sadrzaj = $request->get('sadrzaj');
-        $sadrzaj->tip_sadrzaja_id = 1;
-        $sadrzaj->korisnici_id = Session::get('id');
-        $sadrzaj->save();
+        $slug = $request->get('slug');
+        $tip_sadrzaja_id = TipSadrzaja::where('naziv', 'tekst')->first()->id;
+        $sadrzaj = Sadrzaj::where('slug', $slug)->first();
+        $sadrzaj->fill([
+            'naslov' => $request->get('naslov'),
+            'slug' => $request->get('slug'),
+            'sadrzaj' => $request->get('sadrzaj'),
+            'tip_sadrzaja_id' => $tip_sadrzaja_id,
+            'korisnici_id' => Session::get('id')
+        ])->save();
         return redirect('/administracija/pocetna');
     }
     public function galerijaFotografija()
