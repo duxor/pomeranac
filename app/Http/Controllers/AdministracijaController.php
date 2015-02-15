@@ -40,41 +40,39 @@ class AdministracijaController extends Controller {
      * @return Response
      */
 
+    public function login()
+    {
+        return  view('stranice.administracija.login');
+    }
+
     public function index()
     {
         return $this->autentifikacija('stranice.administracija.pocetna', null);
     }
-
-    public function login()
-    {
-        return view('stranice.administracija.login');
-    }
-
     public function oNama()
     {
         return $this->autentifikacija('stranice.administracija.o-nama', ['naslov'=>'Naslov']);
     }
-
     public function oNamaPost(Sadrzaj $sdr)
     {
         $sadrzaj = new Sadrzaj();
         $sadrzaj->naslov = $sdr.naslov;
         return view('stranice.administracija.o-nama');
     }
-
     public function galerijaFotografija()
     {
         return $this->autentifikacija('stranice.administracija.galerija-fotografija', null);
     }
-
     public function testLogin(Request $request){
         $sec = new Security();
+        $sec->setRedirectURL(['/administracija/pocetna', '/administracija/login']);
 
-        return $sec->login($request->get('username'),$request->get('password'))?
-            redirect('/administracija/pocetna')
-            :
-            view('stranice.administracija.poruke',['poruka'
-            => '<h1>Pogrešan unos!</h1><a href="/administracija/login" class="btn btn-lg btn-danger">Pokušajte ponovo</a>']);
+        return $sec->login($request->get('username'),$request->get('password'));
+//            ?
+//            redirect('/administracija/pocetna')
+//            :
+//            view('stranice.administracija.poruke',['poruka'
+//            => '<h1>Pogrešan unos!</h1><a href="/administracija/login" class="btn btn-lg btn-danger">Pokušajte ponovo</a>']);
     }
     public function logout(){
         $sec = new Security();
