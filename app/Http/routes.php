@@ -16,12 +16,18 @@ Route::get('pocetna', 'GlavniController@index');
 
 
 //Administracija START::
+Route::bind('tekst', function($slug)
+{
+    return App\Sadrzaj::where('tip_sadrzaja_id', 1)->where('slug', $slug)->first();
+});
+Route::bind('sadrzaj','App/Sadrzaj');
+
 Route::get('administracija', 'AdministracijaController@index');
 Route::get('administracija/pocetna', 'AdministracijaController@index');
 Route::get('administracija/login', 'AdministracijaController@login');
 Route::post('administracija/login/login','AdministracijaController@testLogin');
-Route::get('administracija/o-nama', 'AdministracijaController@oNama');
-Route::post('administracija/o-nama', 'AdministracijaController@oNamaPost');
+Route::get('administracija/sadrzaj/{tekst}', 'AdministracijaController@oNama');
+Route::post('administracija/o-nama/', 'AdministracijaController@oNamaPost');
 Route::get('administracija/galerija-fotografija', 'AdministracijaController@galerijaFotografija');
 Route::get('administracija/logout', 'AdministracijaController@logout');
 //Administracija END::
