@@ -3,17 +3,18 @@
 O nama
 @endsection
 <?php use App\TipSadrzaja; ?>
+<?php use App\Sadrzaj; ?>
 @section('content')
 <div style="width: 70%">
 <h1>Sadržaj</h1>
 <hr/>
-{!! Form::open(array('url' => 'ubaciurl')) !!}
-{!! Form::text('naslov', Input::old('naslov'),  array('placeholder'=>'Naslov', 'class' => 'form-control form-group')) !!}
-{!! Form::text('slug', Input::old('slug'),  array('placeholder'=>'Slug', 'class' => 'form-control form-group')) !!}
-{!! Form::textarea('sadrzaj', Input::old('sadrzaj'),  array('placeholder'=>'Sadrzaj', 'class' => 'form-control form-group')) !!}
+{!! Form::model($sadrzaj, array('url' => 'administracija/o-nama')) !!}
+{!! Form::text('naslov', null,  array('placeholder'=>'Naslov', 'class' => 'form-control form-group')) !!}
+{!! Form::text('slug', null,  array('placeholder'=>'Slug', 'class' => 'form-control form-group', 'disabled' => 'true' )) !!}
+{!! Form::textarea('sadrzaj', null,  array('placeholder'=>'Sadrzaj', 'class' => 'form-control form-group')) !!}
 <br/>
 <div class="form-group">
-{!! Form::select('tip_sadrzaja', TipSadrzaja::lists('naziv','id')) !!}
+{!! Form::select('tip_sadrzaja', TipSadrzaja::lists('naziv','id'), $sadrzaj->tip_sadrzaja_id) !!}
 </div>
 {!! Form::submit('Sačuvaj', array('class' => 'btn btn-primary form-group')) !!}
 {!! Form::close() !!}
