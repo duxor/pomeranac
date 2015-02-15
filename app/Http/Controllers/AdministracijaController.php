@@ -55,18 +55,16 @@ class AdministracijaController extends Controller {
         return $this->autentifikacija('stranice.administracija.o-nama', ['naslov'=>'Naslov', 'sadrzaj' => $sadrzaj]);
     }
 
-    public function oNamaPost(Sadrzaj $sdr, Request $request)
+    public function oNamaPost(Request $request)
     {
-        echo $request->get('slug');
         $sadrzaj = Sadrzaj::where('slug', $request->get('slug'))->first();
         $sadrzaj->naslov = $request->get('naslov');
         $sadrzaj->slug = $request->get('slug');
         $sadrzaj->sadrzaj = $request->get('sadrzaj');
         $sadrzaj->tip_sadrzaja_id = 1;
-        $sadrzaj->korisnici_id = 1;
+        $sadrzaj->korisnici_id = Session::get('id');
         $sadrzaj->save();
         return redirect('/administracija/pocetna');
-       // return view('stranice.administracija.o-nama');
     }
 
     public function galerijaFotografija()

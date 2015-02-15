@@ -10,7 +10,7 @@ O nama
 <hr/>
 {!! Form::model($sadrzaj, array('url' => 'administracija/o-nama')) !!}
 {!! Form::text('naslov', null,  array('placeholder'=>'Naslov', 'class' => 'form-control form-group')) !!}
-{!! Form::text('slug', null,  array('placeholder'=>'Slug', 'class' => 'form-control form-group', 'disabled' => 'true' )) !!}
+{!! Form::text('slug', $sadrzaj->slug,  array('placeholder'=>'Slug', 'class' => 'form-control form-group', 'disabled' => 'true' )) !!}
 {!! Form::textarea('sadrzaj', null,  array('placeholder'=>'Sadrzaj', 'class' => 'form-control form-group')) !!}
 <br/>
 <div class="form-group">
