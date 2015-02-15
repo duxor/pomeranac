@@ -42,7 +42,7 @@ class AdministracijaController extends Controller {
 
     public function login()
     {
-        return  view('stranice.administracija.login');
+        return view('stranice.administracija.login');
     }
 
     public function index()
