@@ -28,8 +28,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="/administracija/">Pomeranac</a>
-            </div>
+              <a class="navbar-brand" href="./">Pomeranac</a>
+            </div><?php use App\Security; $sec = new Security(); if(!$sec->autentifikacijaTest())echo'<!--' ?>
             <div id="navbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="/administracija/sadrzaj/o-nama">O nama</a></li>
@@ -42,7 +42,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/administracija/logout">Logout</a></li>
                 </ul>
-            </div><!--/.nav-collapse -->
+            </div><?php if(!$sec->autentifikacijaTest()) echo'-->';?>
           </div>
         </nav>
         

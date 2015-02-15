@@ -49,6 +49,7 @@ class Security {////////////////////// IZRADA U TOKU
         return strlen($in)>$this->minLenPass;
     }
     public function login($username, $password){
+        $this->test = false;
         if($this->testInput($username) and $this->testInput($password)){
             $this->setUsername($username);
             $this->setPass($password);
@@ -63,8 +64,9 @@ class Security {////////////////////// IZRADA U TOKU
                 DB::table('korisnici')->where('id', $this->id)->update(['token' => $this->token]);
                 $this->setSessions();
             }else DB::table('korisnici')->where('id', $this->id)->update(['token' => null]);
-            return $this->test;
-        }else return false;
+        }else $this->test = false;
+        if(isset($this->redirectURL[1])) $this->redirectURL = $this->test ? $this->redirectURL[0] : $this->redirectURL[1];
+        return $this->redirect();
     }
     private function setSessions(){
         Session::put('token', $this->token);
@@ -72,14 +74,22 @@ class Security {////////////////////// IZRADA U TOKU
         Session::put('username', $this->username);
     }
     public function logout(){
+        if(Session::has('id')) {
+            $korisnik = Korisnici::all(['id', 'token'])->find(Session::get('id'));
+            $korisnik->token = null;
+            $korisnik->save();
+        }
         Session::flush();
         return $this->redirect();
     }
     public function autentifikacija($target, $dodaci){
+        return $this->autentifikacijaTest() ? $dodaci ? view($target, $dodaci) : view($target) : $this->logout();
+    }
+    public function autentifikacijaTest(){
         if(Session::has('id') and Session::has('token')) {
             $korisnik = Korisnici::all(['id', 'token'])->where('id', Session::get('id'))->where('token', Session::get('token'))->first();
-            return $korisnik ? $dodaci ? view($target, $dodaci) : view($target) : $this->logout();
-        }else return $this->logout();
+            return $korisnik ? true : false;
+        }else return false;
     }
 
 }
