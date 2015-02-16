@@ -7,6 +7,42 @@
 
 <?php
         $gMapa = "<div id='googleMap' style='height:300px;'></div>";
+$galerijaTekst.='
+<div class="row">
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img src="slike/galerije/test-g-1/2.jpg" alt="..." data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+            <div class="caption">
+                <h1>Galerija test 1</h1>
+                <p>Testni tekst</p>
+                <button type="button" class="btn btn-lg btn-success">Pregled</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img src="slike/galerije/test-g-2/4.jpg" alt="..." data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+            <div class="caption">
+                <h1>Galerija test 2</h1>
+                <p>Testni tekst</p>
+                <button type="button" class="btn btn-lg btn-success">Pregled</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img src="slike/galerije/test-g-3/11.jpg" alt="..." data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+            <div class="caption">
+                <h1>Galerija test 3</h1>
+                <p>Testni tekst</p>
+                <button type="button" class="btn btn-lg btn-success">Pregled</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+';
 ?>
 
 

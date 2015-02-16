@@ -112,13 +112,7 @@ class AdministracijaController extends Controller {
     public function testLogin(Request $request){
         $sec = new Security();
         $sec->setRedirectURL(['/administracija/pocetna', '/administracija/login']);
-
         return $sec->login($request->get('username'),$request->get('password'));
-//            ?
-//            redirect('/administracija/pocetna')
-//            :
-//            view('stranice.administracija.poruke',['poruka'
-//            => '<h1>Pogrešan unos!</h1><a href="/administracija/login" class="btn btn-lg btn-danger">Pokušajte ponovo</a>']);
     }
     public function logout(){
         $sec = new Security();
