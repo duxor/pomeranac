@@ -1,6 +1,6 @@
 @extends('masterBackEnd')
 @section('title')
-O nama
+{{ $sadrzaj->slug }}
 @endsection
 <?php use App\TipSadrzaja; ?>
 <?php use App\Sadrzaj; ?>
@@ -10,7 +10,7 @@ O nama
 <hr/>
 {!! Form::model($sadrzaj, array('url' => 'administracija/o-nama')) !!}
 {!! Form::text('naslov', null,  array('placeholder'=>'Naslov', 'class' => 'form-control form-group')) !!}
-{!! Form::text('slug', null,  array('placeholder'=>'Slug', 'class' => 'form-control form-group', 'disabled' => 'true' )) !!}
+{!! Form::text('slug', $sadrzaj->slug,  array('placeholder'=>'Slug', 'class' => 'form-control form-group', 'readonly' => 'readonly' )) !!}
 {!! Form::textarea('sadrzaj', null,  array('placeholder'=>'Sadrzaj', 'class' => 'form-control form-group')) !!}
 <br/>
 <div class="form-group">

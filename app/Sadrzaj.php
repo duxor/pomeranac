@@ -22,6 +22,6 @@ class Sadrzaj extends Model {
      *
      * @var array
      */
-    protected $fillable = ['id','naslov','slug','sadrzaj','korisnici_id','tip_sadrzaja_id'];
+    protected $fillable = ['naslov','slug','sadrzaj','korisnici_id','tip_sadrzaja_id'];
 
 } 
