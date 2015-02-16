@@ -6,6 +6,7 @@
         <link href="{{ URL::asset('css/templejt.css') }}" rel="stylesheet" >
         <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ URL::asset('css/parallax.css') }}" rel="stylesheet">
+        <link href="{{ URL::asset('css/dropzone.css') }}" rel="stylesheet">
         <style>
         body {
           padding-top: 60px;
@@ -56,6 +57,7 @@
         <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
         <script src="{{ URL::asset('js/funkcije.js') }}"></script>
         <script src="{{ URL::asset('tinymce/tinymce.min.js') }}"></script>
+        <script src="{{ URL::asset('js/dropzone.js') }}"></script>
         <!-- JavaScript fje -->
             @yield('javascript')
     </body>

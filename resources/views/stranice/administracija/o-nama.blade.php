@@ -1,6 +1,6 @@
 @extends('masterBackEnd')
 @section('title')
-O nama
+{{ $sadrzaj->slug }}
 @endsection
 <?php use App\TipSadrzaja; ?>
 <?php use App\Sadrzaj; ?>
