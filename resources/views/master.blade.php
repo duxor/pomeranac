@@ -11,7 +11,7 @@
     <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('css/parallax.css') }}" rel="stylesheet">
     <script src="http://maps.googleapis.com/maps/api/js"></script>
-    <script>var mx="<?php echo'44.796885'?>", my="<?php echo'20.4700183'?>";</script>
+    <script>var mx="{!! $x !!}", my="{!! $y !!}";</script>
     <script src="{{ URL::asset('js/gmap1.js') }}"></script>
     <style>@yield('style')</style>
 </head>

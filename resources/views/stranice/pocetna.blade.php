@@ -41,7 +41,6 @@ $galerijaTekst.='
     </div>
 </div>
 
-
 ';
 ?>
 

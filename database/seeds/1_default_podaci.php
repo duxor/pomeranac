@@ -43,20 +43,23 @@ class DefaultPodaci extends Seeder{
         DB::table('korisnici')->insert($korisnici);
 
         $tipSadrzaja = [
-            [
+            [//1
                 'naziv' => 'tekst'
             ],
-            [
+            [//2
                 'naziv' => 'mail'
             ],
-            [
+            [//3
                 'naziv' => 'link'
             ],
-            [
+            [//4
                 'naziv' => 'slika'
             ],
-            [
+            [//5
                 'naziv' => 'galerija'
+            ],
+            [//6
+                'naziv' => 'koordinata'
             ]
         ];
         DB::table('tip_sadrzaja')->insert($tipSadrzaja);
@@ -110,6 +113,20 @@ class DefaultPodaci extends Seeder{
                 'slug' => 'pocetna-link-1',
                 'korisnici_id' => 1,
                 'tip_sadrzaja_id' => 1
+            ],
+            [
+                'naslov' => null,
+                'sadrzaj' => '44.796885',
+                'slug' => 'x-koordinata',
+                'korisnici_id' => 1,
+                'tip_sadrzaja_id' => 6
+            ],
+            [
+                'naslov' => null,
+                'sadrzaj' => '20.4700183',
+                'slug' => 'y-koordinata',
+                'korisnici_id' => 1,
+                'tip_sadrzaja_id' => 6
             ]
         ];
         DB::table('sadrzaj')->insert($sadrzaji);
