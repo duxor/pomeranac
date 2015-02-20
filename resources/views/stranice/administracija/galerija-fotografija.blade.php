@@ -68,6 +68,11 @@ $(document).ready(function (){
         url: "/administracija/galerija-fotografija",
         dictDefaultMessage: "Prevucite slike ovde da bi ste ih dodali u galerju"
         });
+
+        });
+$(".nav a").on("click", function(){
+           $(".nav").find(".active").removeClass("active");
+           $(this).parent().addClass("active");
         });
 </script>
 @stop

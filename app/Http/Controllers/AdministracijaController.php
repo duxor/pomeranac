@@ -83,7 +83,7 @@ class AdministracijaController extends Controller {
         //dd($request->get('file'));
         $destinationPath = public_path() . '/galerije';
         // If the uploads fail due to file system, you can try doing public_path().'/uploads'
-        $filename = $request->get('sadrzaj') . "-" . str_random(12);
+        $filename = $request->get('sadrzaj') . "-" . str_random(6);
         //$filename = $file->getClientOriginalName();
         $extension = $file->getClientOriginalExtension();
         $upload_success = $file->move($destinationPath, $filename . "." . $extension);
