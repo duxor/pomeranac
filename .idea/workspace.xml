@@ -25,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AdministracijaController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AdministracijaController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdministracijaController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.5256411" vertical-offset="0" max-vertical-offset="2210">
-              <caret line="96" column="5" selection-start-line="96" selection-start-column="5" selection-end-line="96" selection-end-column="5" />
+            <state vertical-scroll-proportion="-21.576923" vertical-offset="1071" max-vertical-offset="2210">
+              <caret line="101" column="80" selection-start-line="101" selection-start-column="8" selection-end-line="101" selection-end-column="80" />
               <folding />
             </state>
           </provider>
@@ -38,8 +38,26 @@
       <file leaf-file-name="galerija-fotografija.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/stranice/administracija/galerija-fotografija.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.384615" vertical-offset="36" max-vertical-offset="1360">
-              <caret line="18" column="173" selection-start-line="18" selection-start-column="173" selection-end-line="18" selection-end-column="173" />
+            <state vertical-scroll-proportion="-29.346153" vertical-offset="427" max-vertical-offset="1768">
+              <caret line="70" column="55" selection-start-line="70" selection-start-column="55" selection-end-line="70" selection-end-column="55" />
+              <folding>
+                <element signature="e#32#48#0#PHP" expanded="true" />
+                <marker date="1424436818949" expanded="true" signature="2805:3209" placeholder="{...}" />
+                <marker date="1424436818949" expanded="true" signature="2848:3204" placeholder="..." />
+                <marker date="1424436818949" expanded="true" signature="2882:3187" placeholder="..." />
+                <marker date="1424436818949" expanded="true" signature="2962:2985" placeholder="..." />
+                <marker date="1424436818949" expanded="true" signature="2962:2986" placeholder="..." />
+                <marker date="1424436818949" expanded="true" signature="2962:3170" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.469428" vertical-offset="0" max-vertical-offset="1014">
+              <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -100,8 +118,9 @@
         <option value="$PROJECT_DIR$/resources/views/stranice/administracija/kontakt.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/stranice/administracija/o-nama.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/masterBackEnd.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/stranice/administracija/galerija-fotografija.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdministracijaController.php" />
+        <option value="$PROJECT_DIR$/resources/views/stranice/administracija/galerija-fotografija.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
       </list>
     </option>
   </component>
@@ -357,7 +376,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="isNull&#9;FILE&#9;file://C:/pomeranac/vendor/phpunit/phpunit/src/Framework/Constraint/IsNull.php&#10;.env&#9;FILE&#9;file://C:/pomeranac/.env&#10;database&#9;FILE&#9;file://C:/pomeranac/vendor/laravel/framework/src/Illuminate/Database/DatabaseServiceProvider.php&#10;data&#9;FILE&#9;file://C:/pomeranac/database/seeds/DatabaseSeeder.php&#10;databa&#9;FILE&#9;file://C:/pomeranac/vendor/laravel/framework/src/Illuminate/Session/Console/stubs/database.stub&#10;connector&#9;null&#9;null&#10;Connect&#9;FILE&#9;file://C:/pomeranac/vendor/laravel/framework/src/Illuminate/Database/Connection.php&#10;form&#9;FILE&#9;file://D:/pomeranac/vendor/illuminate/html/FormBuilder.php&#10;gla&#9;FILE&#9;file://D:/pomeranac/app/Http/Controllers/GlavniController.php&#10;route&#9;FILE&#9;file://D:/pomeranac/app/Http/routes.php" />
+    <property name="SearchEverywhereHistoryKey" value="rou&#9;FILE&#9;file://D:/pomeranac/app/Http/routes.php&#10;isNull&#9;FILE&#9;file://C:/pomeranac/vendor/phpunit/phpunit/src/Framework/Constraint/IsNull.php&#10;.env&#9;FILE&#9;file://C:/pomeranac/.env&#10;database&#9;FILE&#9;file://C:/pomeranac/vendor/laravel/framework/src/Illuminate/Database/DatabaseServiceProvider.php&#10;data&#9;FILE&#9;file://C:/pomeranac/database/seeds/DatabaseSeeder.php&#10;databa&#9;FILE&#9;file://C:/pomeranac/vendor/laravel/framework/src/Illuminate/Session/Console/stubs/database.stub&#10;connector&#9;null&#9;null&#10;Connect&#9;FILE&#9;file://C:/pomeranac/vendor/laravel/framework/src/Illuminate/Database/Connection.php&#10;form&#9;FILE&#9;file://D:/pomeranac/vendor/illuminate/html/FormBuilder.php&#10;gla&#9;FILE&#9;file://D:/pomeranac/app/Http/Controllers/GlavniController.php&#10;route&#9;FILE&#9;file://D:/pomeranac/app/Http/routes.php" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="options.lastSelected" value="vcs.Git" />
     <property name="options.splitter.main.proportions" value="0.3" />
@@ -422,7 +441,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1176" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -732,13 +751,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4061962" vertical-offset="19" max-vertical-offset="646">
-          <caret line="24" column="26" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1222031" vertical-offset="150" max-vertical-offset="731">
@@ -777,6 +789,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdministracijaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.576923" vertical-offset="1071" max-vertical-offset="2210">
+          <caret line="101" column="80" selection-start-line="101" selection-start-column="8" selection-end-line="101" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/masterBackEnd.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-43.807693" vertical-offset="0" max-vertical-offset="1326">
@@ -802,14 +822,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/stranice/administracija/galerija-fotografija.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.384615" vertical-offset="36" max-vertical-offset="1360">
-          <caret line="18" column="173" selection-start-line="18" selection-start-column="173" selection-end-line="18" selection-end-column="173" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/stranice/administracija/o-nama.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="850">
@@ -820,10 +832,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdministracijaController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/stranice/administracija/galerija-fotografija.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5256411" vertical-offset="0" max-vertical-offset="2210">
-          <caret line="96" column="5" selection-start-line="96" selection-start-column="5" selection-end-line="96" selection-end-column="5" />
+        <state vertical-scroll-proportion="-29.346153" vertical-offset="427" max-vertical-offset="1768">
+          <caret line="70" column="55" selection-start-line="70" selection-start-column="55" selection-end-line="70" selection-end-column="55" />
+          <folding>
+            <element signature="e#32#48#0#PHP" expanded="true" />
+            <marker date="1424436818949" expanded="true" signature="2805:3209" placeholder="{...}" />
+            <marker date="1424436818949" expanded="true" signature="2848:3204" placeholder="..." />
+            <marker date="1424436818949" expanded="true" signature="2882:3187" placeholder="..." />
+            <marker date="1424436818949" expanded="true" signature="2962:2985" placeholder="..." />
+            <marker date="1424436818949" expanded="true" signature="2962:2986" placeholder="..." />
+            <marker date="1424436818949" expanded="true" signature="2962:3170" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.469428" vertical-offset="0" max-vertical-offset="1014">
+          <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
           <folding />
         </state>
       </provider>
