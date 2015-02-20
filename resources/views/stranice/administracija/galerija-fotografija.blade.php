@@ -14,8 +14,9 @@ Galerija
         <h4 class="modal-title" id="myModalLabel">Galerija</h4>
       </div>
       <div class="modal-body">
-       {!! Form::open(array('url' => '/administracija/dodaj-galeriju')) !!}
-       {!! Form::text('naslov', Input::old('naslov'),  array('placeholder'=>'Naslov', 'class' => 'form-control form-group')) !!}
+       {!! Form::open(array('url' => '/administracija/dodaj-galeriju', 'id' => 'galerijaForma')) !!}
+       {!! Form::text('naslov', Input::old('naslov'),  array('placeholder'=>'Naslov', 'class' => 'form-control form-group', 'id' => 'naslov', 'data-msg-required' => 'Unesite ime galerije!', 'data-rule-required' => 'true')) !!}
+       {!! Form::text('slug', Input::old('naslov'),  array('placeholder'=>'Slug', 'class' => 'form-control form-group', 'id' => 'slug', 'data-msg-required' => 'Unesite slug!', 'data-rule-required' => 'true')) !!}
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Zatvori</button>
@@ -68,11 +69,7 @@ $(document).ready(function (){
         url: "/administracija/galerija-fotografija",
         dictDefaultMessage: "Prevucite slike ovde da bi ste ih dodali u galerju"
         });
-
-        });
-$(".nav a").on("click", function(){
-           $(".nav").find(".active").removeClass("active");
-           $(this).parent().addClass("active");
-        });
+    $("#galerijaForma").validate();
+    });
 </script>
 @stop

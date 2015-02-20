@@ -11,11 +11,6 @@
         body {
           padding-top: 60px;
         }
-        @media (max-width: 979px) {
-          body {
-            padding-top: 0px;
-          }
-        }
         </style>
 </head>
     <body>
@@ -70,6 +65,7 @@
         <script src="{{ URL::asset('js/funkcije.js') }}"></script>
         <script src="{{ URL::asset('tinymce/tinymce.min.js') }}"></script>
         <script src="{{ URL::asset('js/dropzone.js') }}"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
         <!-- JavaScript fje -->
             @yield('javascript')
     </body>

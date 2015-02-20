@@ -98,11 +98,12 @@ class AdministracijaController extends Controller {
 
     public function galerijaDodaj(Request $request)
     {
-        //$slug = $request->get('slug');
+        $slug = $request->get('slug');
         $tip_sadrzaja_id = TipSadrzaja::where('naziv', 'galerija')->first()->id;
         $sadrzaj = new Sadrzaj();
         $sadrzaj->fill([
             'naslov' => $request->get('naslov'),
+            'slug' => $slug,
             'tip_sadrzaja_id' => $tip_sadrzaja_id,
             'korisnici_id' => Session::get('id')
         ])->save();
