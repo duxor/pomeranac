@@ -10,13 +10,13 @@
 <hr/>
 {!! Form::model($sadrzaj, array('url' => 'administracija/o-nama')) !!}
 {!! Form::text('naslov', null,  array('placeholder'=>'Naslov', 'class' => 'form-control form-group')) !!}
-{!! Form::text('slug', $sadrzaj->slug,  array('placeholder'=>'Slug', 'class' => 'form-control form-group', 'readonly' => 'readonly' )) !!}
+{!! Form::hidden('slug', $sadrzaj->slug,  array('placeholder'=>'Slug', 'class' => 'form-control form-group')) !!}
 {!! Form::textarea('sadrzaj', null,  array('placeholder'=>'Sadrzaj', 'class' => 'form-control form-group')) !!}
 <br/>
 <div class="form-group">
-{!! Form::select('tip_sadrzaja', TipSadrzaja::lists('naziv','id'), $sadrzaj->tip_sadrzaja_id) !!}
+{!! Form::select('tip_sadrzaja', TipSadrzaja::lists('naziv','id'), $sadrzaj->tip_sadrzaja_id, ['hidden' => 'hidden']) !!}
 </div>
-{!! Form::submit('Sačuvaj', array('class' => 'btn btn-primary form-group')) !!}
+{!! Form::submit('Sačuvaj', array('class' => 'btn btn-primary form-group btn-lg')) !!}
 {!! Form::close() !!}
 </div>
 @endsection

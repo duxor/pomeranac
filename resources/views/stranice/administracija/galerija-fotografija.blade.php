@@ -1,5 +1,6 @@
 @extends('masterBackEnd')
 <?php use App\Sadrzaj; ?>
+<?php use App\TipSadrzaja; ?>
 @section('title')
 Galerija
 @endsection
@@ -14,8 +15,9 @@ Galerija
         <h4 class="modal-title" id="myModalLabel">Galerija</h4>
       </div>
       <div class="modal-body">
-       {!! Form::open(array('url' => '/administracija/dodaj-galeriju')) !!}
-       {!! Form::text('naslov', Input::old('naslov'),  array('placeholder'=>'Naslov', 'class' => 'form-control form-group')) !!}
+       {!! Form::open(array('url' => '/administracija/dodaj-galeriju', 'id' => 'galerijaForma')) !!}
+       {!! Form::text('naslov', Input::old('naslov'),  array('placeholder'=>'Naslov', 'class' => 'form-control form-group', 'id' => 'naslov', 'data-msg-required' => 'Unesite ime galerije!', 'data-rule-required' => 'true')) !!}
+       {!! Form::text('slug', Input::old('naslov'),  array('placeholder'=>'Slug', 'class' => 'form-control form-group', 'id' => 'slug', 'data-msg-required' => 'Unesite slug!', 'data-rule-required' => 'true')) !!}
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Zatvori</button>
@@ -52,6 +54,29 @@ Galerija
 
 
 <hr/>
+<div id="galerije" class="container">
+<div class="row">
+<?php
+$tip_sadrzaja_id = TipSadrzaja::where('naziv', 'galerija')->first()->id;
+$galerije = Sadrzaj::where('tip_sadrzaja_id', $tip_sadrzaja_id)->get();
+
+foreach ($galerije as $galerija)
+{
+    echo "<div class='col-sm-6 col-md-4'>
+          <div class='thumbnail'>
+                <img src='#' alt='slika'>
+                <div class='caption'>
+                  <h3>{$galerija->naslov}</h3>
+                  <p>Neki nicim izazvan tekst...</p>
+                  <p><a href='#' class='btn btn-success' role='button'>Uredi</a></p>
+                </div>
+          </div>
+          </div>";
+}
+?>
+</div>
+</div>
+<hr/>
 {!! Form::open(array('url' => 'ubaciurl')) !!}
 {!! Form::button('Dodaj galeriju', array('class' => 'btn btn-primary form-group', 'data-toggle' => 'modal', 'data-target' => '#myModal')) !!}
 {!! Form::button('Dodaj fotografije u galeriju', array('class' => 'btn btn-primary form-group', 'data-toggle' => 'modal', 'data-target' => '#myModalFoto')) !!}
@@ -68,6 +93,7 @@ $(document).ready(function (){
         url: "/administracija/galerija-fotografija",
         dictDefaultMessage: "Prevucite slike ovde da bi ste ih dodali u galerju"
         });
-        });
+    $("#galerijaForma").validate();
+    });
 </script>
 @stop

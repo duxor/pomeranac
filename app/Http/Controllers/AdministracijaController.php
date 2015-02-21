@@ -83,7 +83,7 @@ class AdministracijaController extends Controller {
         //dd($request->get('file'));
         $destinationPath = public_path() . '/galerije';
         // If the uploads fail due to file system, you can try doing public_path().'/uploads'
-        $filename = $request->get('sadrzaj') . "-" . str_random(12);
+        $filename = $request->get('sadrzaj') . "-" . str_random(6);
         //$filename = $file->getClientOriginalName();
         $extension = $file->getClientOriginalExtension();
         $upload_success = $file->move($destinationPath, $filename . "." . $extension);
@@ -98,11 +98,12 @@ class AdministracijaController extends Controller {
 
     public function galerijaDodaj(Request $request)
     {
-        //$slug = $request->get('slug');
+        $slug = $request->get('slug');
         $tip_sadrzaja_id = TipSadrzaja::where('naziv', 'galerija')->first()->id;
         $sadrzaj = new Sadrzaj();
         $sadrzaj->fill([
             'naslov' => $request->get('naslov'),
+            'slug' => $slug,
             'tip_sadrzaja_id' => $tip_sadrzaja_id,
             'korisnici_id' => Session::get('id')
         ])->save();
