@@ -29,9 +29,12 @@ Route::post('administracija/login/login','AdministracijaController@testLogin');
 Route::get('administracija/sadrzaj/{tekst}', 'AdministracijaController@oNama');
 Route::post('administracija/o-nama/', 'AdministracijaController@oNamaPost');
 Route::get('administracija/galerija-fotografija', 'AdministracijaController@galerijaFotografija');
+Route::get('administracija/galerija-fotografija/{slug}', 'AdministracijaController@galerijaPrikaz');
 Route::post('administracija/galerija-fotografija', 'AdministracijaController@galerijaFotoUpload');
 Route::post('administracija/dodaj-galeriju', 'AdministracijaController@galerijaDodaj');
 Route::get('administracija/logout', 'AdministracijaController@logout');
+Route::get('administracija/kontakt', 'AdministracijaController@kontakt');
+Route::post('administracija/kontakt', 'AdministracijaController@kontaktPost');
 //Administracija END::
 
 

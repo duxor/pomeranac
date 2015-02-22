@@ -40,8 +40,10 @@ Galerija
       <div class="form-group">
 
       </div>
+       <div class="form-group">
+       {!! Form::select('sadrzaj', DB::table('sadrzaj')->where('tip_sadrzaja_id',5)->lists('naslov', 'slug'), null, ['class' => 'form-control', 'id' => 'galerijaSelect']) !!}
+       </div>
        <form id="dragndrop" class="dropzone">
-       {!! Form::select('sadrzaj', DB::table('sadrzaj')->where('tip_sadrzaja_id',4)->lists('naslov', 'id'), null, ['class' => 'form-control']) !!}
        <input type="hidden" name="_token" value="{{ csrf_token() }}"><input type="hidden" name="_token" value="{{ csrf_token() }}">
        </form>
       </div>
@@ -62,12 +64,19 @@ $galerije = Sadrzaj::where('tip_sadrzaja_id', $tip_sadrzaja_id)->get();
 
 foreach ($galerije as $galerija)
 {
+    $string = (strlen($galerija->sadrzaj) > 140) ? substr($galerija->sadrzaj,0,139).'...' : $galerija->sadrzaj;
+    $slike = scandir(public_path() . '/slike/galerije/' . $galerija['slug']);
+    if(isset($slike[2])){
+    $slika = '/slike/galerije/'. $galerija['slug'] . '/' . $slike[2];
+    }else{
+    $slika = '/slike/galerije/'. $galerija['slug'] . '/';
+    }
     echo "<div class='col-sm-6 col-md-4'>
-          <div class='thumbnail'>
-                <img src='#' alt='slika'>
+          <div class='thumbnail'  style='height: 360px'>
+                <img src='{$slika}' alt='nema slika' style='height: 150px'>
                 <div class='caption'>
                   <h3>{$galerija->naslov}</h3>
-                  <p>Neki nicim izazvan tekst...</p>
+                  <p>{$string}</p>
                   <p><a href='#' class='btn btn-success' role='button'>Uredi</a></p>
                 </div>
           </div>
@@ -88,12 +97,19 @@ foreach ($galerije as $galerija)
 @endsection
 @section('javascript')
 <script>
+
 $(document).ready(function (){
-    $("#dragndrop").dropzone({
+      $("#dragndrop").dropzone({
         url: "/administracija/galerija-fotografija",
-        dictDefaultMessage: "Prevucite slike ovde da bi ste ih dodali u galerju"
+        dictDefaultMessage: "Prevucite slike ovde da bi ste ih dodali u galerju",
+        init: function() {
+          this.on("sending", function(file, xhr, formData) {
+            formData.append("galerija", $('#galerijaSelect').val());
+          });
+        }
         });
     $("#galerijaForma").validate();
     });
+
 </script>
 @stop

@@ -127,6 +127,29 @@ class DefaultPodaci extends Seeder{
                 'slug' => 'y-koordinata',
                 'korisnici_id' => 1,
                 'tip_sadrzaja_id' => 6
+            ],
+            [
+                'naslov' => 'Test galerija 1',
+                'sadrzaj' => 'Neki nicim izazvan tekst',
+                'slug' => 'test-g-1',
+                'korisnici_id' => 1,
+                'tip_sadrzaja_id' => 5
+            ],
+
+            [
+                'naslov' => 'Test galerija 2',
+                'sadrzaj' => 'Testni tekst. Kao tekst od testa. Ili tekst o testu.',
+                'slug' => 'test-g-2',
+                'korisnici_id' => 1,
+                'tip_sadrzaja_id' => 5
+            ],
+
+            [
+                'naslov' => 'Test galerija 3',
+                'sadrzaj' => 'Ja nisam tekst koji vi trazite. Ja sam tekst koji zasluzujete.',
+                'slug' => 'test-g-3',
+                'korisnici_id' => 1,
+                'tip_sadrzaja_id' => 5
             ]
         ];
         DB::table('sadrzaj')->insert($sadrzaji);

@@ -80,10 +80,11 @@ class AdministracijaController extends Controller {
     public function galerijaFotoUpload(Request $request)
     {
         $file = $request->file('file');
+        $galerija = $request->get('galerija');
         //dd($request->get('file'));
-        $destinationPath = public_path() . '/galerije';
+        $destinationPath = public_path() . '/slike/galerije/' . $galerija;
         // If the uploads fail due to file system, you can try doing public_path().'/uploads'
-        $filename = $request->get('sadrzaj') . "-" . str_random(6);
+        $filename = $request->get('galerija') . "-" . str_random(12);
         //$filename = $file->getClientOriginalName();
         $extension = $file->getClientOriginalExtension();
         $upload_success = $file->move($destinationPath, $filename . "." . $extension);
@@ -93,7 +94,7 @@ class AdministracijaController extends Controller {
         } else {
             return Response::json('error', 400);
         }
-        return redirect('/administracija/galerija-fotografija');
+        //return redirect('/administracija/galerija-fotografija');
     }
 
     public function galerijaDodaj(Request $request)
@@ -107,7 +108,13 @@ class AdministracijaController extends Controller {
             'tip_sadrzaja_id' => $tip_sadrzaja_id,
             'korisnici_id' => Session::get('id')
         ])->save();
+        mkdir(public_path() . '/slike/galerije/' . $slug, 0755, true);
         return redirect('/administracija/galerija-fotografija');
+    }
+
+    public function galerijaPrikaz($slug)
+    {
+        return view('stranice.administracija.galerija-prikaz')->withSlug($slug);
     }
 
     public function testLogin(Request $request){
@@ -124,6 +131,23 @@ class AdministracijaController extends Controller {
         $sec = new Security();
         $sec->setRedirectURL('/administracija/login');
         return $sec->autentifikacija($target, $dodaci);
+    }
+    public function kontakt()
+    {
+        return view('stranice.administracija.kontakt');
+    }
+
+    public function kontaktPost(Request $request)
+    {
+//        $tip_sadrzaja_id = TipSadrzaja::where('naziv', 'galerija')->first()->id;
+//        $sadrzaj = new Sadrzaj();
+//        $sadrzaj->fill([
+//            'naslov' => $request->get('naslov'),
+//            'slug' => $slug,
+//            'tip_sadrzaja_id' => $tip_sadrzaja_id,
+//            'korisnici_id' => Session::get('id')
+//        ])->save();
+        return http_redirect('/administracija/kontakt');
     }
 
 }
