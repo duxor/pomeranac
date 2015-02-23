@@ -173,6 +173,7 @@ $galerijaTekst.='
             <div class="okvir">
                 {!! $pocetnaNaslov !!}
                 {!! $pocetnaTekst !!}
+                <?php require_once'php/slideshow.php'?>
                 <a href="#" class="scroll-link btn btn-info" data-id="kontakt">{!! $pocetnaLink !!}</a>
             </div>
         </div>
