@@ -6,8 +6,10 @@
 *
 *******************************/
 
-.okvir{
+.okvir, .okvirSlide {
     background-color: rgba(255, 255, 255, 0.8);
+}
+.okvir{
     margin: 4%;
     padding: 3%;
     float: left;
@@ -26,4 +28,10 @@
 
 #googleMap{
     margin-bottom: 3%;
+}
+body {
+     padding-top: 60px;;
+ }
+nav li a, p{
+    font-size: 21px;
 }

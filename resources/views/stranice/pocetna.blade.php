@@ -49,7 +49,7 @@ $galerijaTekst.='
     <div
             class="parallax-image-wrapper parallax-image-wrapper-100"
             data-anchor-target="#pocetna + .gap"
-            data-bottom-top="transform:translate3d(0px, 200%, 0px)"
+            data-bottom-top="transform:translate3d(0px, 150%, 0px)"
             data-top-bottom="transform:translate3d(0px, 0%, 0px)">
 
         <div
@@ -168,14 +168,27 @@ $galerijaTekst.='
 {{--navigacija END::--}}
 
         {{--pocetna START::--}}
-        <div class="header" id="pocetna"></div>
+        <div id="pocetna">
+            <?php require_once'php/slideshow.php'?>
+                <div class="okvir">
+                    {!! $pocetnaNaslov !!}
+                    {!! $pocetnaTekst !!}
+                    <a href="#" class="scroll-link btn btn-info" data-id="kontakt">{!! $pocetnaLink !!}</a>
+                </div>
+        </div>
         <div class="gap gap-100">
-            <div class="okvir">
-                {!! $pocetnaNaslov !!}
-                {!! $pocetnaTekst !!}
-                <?php require_once'php/slideshow.php'?>
-                <a href="#" class="scroll-link btn btn-info" data-id="kontakt">{!! $pocetnaLink !!}</a>
-            </div>
+            <!--
+            <div class="okvir col-sm-7">
+                <div class="col-sm-8">
+
+                </div>
+                <div class="col-sm-4">
+                    {!! $pocetnaNaslov !!}
+                    {!! $pocetnaTekst !!}
+                    <a href="#" class="scroll-link btn btn-info" data-id="kontakt">{!! $pocetnaLink !!}</a>
+                </div>
+
+            </div>-->
         </div>
         {{--pocetna END::--}}
 
