@@ -10,18 +10,6 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Sadrzaj extends Model {
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
     protected $table = 'sadrzaj';
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = ['naslov','slug','sadrzaj','korisnici_id','tip_sadrzaja_id'];
-
+    protected $fillable = ['naslov','slug','sadrzaj','korisnici_id','tip_sadrzaja_id','aktivan'];
 } 

@@ -65,52 +65,45 @@ class DefaultPodaci extends Seeder{
         DB::table('tip_sadrzaja')->insert($tipSadrzaja);
 
         $sadrzaji = [
-            [
-                'naslov' => '<h1>Početna</h1>',
+            [//1
+                'naslov' => 'Početna',
                 'sadrzaj' => '<p>Tekst u pripremi.</p>',
                 'slug' => 'pocetna',
                 'korisnici_id' => 1,
                 'tip_sadrzaja_id' => 1
             ],
-            [
-                'naslov' => '<h1>O nama</h1>',
+            [//2
+                'naslov' => 'O nama',
                 'sadrzaj' => '<p>Tekst u pripremi.</p>',
                 'slug' => 'o-nama',
                 'korisnici_id' => 1,
                 'tip_sadrzaja_id' => 1
             ],
-            [
-                'naslov' => '<h1>Rasa Pomeranac</h1>',
+            [//3
+                'naslov' => 'Rasa Pomeranac',
                 'sadrzaj' => '<p>Tekst u pripremi.</p>',
                 'slug' => 'o-rasi',
                 'korisnici_id' => 1,
                 'tip_sadrzaja_id' => 1
             ],
-            [
-                'naslov' => '<h1>Pas Boo</h1>',
+            [//4
+                'naslov' => 'Pas Boo',
                 'sadrzaj' => '<p>Tekst u pripremi.</p>',
                 'slug' => 'o-psu',
                 'korisnici_id' => 1,
                 'tip_sadrzaja_id' => 1
             ],
-            [
-                'naslov' => '<h1>Galerija</h1>',
+            [//5
+                'naslov' => 'Galerija',
                 'sadrzaj' => '<p>Tekst u pripremi.</p>',
                 'slug' => 'galerija',
                 'korisnici_id' => 1,
                 'tip_sadrzaja_id' => 1
             ],
-            [
-                'naslov' => '<h1>Kontakt</h1>',
+            [//6
+                'naslov' => 'Kontakt',
                 'sadrzaj' => '<p>Tekst u pripremi.</p>',
                 'slug' => 'kontakt',
-                'korisnici_id' => 1,
-                'tip_sadrzaja_id' => 1
-            ],
-            [
-                'naslov' => null,
-                'sadrzaj' => 'Kontaktirajte nas',
-                'slug' => 'pocetna-link-1',
                 'korisnici_id' => 1,
                 'tip_sadrzaja_id' => 1
             ],
@@ -129,25 +122,9 @@ class DefaultPodaci extends Seeder{
                 'tip_sadrzaja_id' => 6
             ],
             [
-                'naslov' => 'Test galerija 1',
-                'sadrzaj' => 'Neki nicim izazvan tekst',
-                'slug' => 'test-g-1',
-                'korisnici_id' => 1,
-                'tip_sadrzaja_id' => 5
-            ],
-
-            [
-                'naslov' => 'Test galerija 2',
-                'sadrzaj' => 'Testni tekst. Kao tekst od testa. Ili tekst o testu.',
-                'slug' => 'test-g-2',
-                'korisnici_id' => 1,
-                'tip_sadrzaja_id' => 5
-            ],
-
-            [
-                'naslov' => 'Test galerija 3',
-                'sadrzaj' => 'Ja nisam tekst koji vi trazite. Ja sam tekst koji zasluzujete.',
-                'slug' => 'test-g-3',
+                'naslov' => 'Osnovni slider',
+                'sadrzaj' => 'Fotografije osnovnog slidera se prikazuju na početnoj strani.',
+                'slug' => 'osnovni-slider',
                 'korisnici_id' => 1,
                 'tip_sadrzaja_id' => 5
             ]

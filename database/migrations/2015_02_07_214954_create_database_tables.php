@@ -19,7 +19,7 @@ class CreateDatabaseTables extends Migration {
             $table->increments('id');
             $table->string('naziv', 45);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->nullable();
         });
 
         Schema::create('korisnici', function(Blueprint $table)
@@ -35,7 +35,7 @@ class CreateDatabaseTables extends Migration {
             $table->string('token', 255)->nullable();
             $table->boolean('online')->default(false);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->nullable();
         });
 
         Schema::create('tip_sadrzaja', function(Blueprint $table)
@@ -43,7 +43,7 @@ class CreateDatabaseTables extends Migration {
             $table->increments('id');
             $table->string('naziv', 45);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->nullable();
         });
 
         Schema::create('sadrzaj', function(Blueprint $table)
@@ -52,19 +52,16 @@ class CreateDatabaseTables extends Migration {
             $table->text('naslov', 45)->nullable();
             $table->string('slug', 45)->nullable();
             $table->text('sadrzaj');
-            $table->integer('korisnici_id')->unsigned()->foreign('korisnici_id')->references('id')->on('korisnici');
-            $table->integer('tip_sadrzaja_id')->unsigned()->foreign('tip_sadrzaja_id')->references('id')->on('tip_sadrzaja');
+            $table->integer('korisnici_id')->unsigned();
+            $table->foreign('korisnici_id')->references('id')->on('korisnici');
+            $table->integer('tip_sadrzaja_id')->unsigned();
+            $table->foreign('tip_sadrzaja_id')->references('id')->on('tip_sadrzaja');
+            $table->tinyInteger('aktivan')->default(0);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->nullable();
         });
 
 	}
-
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
 	public function down()
 	{
 		Schema::drop('tip_sadrzaja');

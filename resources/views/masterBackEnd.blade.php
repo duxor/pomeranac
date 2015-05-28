@@ -1,8 +1,20 @@
+<!--
+         _____ _ _ __\/_____ __ _   ___ ___ ___ _ __\/___ _/___
+        |_    | | |  ___/   |  \ | |   | __|   | |  ___/ |  __/
+         _| | | | |___  | ^ | |  | | ^_| __| ^_| |___  | | |__
+        |_____|_,_|_____|_|_|_|__| |_| |___|_|\ _|_____|_|____|
+
+        Hvala što se interesujete za kod :)
+
+        Kontakt za developere: kontakt@dusanperisic.com
+
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8" />
-	<title>@yield('title')</title>
+	<title>Administracija</title>
         <link href="{{ URL::asset('css/templejt.css') }}" rel="stylesheet" >
         <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ URL::asset('css/parallax.css') }}" rel="stylesheet">
@@ -12,6 +24,9 @@
           padding-top: 60px;
         }
         </style>
+    {!! HTML::style('css/fontello.css') !!}
+    {!! HTML::script('js/jquery-3.0.js') !!}
+    {!! HTML::script('tinymce/tinymce.min.js') !!}
 </head>
     <body>
 
@@ -24,49 +39,35 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="/administracija/">Pomeranac</a>
-              <?php
-              $active = array("","","","","","","");
-              switch ($_SERVER["REQUEST_URI"])
-              {
-               case '/administracija/sadrzaj/o-nama' : $active[0] = "active"; break;
-               case '/administracija/sadrzaj/o-rasi' : $active[1] = "active"; break;
-               case '/administracija/sadrzaj/o-psu' : $active[2] = "active"; break;
-               case '/administracija/galerija-fotografija' : $active[3] = "active"; break;
-               case '/administracija/kontakt' : $active[4] = "active"; break;
-               case '/administracija/analitika' : $active[5] = "active"; break;
-              }
-              ?>
-            </div><?php use App\Security; $sec = new Security(); if($sec->autentifikacijaTest()) echo'
+              <a class="navbar-brand" href="/administracija/"><span class="glyphicon glyphicon-home"></span> Pomeranac</a>
+            </div>
             <div id="navbar" class="collapse navbar-collapse">
-              <ul class="nav navbar-nav">
-                <li class = "' . $active[0] . '"><a href="/administracija/sadrzaj/o-nama">O nama</a></li>
-                <li class = "' . $active[1] . '"><a href="/administracija/sadrzaj/o-rasi">O rasi</a></li>
-                <li class = "' . $active[2] . '"><a href="/administracija/sadrzaj/o-psu">O psu</a></li>
-                <li class = "' . $active[3] . '"><a href="/administracija/galerija-fotografija">Galerija</a></li>
-                <li class = "' . $active[4] . '"><a href="/administracija/kontakt">Kontakt</a></li>
-                <li class = "' . $active[5] . '"><a href="/administracija/analitika">Analitika</a></li>
-              </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/administracija/logout">Logout</a></li>
-                </ul>
-            </div> '; ?>
+                @if(\App\Security::autentifikacijaTest())
+                  <ul class="nav navbar-nav navbar-right">
+                      <li class="dropdown @yield('tekstovi')">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-text-size"></span>ekstovi <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                              <li class="@yield('pocetna')"><a href="/administracija/sadrzaj/pocetna"><span class="glyphicon glyphicon-home"></span> Početna</a></li>
+                              <li class="@yield('o-nama')"><a href="/administracija/sadrzaj/o-nama"><span class="glyphicon glyphicon-user"></span> O nama</a></li>
+                              <li class="@yield('o-rasi')"><a href="/administracija/sadrzaj/o-rasi"><i class="icon-guidedog"></i> O rasi</a></li>
+                              <li class="@yield('o-psu')"><a href="/administracija/sadrzaj/o-psu"><i class="icon-guidedog"></i> O psu</a></li>
+                              <li class="@yield('kontakt')"><a href="/administracija/sadrzaj/kontakt"><span class="glyphicon glyphicon-earphone"></span> Kontakt</a></li>
+                          </ul>
+                      </li>
+                      <li class="@yield('galerija')"><a href="/administracija/galerije"><span class="glyphicon glyphicon-picture"></span> Galerije</a></li>
+                      <li><a href="#"><span class="glyphicon glyphicon-stats"></span> Analitika</a></li>
+                      <li><a href="/administracija/logout"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+                  </ul>
+                @endif
+            </div>
           </div>
         </nav>
         
         <div class="container">
-            <!-- sadrzaj -->
             @yield('content')
         </div>
-        
-        <!-- Ovde idu skriptovi -->
-        <script src="{{ URL::asset('js/jquery-3.0.js') }}"></script>
+        @yield('body')
         <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
         <script src="{{ URL::asset('js/funkcije.js') }}"></script>
-        <script src="{{ URL::asset('tinymce/tinymce.min.js') }}"></script>
-        <script src="{{ URL::asset('js/dropzone.js') }}"></script>
-        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
-        <!-- JavaScript fje -->
-            @yield('javascript')
     </body>
 </html>

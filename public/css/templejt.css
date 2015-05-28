@@ -6,6 +6,12 @@
 *
 *******************************/
 
+* {
+    padding:0;
+    margin:0;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 16px;
+}
 .okvir, .okvirSlide {
     background-color: rgba(255, 255, 255, 0.8);
 }
@@ -30,7 +36,7 @@
     margin-bottom: 3%;
 }
 body {
-     padding-top: 60px;;
+     padding-top: 80px;
  }
 nav li a, p{
     font-size: 21px;
