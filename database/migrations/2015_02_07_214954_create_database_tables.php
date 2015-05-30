@@ -16,7 +16,7 @@ class CreateDatabaseTables extends Migration {
 
         Schema::create('pravapristupa', function(Blueprint $table)
         {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('naziv', 45);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->nullable();
@@ -24,8 +24,8 @@ class CreateDatabaseTables extends Migration {
 
         Schema::create('korisnici', function(Blueprint $table)
         {
-            $table->increments('id');
-            $table->integer('pravapristupa_id')->unsigned();
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('pravapristupa_id');
             $table->foreign('pravapristupa_id')->references('id')->on('pravapristupa');
             $table->string('prezime', 45)->nullable();
             $table->string('ime', 45)->nullable();
@@ -47,7 +47,7 @@ class CreateDatabaseTables extends Migration {
         
         Schema::create('tip_sadrzaja', function(Blueprint $table)
         {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('naziv', 45);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->nullable();
@@ -55,13 +55,13 @@ class CreateDatabaseTables extends Migration {
 
         Schema::create('sadrzaj', function(Blueprint $table)
         {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->text('naslov', 45)->nullable();
             $table->string('slug', 45)->nullable();
             $table->text('sadrzaj');
-            $table->integer('korisnici_id')->unsigned();
+            $table->unsignedBigInteger('korisnici_id');
             $table->foreign('korisnici_id')->references('id')->on('korisnici');
-            $table->integer('tip_sadrzaja_id')->unsigned();
+            $table->unsignedBigInteger('tip_sadrzaja_id')->unsigned();
             $table->foreign('tip_sadrzaja_id')->references('id')->on('tip_sadrzaja');
             $table->tinyInteger('aktivan')->default(0);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
