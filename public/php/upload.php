@@ -3,6 +3,7 @@ if (empty($_FILES['images'])) {
     echo json_encode(['error'=>'No files found for upload.']);
     return;
 }
+
 $images = $_FILES['images'];
 $folder = isset($_POST['folder']) ? $_POST['folder'] : '';
 $success = null;

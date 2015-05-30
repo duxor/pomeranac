@@ -60,6 +60,9 @@
             uploadExtraData: {folder: '{{$podaci['slug']}}/'},
             uploadUrl: '/php/upload.php',
             uploadAsync: true,
+            allowedFileTypes: ["image", "video","audio"],
+            allowedFileExtensions: ["mp4", "avi", "ogg", "wmv", "flv"],
+            maxFileSize: 50000,
             maxFileCount: 10
         });
     </script>

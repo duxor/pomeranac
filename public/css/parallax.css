@@ -5,7 +5,9 @@
 *    Dodatni stilovi
 *
 *******************************/
-
+#pocetna{
+    height: 100%;   
+}
 
 html, body {
     height:100%;

@@ -240,7 +240,7 @@
                 return (vType !== undefined && vType.match('text.*')) || vName.match(/\.(txt|md|csv|nfo|php|ini)$/i);
             },
             video: function (vType, vName) {
-                return (vType !== undefined && vType.match(/\.video\/(ogg|mp4|webm)$/i)) || vName.match(/\.(og?|mp4|webm)$/i);
+                return (vType !== undefined && vType.match(/\.video\/(ogg|mp4|webm|avi)$/i)) || vName.match(/\.(og?|mp4|webm|avi)$/i);
             },
             audio: function (vType, vName) {
                 return (vType !== undefined && vType.match(/\.audio\/(ogg|mp3|wav)$/i)) || vName.match(/\.(ogg|mp3|wav)$/i);

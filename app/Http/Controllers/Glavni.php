@@ -56,5 +56,6 @@ class Glavni extends Controller {
 		$galerija['foto'] = OsnovneMetode::listaFotografija("slike/galerije/{$slug}");
 		return view('galerije.galerija',compact('meni','galerija'));
 	}
+	
 
 }
