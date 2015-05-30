@@ -18,21 +18,27 @@ class DefaultPodaci extends Seeder{
                 'naziv' => 'Zabranjen'
             ],
             [
+                'naziv' => 'Gost'
+            ],
+            [
+                'naziv' => 'Analitičar'
+            ],
+            [
                 'naziv' => 'Moderator'
             ],
             [
                 'naziv' => 'Administrator'
             ],
             [
-                'naziv' => 'Korisnik'
+                'naziv' => 'Kreator'
             ]
         ];
-        DB::table('prava_pristupa')->insert($pravaPristupa);
+        DB::table('pravapristupa')->insert($pravaPristupa);
 
         $security = new Security();
         $korisnici = [
             [
-                'prava_pristupa_id' => 3,
+                'pravapristupa_id' => 5,
                 'prezime' => 'Administrator',
                 'ime' => 'Administrator',
                 'email' => 'admin@admin.com',

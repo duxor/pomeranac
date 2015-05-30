@@ -14,7 +14,7 @@ class CreateDatabaseTables extends Migration {
 	public function up()
 	{
 
-        Schema::create('prava_pristupa', function(Blueprint $table)
+        Schema::create('pravapristupa', function(Blueprint $table)
         {
             $table->increments('id');
             $table->string('naziv', 45);
@@ -25,8 +25,8 @@ class CreateDatabaseTables extends Migration {
         Schema::create('korisnici', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->integer('prava_pristupa_id')->unsigned();
-            $table->foreign('prava_pristupa_id')->references('id')->on('prava_pristupa');
+            $table->integer('pravapristupa_id')->unsigned();
+            $table->foreign('pravapristupa_id')->references('id')->on('pravapristupa');
             $table->string('prezime', 45)->nullable();
             $table->string('ime', 45)->nullable();
             $table->string('email', 45);
@@ -37,7 +37,14 @@ class CreateDatabaseTables extends Migration {
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->nullable();
         });
-
+        Schema::create('log', function(Blueprint $table)
+        {
+            $table->bigIncrements('id');
+            $table->timestamp('create_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->unsignedBigInteger('korisnici_id');
+            $table->foreign('korisnici_id')->references('id')->on('korisnici');
+        });
+        
         Schema::create('tip_sadrzaja', function(Blueprint $table)
         {
             $table->increments('id');
@@ -61,13 +68,15 @@ class CreateDatabaseTables extends Migration {
             $table->timestamp('updated_at')->nullable();
         });
 
+
 	}
 	public function down()
 	{
 		Schema::drop('tip_sadrzaja');
         Schema::drop('sadrzaj');
         Schema::drop('korisnici');
-        Schema::drop('prava_pristupa');
+        Schema::drop('pravapristupa');
+        Schema::drop('log');
 	}
 
 }

@@ -23,21 +23,20 @@ public function getTest(){
         }
 }
 //LOGIN
+
     public function getLogin(){
-        if(Security::autentifikacijaTest())
-            return redirect('/administracija');
-        else return view('stranice.administracija.login');
+        if(Security::autentifikacijaTest(2,'min')) return Security::rediectToLogin();
+        return view('administracija.login')->with(['return_to_url'=>Input::has('return_to_url')?Input::get('return_to_url'):(session()->has('return_to_url')?Session::get('return_to_url'):Security::comeFromUrl())]);
     }
     public function postLogin(){
-        return Security::login(Input::get('username'), Input::get('password'));
+        return Security::login(Input::get('username'),Input::get('password'),Input::get('return_to_url'));
     }
-//LOGOUT
-    public function getLogout(){
-        return Security::logout();
+    public function getLogout($end=null){
+        return Security::logout($end);
     }
 //INDEX
     public function getIndex(){
-        return Security::autentifikacija('stranice.administracija.index', null);
+        return Security::autentifikacija('administracija.index', null);
     }
 //
     public function getSadrzaj($slug)
@@ -47,7 +46,7 @@ public function getTest(){
             $sadrzaj['x'] = Sadrzaj::where('slug','=','x-koordinata')->get(['sadrzaj'])->first()->sadrzaj;
             $sadrzaj['y'] = Sadrzaj::where('slug','=','y-koordinata')->get(['sadrzaj'])->first()->sadrzaj;
         }
-        return Security::autentifikacija('stranice.administracija.sadrzaji', compact('sadrzaj'));
+        return Security::autentifikacija('administracija.sadrzaji', compact('sadrzaj'));
     }
     public function postSadrzaj()
     {
@@ -73,7 +72,7 @@ public function getTest(){
         $galerije = Sadrzaj::where('tip_sadrzaja_id','=',5)->get(['naslov','slug','sadrzaj','aktivan'])->toArray();
         foreach($galerije as $k => $galerija)
             $galerije[$k]['slike'] = OsnovneMetode::listaFotografija("slike/galerije/{$galerija['slug']}");
-        return Security::autentifikacija('stranice.administracija.galerije', compact('galerije'));
+        return Security::autentifikacija('administracija.galerije', compact('galerije'));
     }
     public function postGalerija(){
         if(Security::autentifikacijaTest()){
@@ -112,7 +111,7 @@ public function getTest(){
     public function getGalerija($slug){
         $podaci = Sadrzaj::where('slug','=',$slug)->get(['slug','naslov','sadrzaj'])->first()->toArray();
         $podaci['slike'] = OsnovneMetode::listaFotografija("slike/galerije/{$slug}");
-        return Security::autentifikacija('stranice.administracija.galerija',compact('podaci'));
+        return Security::autentifikacija('administracija.galerija',compact('podaci'));
     }
     public function postUkloniSliku(){
         if(Security::autentifikacijaTest()){
@@ -163,7 +162,7 @@ public function getTest(){
 
     public function galerijaPrikaz($slug)
     {
-        return view('stranice.administracija.galerija-prikaz')->withSlug($slug);
+        return view('administracija.galerija-prikaz')->withSlug($slug);
     }
 
     public function testLogin(Request $request){
@@ -183,7 +182,7 @@ public function getTest(){
     }
     public function kontakt()
     {
-        return view('stranice.administracija.kontakt');
+        return view('administracija.kontakt');
     }
 
     public function kontaktPost(Request $request)

@@ -1,6 +1,3 @@
-<?php
-if(\App\Security::autentifikacijaTest()) redirect('/administracija');
-?>
 
 @extends('masterBackEnd')
 
