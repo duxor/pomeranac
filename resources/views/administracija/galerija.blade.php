@@ -12,7 +12,7 @@
             {!! Form::textarea('sadrzaj',$podaci['sadrzaj'],['class'=>'form-control']) !!}
         </div>
         <div class="form-group">
-            {!! Form::button('<span class="glyphicon glyphicon-floppy-disk"></span> Sačuvaj',['class'=>'btn btn-lg btn-primary','type'=>'submit']) !!}
+            {!! Form::button('<span class="glyphicon glyphicon-floppy-disk"></span> SaÄ�uvaj',['class'=>'btn btn-lg btn-primary','type'=>'submit']) !!}
         </div>
     {!! Form::close() !!}
     <a href="#" class="btn btn-lg btn-warning" data-toggle="modal" data-target="#dodajFoto"><span class="glyphicon glyphicon-picture"></span> Dodaj fotografije</a>
@@ -47,7 +47,7 @@
                     <input id="input-700" name="images[]" accept="video/*,image/*" type="file" class="file" multiple=true >
                 </div>
                 <div class="modal-footer">
-                    <a href="/administracija/refresh" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-ok"></span> Završeno dodavanje</a>
+                    <a href="/administracija/refresh" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-ok"></span> ZavrÅ¡eno dodavanje</a>
                 </div>
             </div>
         </div>
