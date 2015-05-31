@@ -12,7 +12,7 @@
             {!! Form::textarea('sadrzaj',$podaci['sadrzaj'],['class'=>'form-control']) !!}
         </div>
         <div class="form-group">
-            {!! Form::button('<span class="glyphicon glyphicon-floppy-disk"></span> Sačuvaj',['class'=>'btn btn-lg btn-primary','type'=>'submit']) !!}
+            {!! Form::button('<span class="glyphicon glyphicon-floppy-disk"></span> SaÄ�uvaj',['class'=>'btn btn-lg btn-primary','type'=>'submit']) !!}
         </div>
     {!! Form::close() !!}
     <a href="#" class="btn btn-lg btn-warning" data-toggle="modal" data-target="#dodajFoto"><span class="glyphicon glyphicon-picture"></span> Dodaj fotografije</a>
@@ -44,10 +44,10 @@
                     <h2>Dodaj nove fotografije</h2>
                 </div>
                 <div class="modal-body">
-                    <input id="input-700" name="images[]" type="file" multiple=true class="file-loading" >
+                    <input id="input-700" name="images[]" accept="video/*,image/*" type="file" class="file" multiple=true >
                 </div>
                 <div class="modal-footer">
-                    <a href="/administracija/refresh" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-ok"></span> Završeno dodavanje</a>
+                    <a href="/administracija/refresh" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-ok"></span> ZavrÅ¡eno dodavanje</a>
                 </div>
             </div>
         </div>
@@ -56,14 +56,17 @@
     {!! HTML::style('/dragdrop/css/fileinput.css') !!}
     {!! HTML::script('/dragdrop/js/fileinput.min.js') !!}
     <script>
-        $("#input-700").fileinput({
+        $("#input-700").fileinput({//browseLabel: "Select video",//initialCaption: "upload your videos!",
             uploadExtraData: {folder: '{{$podaci['slug']}}/'},
+            showUpload:true,
             uploadUrl: '/php/upload.php',
             uploadAsync: true,
-            allowedFileTypes: ["image", "video","audio"],
-            allowedFileExtensions: ["mp4", "avi", "ogg", "wmv", "flv"],
-            maxFileSize: 50000,
-            maxFileCount: 10
+            //previewFileType: ['video'],
+            //allowedPreviewMimeTypes:['image', 'html', 'text', 'video', 'audio', 'flash', 'object'],
+            //allowedFileTypes: ['video', 'image'],
+            //allowedFileExtensions: ['mp4','jpg'],
+            maxFileSize: '999999999',
+            maxFileCount: 100
         });
     </script>
 @endsection
