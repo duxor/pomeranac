@@ -1,34 +1,18 @@
-@extends('moderacija.master')
+@extends('administracija.master')
 @section('body')
     @if($podaci['galerije'])
-        <div class="list-group col-sm-4" style="margin-top: -50px">
+        <div class="list-group col-sm-4">
             <p style="text-align: right">
                 <button class="btn btn-default sakrijListu"><i class="glyphicon glyphicon-circle-arrow-left strelica"></i></button>
                 <button class="btn btn-info editMod" style="margin:0 5px"><i class="glyphicon glyphicon-pencil"></i></button>
             </p>
             <div id="galerije" style="overflow-y: scroll">
                 @foreach($podaci['galerije'] as $galerija)
-                    <a style="cursor: pointer" class="list-group-item" data-slugapp="{{$galerija['slugApp']}}" data-link="galerije/{{Session::get('username')}}/aplikacije/{{$galerija['slugApp']}}/{{$galerija['slugTeme']}}/{{$galerija['sadrzaj']}}">
+                    <a style="cursor: pointer" class="list-group-item" data-link="slike/galerije/{{$galerija['slug']}}">
                         <button class="btn btn-success _upload" data-toggle="modal" data-target="#dodajFoto" style="position: absolute;right: 5px;top: 5px"><i class="glyphicon glyphicon-cloud-upload"></i></button>
-                        <h2 style="text-align: center">{{$galerija['naziv']}}</h2>
+                        <h2 style="text-align: center">{{$galerija['naslov']}}</h2>
                         <p class="list-group-item-text">
-                        <table>
-                            <tr><td class="nDn">Aplikacija </td><td><b>{{$galerija['nazivApp']}}</b></td></tr>
-                            <tr><td class="nDn">Tema </td><td><b>{{$galerija['nazivApp']}}</b></td></tr>
-                        </table>
-                        </p>
-                    </a>
-                @endforeach
-                @foreach($podaci['galerije-smestaja'] as $galerija)
-                    <a style="cursor: pointer" class="list-group-item" data-slugapp="{{$galerija['slugApp']}}" data-link="galerije/{{Session::get('username')}}/aplikacije/{{$galerija['slugApp']}}/smestaji/{{$galerija['slug']}}">
-                        <button class="btn btn-success _upload" data-toggle="modal" data-target="#dodajFoto" style="position: absolute;right: 5px;top: 5px"><i class="glyphicon glyphicon-cloud-upload"></i></button>
-                        <h2 style="text-align: center">{{$galerija['naziv']}}</h2>
-                        <p class="list-group-item-text">
-                        <table>
-                            <tr><td class="nDn">Aplikacija </td><td><b>{{$galerija['nazivApp']}}</b></td></tr>
-                            <tr><td class="nDn">Smeštaj </td><td><b>{{$galerija['naziv']}}</b></td></tr>
-                            <tr><td class="nDn">Vrsta </td><td><b>{{$galerija['vrstaSmestaja']}}</b></td></tr>
-                        </table>
+                            {{$galerija['sadrzaj']}}
                         </p>
                     </a>
                 @endforeach
@@ -74,7 +58,7 @@
             function ukloniFoto(url,id){
                 $('.prikaz').popover('hide');
                 $('#wait').fadeIn();
-                $.post('/{{\App\OsnovneMetode::osnovniNav()}}/galerije/ukloni-foto',{
+                $.post('/administracija/galerije/ukloni-foto',{
                     _token:'{{csrf_token()}}',
                     link:url.substr(serverUrl.length)
                 },function(data){
@@ -93,7 +77,7 @@
                 $(this).find('._upload').fadeIn();
                 $(this).addClass('active');
                 var slugApp=$(this).data('slugapp');console.log($(this).data('link'));
-                $.post('/{{\App\OsnovneMetode::osnovniNav()}}/galerije/lista-fotografija',
+                $.post('/administracija/galerije/lista-fotografija',
                         {
                             _token:'{{csrf_token()}}',
                             folder:$(this).data('link')
@@ -143,7 +127,7 @@
             $('#folder').val($(this).closest('a').data('link')+'/');
             $("#input-700").fileinput('refresh',{
                 uploadExtraData: {folder: $('#folder').val(), _token:'{{csrf_token()}}'},
-                uploadUrl: '/{{\App\OsnovneMetode::osnovniNav()}}/galerije/upload',
+                uploadUrl: '/administracija/galerije/upload',
                 uploadAsync: true,
                 maxFileCount: 10
             });

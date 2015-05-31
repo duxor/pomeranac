@@ -1,24 +1,21 @@
 <?php namespace App\Http\Controllers\Administracija;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Sadrzaji;
+use App\Sadrzaj;
 use App\Security;
-use App\Nalog;
-use App\Smestaj;
-use App\Templejt;
-use Illuminate\Support\Facades\Session;
 use App\OsnovneMetode;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Redirect;
+
 class Galerija extends Controller {
 	//Pregled svih galerija
 	public function getIndex(){
 		if(!Security::autentifikacijaTest(4,'min')) return Security::rediectToLogin();
-		
+		$podaci['galerije']=Sadrzaj::where('tip_sadrzaja_id',5)->get(['naslov','slug','sadrzaj'])->toArray();
 		return Security::autentifikacija('galerije.index', compact('podaci'));
 	}
 	public function postListaFotografija(){
-		if(!Security::autentifikacijaTest(2,'min')) return Security::rediectToLogin();
+		if(!Security::autentifikacijaTest(4,'min')) return Security::rediectToLogin();
 		return json_encode(OsnovneMetode::listaFotografija(Input::get('folder')));
 	}
 	public function postUkloniFoto($slugApp){
