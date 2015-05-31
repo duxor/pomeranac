@@ -76,20 +76,30 @@
                 $('._upload').fadeOut();
                 $(this).find('._upload').fadeIn();
                 $(this).addClass('active');
-                var slugApp=$(this).data('slugapp');console.log($(this).data('link'));
+                var slugApp=$(this).data('slugapp');
                 $.post('/administracija/galerije/lista-fotografija',
                         {
                             _token:'{{csrf_token()}}',
                             folder:$(this).data('link')
                         },
                         function(data){
-                            var podaci=JSON.parse(data);
-                            var foto='<img class="prikaz thumbnail" onclick="slikaOption()" style="display: none">';
-                            if(podaci.length){
-                                for(var i=0;i<podaci.length;i++) {
-                                    foto += '<div class="col-xs-6 col-md-3"><img id="slika-'+i+'" data-slugApp="'+slugApp+'" onclick="prikazSlike(this)" class="clFoto thumbnail" src="/' + podaci[i] + '"></div>';
-                                }
-                            }else foto='<p>Ni jedna fotografija nije dodata u evidenciju.</p>';
+                            var podaci=JSON.parse(data),
+                                fotografije=podaci['foto'],
+                                video=podaci['video'],
+                                foto='<img class="prikaz thumbnail" onclick="slikaOption()" style="display: none">',
+                                check=false;
+                            if(fotografije.length){
+                                for(var i=0;i<fotografije.length;i++)
+                                    foto += '<div class="col-xs-6 col-md-3"><img id="slika-'+i+'" data-slugApp="'+slugApp+'" onclick="prikazSlike(this)" class="clFoto thumbnail" src="/' + fotografije[i] + '"></div>';
+                                check=true;
+                            }
+                            else foto='<p>Ni fotografija ni video nije dodat u evidenciju.</p>';
+                            if(video.length){
+                                for(var i=0;i<video.length;i++)
+                                    foto += '<video width="300px" height="200px" controls><source src="/'+video[i]+'" type="video/mp4"><div class="file-preview-other"><i class="glyphicon glyphicon-file"></i></div></video>';
+                                check=true;
+                            }
+                            if(!check) foto='<p>Ni fotografija ni video nije dodat u evidenciju.</p>';
                             $('#foto').html(foto);
                             $('#wait').hide();
                             $('#foto').fadeIn();

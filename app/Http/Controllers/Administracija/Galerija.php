@@ -6,8 +6,15 @@ use App\Security;
 use App\OsnovneMetode;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;
-
+use Illuminate\Support\Facades\Response;
 class Galerija extends Controller {
+	public function anyVideo(){
+		$video_path = '/slike/galerije/osnovni-slider/modular.mp4';
+		//$video_path = 'somedirectory/somefile.mp4';
+		$stream = new VideoStream($video_path);
+		$stream->start();
+	}
+
 	//Pregled svih galerija
 	public function getIndex(){
 		if(!Security::autentifikacijaTest(4,'min')) return Security::rediectToLogin();
@@ -16,7 +23,7 @@ class Galerija extends Controller {
 	}
 	public function postListaFotografija(){
 		if(!Security::autentifikacijaTest(4,'min')) return Security::rediectToLogin();
-		return json_encode(OsnovneMetode::listaFotografija(Input::get('folder')));
+		return json_encode(['foto'=>OsnovneMetode::listaFotografija(Input::get('folder')),'video'=>OsnovneMetode::listaFotografija(Input::get('folder'),'mp4')]);
 	}
 	public function postUkloniFoto($slugApp){
 		if(!Security::autentifikacijaTest(2,'min'))return Security::rediectToLogin();

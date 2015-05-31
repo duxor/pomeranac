@@ -16,8 +16,8 @@ class OsnovneMetode {
             if(in_array($v, $exclude)) unset($lista[$k]);
         return $lista;
     }
-    public static function listaFotografija($folder){
-        return glob($folder.'/*.{jpg,jpeg,png,gif}',GLOB_BRACE);;
+    public static function listaFotografija($folder,$type='jpg,jpeg,png,gif'){
+        return glob($folder.'/*.{'.$type.'}',GLOB_BRACE);
     }
     public static function kreirjFolder($adresa){
         if (!is_dir($adresa)) return mkdir($adresa, 0755, true);
