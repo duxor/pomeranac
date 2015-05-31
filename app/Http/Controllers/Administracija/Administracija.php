@@ -24,16 +24,8 @@ public function getTest(){
         }
 }
 //LOGIN
-
     public function getLogin(){
-        if(Security::autentifikacijaTest(2,'min')) return Security::rediectToLogin();
-        return view('administracija.login')->with(['return_to_url'=>Input::has('return_to_url')?Input::get('return_to_url'):(session()->has('return_to_url')?Session::get('return_to_url'):Security::comeFromUrl())]);
-    }
-    public function postLogin(){
-        return Security::login(Input::get('username'),Input::get('password'),Input::get('return_to_url'));
-    }
-    public function getLogout($end=null){
-        return Security::logout($end);
+        return redirect('/login');
     }
 //INDEX
     public function getIndex(){

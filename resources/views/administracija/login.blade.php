@@ -1,5 +1,5 @@
 
-@extends('masterBackEnd')
+@extends('administracija.master')
 
 @section('content')
 

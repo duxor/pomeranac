@@ -42,7 +42,7 @@
               <a class="navbar-brand" href="/administracija/"><span class="glyphicon glyphicon-home"></span> Pomeranac</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
-                @if(\App\Security::autentifikacijaTest())
+                @if(\App\Security::autentifikacijaTest(4,'min'))
                   <ul class="nav navbar-nav navbar-right">
                       <li class="dropdown @yield('tekstovi')">
                           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-text-size"></span>ekstovi <span class="caret"></span></a>
@@ -56,7 +56,7 @@
                       </li>
                       <li class="@yield('galerija')"><a href="/administracija/galerije"><span class="glyphicon glyphicon-picture"></span> Galerije</a></li>
                       <li><a href="#"><span class="glyphicon glyphicon-stats"></span> Analitika</a></li>
-                      <li><a href="/administracija/logout"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+                      <li><a href="/logout"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
                   </ul>
                 @endif
             </div>

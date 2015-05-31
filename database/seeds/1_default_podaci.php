@@ -1,76 +1,41 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Dušan
- * Date: 2/10/2015
- * Time: 4:59 PM
- */
-
 use App\Security;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-
+use App\PravaPristupa;
+use App\Korisnici;
+use App\TipSadrzaja;
+use App\Sadrzaj;
 class DefaultPodaci extends Seeder{
     public function run(){
 
-        $pravaPristupa = [
-            [
-                'naziv' => 'Zabranjen'
-            ],
-            [
-                'naziv' => 'Gost'
-            ],
-            [
-                'naziv' => 'Analitičar'
-            ],
-            [
-                'naziv' => 'Moderator'
-            ],
-            [
-                'naziv' => 'Administrator'
-            ],
-            [
-                'naziv' => 'Kreator'
-            ]
-        ];
-        DB::table('pravapristupa')->insert($pravaPristupa);
-
-        $security = new Security();
-        $korisnici = [
+        PravaPristupa::insert([
+            ['naziv' => 'Zabranjen'],
+            ['naziv' => 'Gost'],
+            ['naziv' => 'Analitičar'],
+            ['naziv' => 'Moderator'],
+            ['naziv' => 'Administrator'],
+            ['naziv' => 'Kreator']
+        ]);
+        Korisnici::insert([
             [
                 'pravapristupa_id' => 5,
                 'prezime' => 'Administrator',
                 'ime' => 'Administrator',
                 'email' => 'admin@admin.com',
                 'username' => 'admin',
-                'password' => $security->generateHashPass('admin')
+                'password' => Security::generateHashPass('admin')
             ]
-        ];
-        DB::table('korisnici')->insert($korisnici);
-
-        $tipSadrzaja = [
-            [//1
-                'naziv' => 'tekst'
-            ],
-            [//2
-                'naziv' => 'mail'
-            ],
-            [//3
-                'naziv' => 'link'
-            ],
-            [//4
-                'naziv' => 'slika'
-            ],
-            [//5
-                'naziv' => 'galerija'
-            ],
-            [//6
-                'naziv' => 'koordinata'
-            ]
-        ];
-        DB::table('tip_sadrzaja')->insert($tipSadrzaja);
-
-        $sadrzaji = [
+        ]);
+        TipSadrzaja::insert([
+            ['naziv' => 'tekst'],//1
+            ['naziv' => 'mail'],//2
+            ['naziv' => 'link'],//3
+            ['naziv' => 'slika'],//4
+            ['naziv' => 'galerija'],//5
+            ['naziv' => 'koordinata']//6
+        ]);
+        Sadrzaj::insert([
             [//1
                 'naslov' => 'Početna',
                 'sadrzaj' => '<p>Tekst u pripremi.</p>',
@@ -134,7 +99,6 @@ class DefaultPodaci extends Seeder{
                 'korisnici_id' => 1,
                 'tip_sadrzaja_id' => 5
             ]
-        ];
-        DB::table('sadrzaj')->insert($sadrzaji);
+        ]);
     }
 }

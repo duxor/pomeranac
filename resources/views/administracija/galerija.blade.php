@@ -1,4 +1,4 @@
-@extends('masterBackEnd')
+@extends('administracija.master')
 
 @section('content')
     {!! Form::open(['url'=>'/administracija/galerija','class'=>'form-horizontal container']) !!}

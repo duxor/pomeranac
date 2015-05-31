@@ -1,4 +1,4 @@
-@extends('masterBackEnd')
+@extends('administracija.master')
 <?php use App\Sadrzaj; ?>
 <?php use App\TipSadrzaja; ?>
 @section('title')

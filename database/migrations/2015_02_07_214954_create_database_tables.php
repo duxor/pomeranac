@@ -73,11 +73,11 @@ class CreateDatabaseTables extends Migration {
 	}
 	public function down()
 	{
-		Schema::drop('tip_sadrzaja');
-        Schema::drop('sadrzaj');
+		Schema::drop('sadrzaj');
+        Schema::drop('tip_sadrzaja');
+        Schema::drop('log');
         Schema::drop('korisnici');
         Schema::drop('pravapristupa');
-        Schema::drop('log');
 	}
 
 }

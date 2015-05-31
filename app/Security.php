@@ -31,7 +31,7 @@ class Security {
     public static $adminURL='/administracija';
     public static $userURL='/korisnik';
     public static $modURL='/moderacija';
-    public static $logURL='/administracija/login';
+    public static $logURL='/login';
     private $token;
     private $redirectURL;
     private $minLenPass=4;//minimalna duzina sifre i korisnickog imena
@@ -95,18 +95,18 @@ class Security {
             'password_confirmation.min'=>'Minimalna duzina password-a je :min.'
         ]);
         if($validator->fails())if($return_to_url)  return redirect()->back()->withGreska($validator->errors()->toArray())->with(['return_to_url'=>$return_to_url]);
-                                else return redirect()->back()->withGreska($validator->errors()->toArray())->withInput();
+        else return redirect()->back()->withGreska($validator->errors()->toArray())->withInput();
 
         $korisnik=new Korisnici();
-            $korisnik->username=$username;
-            $korisnik->email=$email;
-            $korisnik->password=Security::generateHashPass($password);
-            $korisnik->prezime=$prezime;
-            $korisnik->ime=$ime;
-            $korisnik->pravapristupa_id=2;
-            $korisnik->aktivan=1;
+        $korisnik->username=$username;
+        $korisnik->email=$email;
+        $korisnik->password=Security::generateHashPass($password);
+        $korisnik->prezime=$prezime;
+        $korisnik->ime=$ime;
+        $korisnik->pravapristupa_id=2;
+        $korisnik->aktivan=1;
         $korisnik->save();
-        return Redirect::to('/log/login')->withPotvrda('Uspešno ste izvršili registraciju. Možete da se prijavite na platformu.')->with(['return_to_url'=>$return_to_url]);
+        return Redirect::to('/login')->withPotvrda('Uspešno ste izvršili registraciju. Možete da se prijavite na platformu.')->with(['return_to_url'=>$return_to_url]);
     }
     public static function comeFromUrl(){
         return isset($_SERVER['HTTP_REFERER'])?parse_url($_SERVER['HTTP_REFERER'])['path']:null;
@@ -117,7 +117,7 @@ class Security {
 //FUNKCIONALNOSTI
 
 //#TESTERI[autentifikacija, input, login]
-    public static function autentifikacijaTest($prava=5,$min=null){
+    public static function autentifikacijaTest($prava=2,$min=null){
         if (Session::has('id') and Session::has('token') and Session::has('prava_pristupa')) {
             return Korisnici::where('id',Session::get('id'))->where('username',Session::get('username'))->where('token', Session::get('token'))->where('pravapristupa_id',($min=='min'?'>':'').'=',$prava)->exists();// $korisnik ? true : false;
         } else return false;
@@ -132,7 +132,7 @@ class Security {
             $sec->setUsername($username);
             $sec->setPass($password);
 
-            $korisnik = Korisnici::where('username',$sec->username)->get(['id','username','password','pravapristupa_id'])->first();
+            $korisnik = Korisnici::where('username',$sec->username)->where('aktivan',1)->get(['id','username','password','pravapristupa_id'])->first();
             $test = $korisnik ? password_verify($sec->password.$sec->salt, $korisnik->password) : false;
 
             if ($test){
@@ -145,7 +145,7 @@ class Security {
                 Log::insert(['korisnici_id'=>$korisnik->id]);
             }else Korisnici::where('id', $sec->id)->update(['token' => null]);
         }
-        if($return_to_url&&strcmp(substr($return_to_url,0,5),'/administracija/')!=0) return redirect($return_to_url);
+        if($return_to_url&&strcmp(substr($return_to_url,0,4),'/log')!=0) return redirect($return_to_url);
         return Security::rediectToLogin();
     }
 //#REDIRECTORI[autentifikacija, logout, redirect, redirectToLogin]
@@ -169,15 +169,15 @@ class Security {
     }
     public static function rediectToLogin(){
         if(Session::has('prava_pristupa'))
-        if(Security::autentifikacijaTest(Session::get('prava_pristupa'))){
-            switch(Session::get('prava_pristupa')){
-                case Security::$userID:return redirect(Security::$userURL);break;
-                case Security::$modID:return redirect(Security::$modURL);break;
-                case Security::$adminID:
-                case Security::$kreatorID:
-                    return redirect(Security::$adminURL);break;
+            if(Security::autentifikacijaTest(Session::get('prava_pristupa'))){
+                switch(Session::get('prava_pristupa')){
+                    case Security::$userID:return redirect(Security::$userURL);break;
+                    case Security::$modID:return redirect(Security::$modURL);break;
+                    case Security::$adminID:
+                    case Security::$kreatorID:
+                        return redirect(Security::$adminURL);break;
+                }
             }
-        }
         return redirect(Security::$logURL);
     }
 }

@@ -1,4 +1,4 @@
-@extends('masterBackEnd')
+@extends('administracija.master')
 
 @section('content')
     @if($galerije)
