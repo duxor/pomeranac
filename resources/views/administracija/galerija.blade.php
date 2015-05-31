@@ -44,7 +44,7 @@
                     <h2>Dodaj nove fotografije</h2>
                 </div>
                 <div class="modal-body">
-                    <input id="input-700" name="images[]" type="file" multiple=true class="file-loading" >
+                    <input id="input-700" name="images[]" accept="video/*,image/*" type="file" class="file" multiple=true >
                 </div>
                 <div class="modal-footer">
                     <a href="/administracija/refresh" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-ok"></span> Završeno dodavanje</a>
@@ -56,14 +56,17 @@
     {!! HTML::style('/dragdrop/css/fileinput.css') !!}
     {!! HTML::script('/dragdrop/js/fileinput.min.js') !!}
     <script>
-        $("#input-700").fileinput({
+        $("#input-700").fileinput({//browseLabel: "Select video",//initialCaption: "upload your videos!",
             uploadExtraData: {folder: '{{$podaci['slug']}}/'},
+            showUpload:true,
             uploadUrl: '/php/upload.php',
             uploadAsync: true,
-            allowedFileTypes: ["image", "video","audio"],
-            allowedFileExtensions: ["mp4", "avi", "ogg", "wmv", "flv"],
-            maxFileSize: 50000,
-            maxFileCount: 10
+            //previewFileType: ['video'],
+            //allowedPreviewMimeTypes:['image', 'html', 'text', 'video', 'audio', 'flash', 'object'],
+            //allowedFileTypes: ['video', 'image'],
+            //allowedFileExtensions: ['mp4','jpg'],
+            maxFileSize: '999999999',
+            maxFileCount: 100
         });
     </script>
 @endsection
