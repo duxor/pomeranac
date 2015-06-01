@@ -460,12 +460,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "3a69303e37daa5aa3df90360b583e47bfab34bff"
+                "reference": "1e897aede52fe7ac1bc53ff2bba8d614e47ed375"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/3a69303e37daa5aa3df90360b583e47bfab34bff",
-                "reference": "3a69303e37daa5aa3df90360b583e47bfab34bff",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/1e897aede52fe7ac1bc53ff2bba8d614e47ed375",
+                "reference": "1e897aede52fe7ac1bc53ff2bba8d614e47ed375",
                 "shasum": ""
             },
             "require": {
@@ -578,7 +578,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-05-28 22:24:21"
+            "time": "2015-05-29 21:32:23"
         },
         {
             "name": "league/flysystem",
@@ -586,12 +586,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "0b4acb8ca9f889e5372e90090f7f5b8cacb1f055"
+                "reference": "1ee1aacaed5f19befeb5e0a7413bb7e91dbfc965"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/0b4acb8ca9f889e5372e90090f7f5b8cacb1f055",
-                "reference": "0b4acb8ca9f889e5372e90090f7f5b8cacb1f055",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/1ee1aacaed5f19befeb5e0a7413bb7e91dbfc965",
+                "reference": "1ee1aacaed5f19befeb5e0a7413bb7e91dbfc965",
                 "shasum": ""
             },
             "require": {
@@ -662,7 +662,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2015-05-28 07:51:17"
+            "time": "2015-05-30 16:58:20"
         },
         {
             "name": "monolog/monolog",
@@ -1378,12 +1378,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpKernel.git",
-                "reference": "11b371afd72af42c574d5aeb4b3a6075f7d2775f"
+                "reference": "f43ab49b2634f8987398ceab03fff6bc8436b26f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/11b371afd72af42c574d5aeb4b3a6075f7d2775f",
-                "reference": "11b371afd72af42c574d5aeb4b3a6075f7d2775f",
+                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/f43ab49b2634f8987398ceab03fff6bc8436b26f",
+                "reference": "f43ab49b2634f8987398ceab03fff6bc8436b26f",
                 "shasum": ""
             },
             "require": {
@@ -1447,7 +1447,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2015-05-27 00:47:03"
+            "time": "2015-05-29 23:26:13"
         },
         {
             "name": "symfony/process",
@@ -1753,16 +1753,16 @@
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "dev-master",
+            "version": "1.1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "ae388efe53a2c352ddd270f4d316bad58952b8e3"
+                "reference": "0cac554ce06277e33ddf9f0b7ade4b8bbf2af3fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/ae388efe53a2c352ddd270f4d316bad58952b8e3",
-                "reference": "ae388efe53a2c352ddd270f4d316bad58952b8e3",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/0cac554ce06277e33ddf9f0b7ade4b8bbf2af3fa",
+                "reference": "0cac554ce06277e33ddf9f0b7ade4b8bbf2af3fa",
                 "shasum": ""
             },
             "require": {
@@ -1772,11 +1772,6 @@
                 "phpunit/phpunit": "~4.0"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1-dev"
-                }
-            },
             "autoload": {
                 "psr-0": {
                     "Dotenv": "src/"
@@ -1800,7 +1795,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2015-02-19 20:37:05"
+            "time": "2015-05-30 15:59:26"
         }
     ],
     "packages-dev": [
@@ -1947,12 +1942,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "1f9a3443ab6c8d5a9eade80b9386c749ea9020fd"
+                "reference": "6634a08350971e316c058441e87b5649753dbffe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/1f9a3443ab6c8d5a9eade80b9386c749ea9020fd",
-                "reference": "1f9a3443ab6c8d5a9eade80b9386c749ea9020fd",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/6634a08350971e316c058441e87b5649753dbffe",
+                "reference": "6634a08350971e316c058441e87b5649753dbffe",
                 "shasum": ""
             },
             "require": {
@@ -2017,7 +2012,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2015-05-22 22:11:49"
+            "time": "2015-05-31 08:31:11"
         },
         {
             "name": "phpspec/prophecy",
@@ -2081,16 +2076,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "dev-master",
+            "version": "2.1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "672248f49a25fcca46aa6c73612d6731d6b83c4a"
+                "reference": "60991776b3994cd8297b861e8ddc7f9c9500dedc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/672248f49a25fcca46aa6c73612d6731d6b83c4a",
-                "reference": "672248f49a25fcca46aa6c73612d6731d6b83c4a",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/60991776b3994cd8297b861e8ddc7f9c9500dedc",
+                "reference": "60991776b3994cd8297b861e8ddc7f9c9500dedc",
                 "shasum": ""
             },
             "require": {
@@ -2139,7 +2134,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-05-25 16:40:23"
+            "time": "2015-05-31 03:14:06"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -2331,12 +2326,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "a2c4c437c1519925014f0bb71a264c884fea13c5"
+                "reference": "b3383599a2f21f02766bc31875c2a7b9a50656cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a2c4c437c1519925014f0bb71a264c884fea13c5",
-                "reference": "a2c4c437c1519925014f0bb71a264c884fea13c5",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/b3383599a2f21f02766bc31875c2a7b9a50656cc",
+                "reference": "b3383599a2f21f02766bc31875c2a7b9a50656cc",
                 "shasum": ""
             },
             "require": {
@@ -2347,7 +2342,7 @@
                 "ext-spl": "*",
                 "php": ">=5.3.3",
                 "phpspec/prophecy": "~1.3,>=1.3.1",
-                "phpunit/php-code-coverage": "~2.0,>=2.0.11",
+                "phpunit/php-code-coverage": "~2.1",
                 "phpunit/php-file-iterator": "~1.4",
                 "phpunit/php-text-template": "~1.2",
                 "phpunit/php-timer": "~1.0",
@@ -2395,7 +2390,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-05-28 13:16:49"
+            "time": "2015-05-30 13:10:11"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

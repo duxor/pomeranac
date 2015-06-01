@@ -81,7 +81,7 @@ class Galerija extends Controller {
 		if ($success === true) {
 			$output = '[]';
 		} elseif ($success === false) {
-			$output = ['error'=>'Greška prilikom upload-a. Kontaktirajte tehničku podršku platforme.'];
+			$output = ['error'=>'Greška prilikom upload-a. Kontaktirajte tehni�?ku podršku platforme.'];
 			foreach ($paths as $file) {
 				unlink($file);
 			}
