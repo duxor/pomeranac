@@ -11,6 +11,8 @@
                 @foreach($podaci['galerije'] as $galerija)
                     <a style="cursor: pointer" class="list-group-item" data-link="slike/galerije/{{$galerija['slug']}}" data-slug="{{$galerija['slug']}}">
                         <button class="btn btn-success _upload" data-toggle="modal" data-target="#dodajFoto" style="position: absolute;right: 5px;top: 5px"><i class="glyphicon glyphicon-cloud-upload"></i></button>
+                        <button class="btn btn-info _upload _edit" style="position: absolute;right: 50px;top: 5px"><i class="glyphicon glyphicon-pencil"></i></button>
+                        <button class="btn btn-danger _cancel" style="position: absolute;right: 100px;top: 5px;display: none"><i class="glyphicon glyphicon-remove"></i></button>
                         <h2 style="text-align: center">{{$galerija['naslov']}}</h2>
                         <p class="list-group-item-text">
                             {{$galerija['sadrzaj']}}
@@ -29,6 +31,33 @@
         <script>
             $(document).ready(function(){$('#galerije').css('height',($(window).height()-150)+'px')});
             var sirina='50px';
+            $('._edit').click(function(){
+                var tekst=$(this).closest('a').children('p.list-group-item-text'),
+                        txtVal=tekst.children('textarea').val();
+                if($(this).hasClass('_save')){
+                    $(this).closest('a').children('._cancel').fadeOut('slow');
+                    tekst.html('Čuvanje u toku...');
+                    $.post('/administracija/galerije/galerija-update',{
+                        _token:'{{csrf_token()}}',
+                        slug:$(this).closest('a').data('slug'),
+                        tekst:txtVal
+                    },function(data){console.log(data);
+                        tekst.html(txtVal);
+                    });
+                }
+                else{
+                    $(this).closest('a').children('._cancel').fadeIn('slow');
+                    tekst.data('tekst',tekst.html());
+                    tekst.html('<textarea id="editFormaText" class="form-control">'+ $.trim(tekst.html())+'</textarea>');
+                }
+                $(this).toggleClass('btn-info btn-default _edit _save').children('i').toggleClass('glyphicon-pencil glyphicon-floppy-disk');
+            });
+            $('._cancel').click(function(){
+                var tekst=$(this).closest('a').children('p.list-group-item-text');
+                tekst.html(tekst.data('tekst'));
+                $(this).closest('a').children('._cancel').fadeOut('slow');
+                $(this).closest('a').children('._save').toggleClass('btn-info btn-default _edit _save').children('i').toggleClass('glyphicon-pencil glyphicon-floppy-disk');
+            });
             $('.sakrijListu').click(function(){
                 $('.work-area').hide();
                 $('.list-group').animate({width:sirina},350);
