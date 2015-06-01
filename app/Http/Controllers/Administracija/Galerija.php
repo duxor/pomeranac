@@ -7,12 +7,34 @@ use App\OsnovneMetode;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Request;
 class Galerija extends Controller {
-	public function anyVideo(){
-		$video_path = '/slike/galerije/osnovni-slider/modular.mp4';
-		//$video_path = 'somedirectory/somefile.mp4';
-		$stream = new VideoStream($video_path);
-		$stream->start();
+	public function getVideo( $galerijaSlug, $nazivFajla ) {
+		$path = "slike/galerije/{$galerijaSlug}/{$nazivFajla}.mp4";
+		$contentType='mp4';
+		$fullsize = filesize($path);
+		$size = $fullsize;
+		$stream = fopen($path, "r");
+		$response_code = 200;
+		$headers = array("Content-type" => $contentType);
+		$range = Request::header('Range');
+		if($range != null) {
+			$eqPos = strpos($range, "=");
+			$toPos = strpos($range, "-");
+			$unit = substr($range, 0, $eqPos);
+			$start = intval(substr($range, $eqPos+1, $toPos));
+			$success = fseek($stream, $start);
+			if($success == 0) {
+				$size = $fullsize - $start;
+				$response_code = 206;
+				$headers["Accept-Ranges"] = $unit;
+				$headers["Content-Range"] = $unit . " " . $start . "-" . ($fullsize-1) . "/" . $fullsize;
+			}
+		}
+		$headers["Content-Length"] = $size;
+		return Response::stream(function () use ($stream) {
+			fpassthru($stream);
+		}, $response_code, $headers);
 	}
 
 	//Pregled svih galerija
@@ -23,7 +45,7 @@ class Galerija extends Controller {
 	}
 	public function postListaFotografija(){
 		if(!Security::autentifikacijaTest(4,'min')) return Security::rediectToLogin();
-		return json_encode(['foto'=>OsnovneMetode::listaFotografija(Input::get('folder')),'video'=>OsnovneMetode::listaFotografija(Input::get('folder'),'mp4')]);
+		return json_encode(['foto'=>OsnovneMetode::listaFotografija(Input::get('folder')),'video'=>OsnovneMetode::listaFajlovaSamoIme(Input::get('folder'))]);
 	}
 	public function postUkloniFoto($slugApp){
 		if(!Security::autentifikacijaTest(2,'min'))return Security::rediectToLogin();
@@ -59,7 +81,7 @@ class Galerija extends Controller {
 		if ($success === true) {
 			$output = '[]';
 		} elseif ($success === false) {
-			$output = ['error'=>'Greška prilikom upload-a. Kontaktirajte tehničku podršku platforme.'];
+			$output = ['error'=>'GreÅ¡ka prilikom upload-a. Kontaktirajte tehni�?ku podršku platforme.'];
 			foreach ($paths as $file) {
 				unlink($file);
 			}
@@ -114,8 +136,8 @@ class Galerija extends Controller {
 	public function postGalerijaUpdate(){
 		$podaci=json_decode(Input::get('podaci'));
 		if(!Security::autentifikacijaTest(4) or Session::get('id')!=$podaci->korisnik_id or !Sadrzaji::join('nalog','nalog.id','=','sadrzaji.nalog_id')->where('nalog.korisnici_id',Session::get('id'))->where('sadrzaji.id',$podaci->galerija_id)->get(['sadrzaji.id']))
-			return json_encode(['msg'=>'Greska!!! Proverite podatke i obratite pažnju na legalnost onoga što radite.','check'=>0]);
+			return json_encode(['msg'=>'Greska!!! Proverite podatke i obratite paÅ¾nju na legalnost onoga Å¡to radite.','check'=>0]);
 		$galerija=Sadrzaji::where('id',$podaci->galerija_id)->update(['naziv'=>$podaci->naziv,'sadrzaj'=>$podaci->sadrzaj]);//find($podaci->galerija_id,['id','naziv','sadrzaj']);
-		return json_encode(['msg'=>$galerija?'Uspešno ste ažurirali galeriju fotografija.':'Desila se greška. Proverite podatke i pokušjte ponovo.','check'=>$galerija?1:0]);
+		return json_encode(['msg'=>$galerija?'UspeÅ¡no ste aÅ¾urirali galeriju fotografija.':'Desila se greÅ¡ka. Proverite podatke i pokuÅ¡jte ponovo.','check'=>$galerija?1:0]);
 	}
 }
