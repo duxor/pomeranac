@@ -9,15 +9,22 @@
 namespace App;
 
 class OsnovneMetode {
-    public static function listaFajlova($folder){
+    public static function listaFajlova($folder,$lista=null){
         $exclude = array( ".","..","error_log","_notes" );
-        $lista = scandir($folder);
-        foreach($lista as $k=>$v)
-            if(in_array($v, $exclude)) unset($lista[$k]);
+        $lista = array_diff(scandir($folder),$exclude);
+//        foreach($lista as $k=>$v)
+//            if(in_array($v, $exclude)) unset($lista[$k]);
         return $lista;
     }
     public static function listaFotografija($folder,$type='jpg,jpeg,png,gif'){
         return glob($folder.'/*.{'.$type.'}',GLOB_BRACE);
+    }
+    public static function listaFajlovaSamoIme($folder,$type='mp4'){
+        $fajlovi=glob($folder.'/*.{'.$type.'}',GLOB_BRACE);
+        foreach($fajlovi as $k=>$fajl){
+            $fajlovi[$k]=basename($fajl,'.'.$type);
+        }
+        return $fajlovi;
     }
     public static function kreirjFolder($adresa){
         if (!is_dir($adresa)) return mkdir($adresa, 0755, true);

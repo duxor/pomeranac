@@ -7,12 +7,34 @@ use App\OsnovneMetode;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Request;
 class Galerija extends Controller {
-	public function anyVideo(){
-		$video_path = '/slike/galerije/osnovni-slider/modular.mp4';
-		//$video_path = 'somedirectory/somefile.mp4';
-		$stream = new VideoStream($video_path);
-		$stream->start();
+	public function getVideo( $galerijaSlug, $nazivFajla ) {
+		$path = "slike/galerije/{$galerijaSlug}/{$nazivFajla}.mp4";
+		$contentType='mp4';
+		$fullsize = filesize($path);
+		$size = $fullsize;
+		$stream = fopen($path, "r");
+		$response_code = 200;
+		$headers = array("Content-type" => $contentType);
+		$range = Request::header('Range');
+		if($range != null) {
+			$eqPos = strpos($range, "=");
+			$toPos = strpos($range, "-");
+			$unit = substr($range, 0, $eqPos);
+			$start = intval(substr($range, $eqPos+1, $toPos));
+			$success = fseek($stream, $start);
+			if($success == 0) {
+				$size = $fullsize - $start;
+				$response_code = 206;
+				$headers["Accept-Ranges"] = $unit;
+				$headers["Content-Range"] = $unit . " " . $start . "-" . ($fullsize-1) . "/" . $fullsize;
+			}
+		}
+		$headers["Content-Length"] = $size;
+		return Response::stream(function () use ($stream) {
+			fpassthru($stream);
+		}, $response_code, $headers);
 	}
 
 	//Pregled svih galerija
@@ -23,7 +45,7 @@ class Galerija extends Controller {
 	}
 	public function postListaFotografija(){
 		if(!Security::autentifikacijaTest(4,'min')) return Security::rediectToLogin();
-		return json_encode(['foto'=>OsnovneMetode::listaFotografija(Input::get('folder')),'video'=>OsnovneMetode::listaFotografija(Input::get('folder'),'mp4')]);
+		return json_encode(['foto'=>OsnovneMetode::listaFotografija(Input::get('folder')),'video'=>OsnovneMetode::listaFajlovaSamoIme(Input::get('folder'))]);
 	}
 	public function postUkloniFoto($slugApp){
 		if(!Security::autentifikacijaTest(2,'min'))return Security::rediectToLogin();
