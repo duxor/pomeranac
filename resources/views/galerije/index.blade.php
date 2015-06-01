@@ -4,6 +4,7 @@
         <div class="list-group col-sm-4">
             <p style="text-align: right">
                 <button class="btn btn-default sakrijListu"><i class="glyphicon glyphicon-circle-arrow-left strelica"></i></button>
+                <button class="btn btn-primary" data-target="#novaGalerija" data-toggle="modal"><i class="glyphicon glyphicon-plus"></i></button>
                 <button class="btn btn-info editMod" style="margin:0 5px"><i class="glyphicon glyphicon-pencil"></i></button>
             </p>
             <div id="galerije" style="overflow-y: scroll">
@@ -161,8 +162,6 @@
     <script>
         $('._upload').click(function(){
             $('#input-700').fileinput('clear');
-
-
             $('#folder').val($(this).closest('a').data('link')+'/');
             $("#input-700").fileinput('refresh',{
                 uploadExtraData: {folder: $('#folder').val(), _token:'{{csrf_token()}}'},
@@ -170,6 +169,73 @@
                 uploadAsync: true,
                 maxFileCount: 10
             });
+        });
+    </script>
+    <div class="modal fade" id="novaGalerija">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal">&times;</button>
+                    <h2>Nova galerija</h2>
+                </div>
+                {!!Form::open(['class'=>'form-horizontal','id'=>'novaGalerijaForma'])!!}
+                <div class="modal-body">
+                    <div id="msgPoruka" class="alert"></div>
+                    <div id="dnaziv" class="form-group has-feedback">
+                        {!!Form::label('lnaziv','Naziv',['class'=>'control-label col-sm-4'])!!}
+                        <div class="col-sm-8">
+                            {!!Form::text('naziv',null,['class'=>'form-control','placeholder'=>'Naziv','id'=>'naziv'])!!}
+                            <span id="snaziv" class="glyphicon form-control-feedback"></span>
+                        </div>
+                    </div>
+                    <div id="dslug" class="form-group has-feedback">
+                        {!!Form::label('lslug','Slug',['class'=>'control-label col-sm-4'])!!}
+                        <div class="col-sm-8">
+                            {!!Form::text('slug',null,['class'=>'form-control','placeholder'=>'Slug','id'=>'slug'])!!}
+                            <span id="sslug" class="glyphicon form-control-feedback"></span>
+                        </div>
+                    </div>
+                    <div id="dopis" class="form-group has-feedback">
+                        {!!Form::label('lopis','Opis',['class'=>'control-label col-sm-4'])!!}
+                        <div class="col-sm-8">
+                            {!!Form::textarea('opis',null,['class'=>'form-control','placeholder'=>'Opis','id'=>'opis'])!!}
+                            <span id="sopis" class="glyphicon form-control-feedback"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    {!!Form::button('<i class="glyphicon glyphicon-trash"></i> Resetuj',['class'=>'btn btn-lg btn-danger','type'=>'reset'])!!}
+                    {!!Form::button('<i class="glyphicon glyphicon-floppy-disk"></i> Sačuvaj',['class'=>'btn btn-lg btn-success dodajNovuGaleriju'])!!}
+                </div>
+                {!!Form::close()!!}
+            </div>
+        </div>
+    </div>
+    <script>
+        $('.dodajNovuGaleriju').click(function(){
+            if(SubmitForm.check('novaGalerijaForma')) {
+                var slug=$('#novaGalerijaForma').find('input[name=slug]').val(),
+                    naslov=$('#novaGalerijaForma').find('input[name=naziv]').val(),
+                    opis=$('#novaGalerijaForma').find(':input[name=opis]').val();
+                $.post('/administracija/galerije/nova', {
+                    _token: $('#novaGalerijaForma').children('input[name=_token]').val(),
+                    naziv: naslov,
+                    slug: slug,
+                    opis: opis
+                },
+                function(data){
+                    var rezultat=JSON.parse(data);
+                    if(rezultat.check) {
+                        $('#novaGalerijaForma')[0].reset();
+                        $('#msgPoruka').html(rezultat.msg).removeClass('alert-success alert-danger').addClass('alert-success').fadeIn('slow');
+                        $('#galerije').append(
+                                '<a style="cursor: pointer" class="list-group-item" data-link="slike/galerije/' + slug + '" data-slug="' + slug + '"> \
+                                <h2 style="text-align: center">' + naslov + '</h2> \
+                                <p class="list-group-item-text">Učitajte stranicu ponovo da bi nova galerija bila vidljiva.</p> \
+                            </a>');
+                    }
+                });
+            }
         });
     </script>
 @endsection

@@ -97,4 +97,18 @@ class Galerija extends Controller {
 		Sadrzaj::where('slug',Input::get('slug'))->update(['sadrzaj'=>Input::get('tekst')]);
 		return'OK'.Input::get('slug').Input::get('tekst');
 	}
+	//nova galerija
+	public function postNova(){
+		if(!Security::autentifikacijaTest(4,'min'))Security::rediectToLogin();
+		if(Sadrzaj::where('slug',Input::get('slug'))->count()) return json_encode(['msg'=>'Slug već postoji u evidenciji.','check'=>0]);
+		Sadrzaj::insert([
+			'naslov'=>Input::get('naziv'),
+			'slug'=>Input::get('slug'),
+			'sadrzaj'=>Input::get('opis'),
+			'korisnici_id'=>Session::get('id'),
+			'tip_sadrzaja_id'=>5
+		]);
+		OsnovneMetode::kreirjFolder('slike/galerije/'.Input::get('slug'));
+		return json_encode(['msg'=>'Uspešno ste dodali novu galeriju.','check'=>1]);
+	}
 }
