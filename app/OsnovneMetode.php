@@ -26,13 +26,6 @@ class OsnovneMetode {
         }
         return $fajlovi;
     }
-    public static function listaFajlovaSamoIme($folder,$type='mp4'){
-        $fajlovi=glob($folder.'/*.{'.$type.'}',GLOB_BRACE);
-        foreach($fajlovi as $k=>$fajl){
-            $fajlovi[$k]=basename($fajl,'.'.$type);
-        }
-        return $fajlovi;
-    }
     public static function kreirjFolder($adresa){
         if (!is_dir($adresa)) return mkdir($adresa, 0755, true);
         return false;
