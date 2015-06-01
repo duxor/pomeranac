@@ -57,7 +57,6 @@
                             </div>
                         @endif
                         {!! Form::open(['url'=>'/log/login','class'=>'form-horizontal','id'=>'forma1']) !!}
-                        @if(isset($return_to_url)){!!Form::hidden('return_to_url',$return_to_url)!!}@endif
                         <div id="dusername" class="form-group has-feedback">
                             {!! Form::label('lusername','Username',['class'=>'control-label col-sm-2']) !!}
                             <div class="col-sm-10">

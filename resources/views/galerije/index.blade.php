@@ -8,7 +8,7 @@
             </p>
             <div id="galerije" style="overflow-y: scroll">
                 @foreach($podaci['galerije'] as $galerija)
-                    <a style="cursor: pointer" class="list-group-item" data-link="slike/galerije/{{$galerija['slug']}}">
+                    <a style="cursor: pointer" class="list-group-item" data-link="slike/galerije/{{$galerija['slug']}}" data-slug="{{$galerija['slug']}}">
                         <button class="btn btn-success _upload" data-toggle="modal" data-target="#dodajFoto" style="position: absolute;right: 5px;top: 5px"><i class="glyphicon glyphicon-cloud-upload"></i></button>
                         <h2 style="text-align: center">{{$galerija['naslov']}}</h2>
                         <p class="list-group-item-text">
@@ -76,7 +76,7 @@
                 $('._upload').fadeOut();
                 $(this).find('._upload').fadeIn();
                 $(this).addClass('active');
-                var slugApp=$(this).data('slugapp');
+                var slug=$(this).data('slug');
                 $.post('/administracija/galerije/lista-fotografija',
                         {
                             _token:'{{csrf_token()}}',
@@ -90,13 +90,13 @@
                                 check=false;
                             if(fotografije.length){
                                 for(var i=0;i<fotografije.length;i++)
-                                    foto += '<div class="col-xs-6 col-md-3"><img id="slika-'+i+'" data-slugApp="'+slugApp+'" onclick="prikazSlike(this)" class="clFoto thumbnail" src="/' + fotografije[i] + '"></div>';
+                                    foto += '<div class="col-xs-6 col-md-3"><img id="slika-'+i+'" onclick="prikazSlike(this)" class="clFoto thumbnail" src="/' + fotografije[i] + '"></div>';
                                 check=true;
                             }
                             else foto='<p>Ni fotografija ni video nije dodat u evidenciju.</p>';
                             if(video.length){
                                 for(var i=0;i<video.length;i++)
-                                    foto += '<video width="300px" height="200px" controls><source src="/'+video[i]+'" type="video/mp4"><div class="file-preview-other"><i class="glyphicon glyphicon-file"></i></div></video>';
+                                    foto += '<video width="300px" height="200px" controls><source src="/administracija/galerije/video/'+slug+'/'+video[i]+'" type="video/mp4"><div class="file-preview-other"><i class="glyphicon glyphicon-file"></i></div></video>';
                                 check=true;
                             }
                             if(!check) foto='<p>Ni fotografija ni video nije dodat u evidenciju.</p>';
