@@ -33,9 +33,10 @@
 </head>
 
 <body>
+    
     {{--navigacija START::--}}
     <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container container-fluid">
+        <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -44,7 +45,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand navbar-btn" href="/">
-                    <span class="glyphicon glyphicon-home"></span> Pomeranac
+                    <img src="/slike/logo.png" style="margin-top:-30px">
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -60,7 +61,6 @@
         </div>
     </nav>
     {{--navigacija END::--}}
-
     <div class="container">
         @yield('content')
     </div>

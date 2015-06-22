@@ -51,14 +51,14 @@ class DefaultPodaci extends Seeder{
                 'tip_sadrzaja_id' => 1
             ],
             [//3
-                'naslov' => 'Rasa Pomeranac',
+                'naslov' => 'Pomeranac',
                 'sadrzaj' => '<p>Tekst u pripremi.</p>',
                 'slug' => 'o-rasi',
                 'korisnici_id' => 1,
                 'tip_sadrzaja_id' => 1
             ],
             [//4
-                'naslov' => 'Pas Boo',
+                'naslov' => 'Boo',
                 'sadrzaj' => '<p>Tekst u pripremi.</p>',
                 'slug' => 'o-psu',
                 'korisnici_id' => 1,

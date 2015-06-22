@@ -1,8 +1,7 @@
 @extends('master')
-
 @section('title') Pomeranac @endsection
-
 @section('body')
+{{-- pocetna --}}
     <div
             class="parallax-image-wrapper parallax-image-wrapper-100"
             data-anchor-target="#pocetna + .gap"
@@ -14,15 +13,15 @@
                 style="background-image:url({!! $pozadina[1] !!})"
                 data-anchor-target="#pocetna + .gap"
                 data-bottom-top="transform: translate3d(0px, 50%, 0px);"
-                data-top-bottom="transform: translate3d(0px, 80%, 0px);"
+                data-top-bottom="transform: translate3d(0px, 30%, 0px);"
                 ></div>
     </div>
-
+{{-- o nama --}}
     <div
             class="parallax-image-wrapper parallax-image-wrapper-100"
             data-anchor-target="#o-nama + .gap"
-            data-bottom-top="transform:translate3d(0px, 200%, 0px)"
-            data-top-bottom="transform:translate3d(0px, 0%, 0px)">
+            data-bottom-top="transform:translate3d(0px, 190%, 0px)"
+            data-top-bottom="transform:translate3d(0px, 40%, 0px)">
 
         <div
                 class="parallax-image parallax-image-100"
@@ -32,25 +31,26 @@
                 data-top-bottom="transform: translate3d(0px, 80%, 0px);"
                 ></div>
     </div>
-
+{{-- rasa pomeranac --}}
     <div
-            class="parallax-image-wrapper parallax-image-wrapper-50"
+            class="parallax-image-wrapper parallax-image-wrapper-100"
             data-anchor-target="#rasa-pomeranac + .gap"
-            data-bottom-top="transform:translate3d(0px, 300%, 0px)"
+            data-bottom-top="transform:translate3d(0px, 150%, 0px)"
             data-top-bottom="transform:translate3d(0px, 0%, 0px)">
 
         <div
-                class="parallax-image parallax-image-50"
+                class="parallax-image parallax-image-100"
                 style="background-image:url({!! $pozadina[3] !!})"
                 data-anchor-target="#rasa-pomeranac + .gap"
-                data-bottom-top="transform: translate3d(0px, -60%, 0px);"
+                data-bottom-top="transform: translate3d(0px, -40%, 0px);"
                 data-top-bottom="transform: translate3d(0px, 60%, 0px);"
                 ></div>
     </div>
+{{-- pas boo --}}
     <div
             class="parallax-image-wrapper parallax-image-wrapper-100"
             data-anchor-target="#pas-boo + .gap"
-            data-bottom-top="transform:translate3d(0px, 300%, 0px)"
+            data-bottom-top="transform:translate3d(0px, 200%, 0px)"
             data-top-bottom="transform:translate3d(0px, 0%, 0px)">
 
         <div
@@ -58,9 +58,10 @@
                 style="background-image:url({!! $pozadina[4] !!})"
                 data-anchor-target="#pas-boo + .gap"
                 data-bottom-top="transform: translate3d(0px, -60%, 0px);"
-                data-top-bottom="transform: translate3d(0px, 60%, 0px);"
+                data-top-bottom="transform: translate3d(0px, 160%, 0px);"
                 ></div>
     </div>
+{{-- galerija --}}
     <div
             class="parallax-image-wrapper parallax-image-wrapper-100"
             data-anchor-target="#galerija + .gap"
@@ -75,6 +76,7 @@
                 data-top-bottom="transform: translate3d(0px, 60%, 0px);"
                 ></div>
     </div>
+{{-- kontakt --}}
     <div
             class="parallax-image-wrapper parallax-image-wrapper-50"
             data-anchor-target="#kontakt + .gap"
@@ -90,8 +92,8 @@
                 ></div>
     </div>
 
+    <div style="position:absolute;margin-top:-70px" id="top"></div>
     <div id="skrollr-body">
-
         {{--pocetna START::--}}
         <div id="pocetna">
             <div class="container">
@@ -105,7 +107,16 @@
                 <div class="col-sm-6">
                     <?php require_once'php/slideshow.php'?>
                 </div>
-                <!--<div class="okvir"></div>-->
+                <div id="scrollToTop" style="position:fixed;bottom:20px;right:20px"><button class="scroll-link btn btn-lg btn-info" data-id="top"><i class="glyphicon glyphicon-chevron-up"></i></button></div>
+    <script>
+        $(document).ready(function(){
+            $('#scrollToTop').hide();
+            $(document).scroll(function(){
+                if($(document).scrollTop()>200) $('#scrollToTop').fadeIn();
+                else $('#scrollToTop').fadeOut();
+            });
+        });
+    </script>
             </div>
 
         </div>
