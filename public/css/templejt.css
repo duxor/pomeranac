@@ -9,8 +9,8 @@
 * {
     padding:0;
     margin:0;
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-    font-size: 16px;
+    font-family: 'Trebuchet MS', sans-serif;//"Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 18px;
 }
 .okvir, .okvirSlide {
     background-color: rgba(255, 255, 255, 0.8);
@@ -40,4 +40,51 @@ body {
  }
 nav li a, p{
     font-size: 21px;
+}
+.krug{
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    font-size: 60px;
+    color:white;
+    float: left;
+    margin-right: 11px;
+    padding: 10px 0 0 37px;
+    border-color: #46b8da;
+    cursor: pointer;
+    font-weight: bold
+}
+@media (min-width:0px) and (max-width:990px){
+    .krug{width:50px;height:50px;padding: 0px 0 0 18px;font-size: 40px;line-height: 49px;}
+    .krug-gpp{padding: 0 0 0 8px;line-height: 45px;}
+    .krug-mail{padding: 0 0 0 11px;line-height: 47px;}
+}
+@media (min-width:990px) and (max-width:1200px){
+    .krug{width:70px;height: 70px;padding: 2px 0 0 25px;font-size: 50px;}
+    .krug-gpp{padding: 0 0 0 15px;}
+    .krug-mail{padding: 0 0 0 16px;}
+}
+@media (min-width:1200px){
+    .krug{width:100px;height: 100px;}
+    .krug-gpp{padding: 5px 0 0 25px;}
+    .krug-mail{padding: 5px 0 0 25px;}
+}
+
+.krug-default{background-color: #5bc0de;}
+.krug-fb{background-color: #5ba5de;}
+.krug-gpp{background-color: #ff7a7a;}
+.krug-mail{background-color: #fccb97;}
+.krug-mail:hover{background-color: #fbbd7b;}
+.krug-gpp:hover{background-color: #fc5f5f;}
+.krug-fb:hover{background-color: #459bde;}
+.krug-default:hover{background-color: #46b8da;}
+
+@media(min-width:767px) and (max-width:876px){
+    .paddingTop{padding-top: 140px}
+}
+@media(min-width:877px) and (max-width:1125px){
+    .paddingTop{padding-top: 65px}
+}
+@media(min-width:1125px){
+    .paddingTop{padding-top: 5px}
 }
