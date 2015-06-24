@@ -191,7 +191,7 @@
                     <div id="dslug" class="form-group has-feedback">
                         {!!Form::label('lslug','Slug',['class'=>'control-label col-sm-4'])!!}
                         <div class="col-sm-8">
-                            {!!Form::text('slug',null,['class'=>'form-control','placeholder'=>'Slug','id'=>'slug'])!!}
+                            {!!Form::text('slug',null,['class'=>'form-control','placeholder'=>'Slug','id'=>'slug','onkeyup'=>'slugTest(this)'])!!}
                             <span id="sslug" class="glyphicon form-control-feedback"></span>
                         </div>
                     </div>
@@ -205,9 +205,18 @@
                 </div>
                 <div class="modal-footer">
                     {!!Form::button('<i class="glyphicon glyphicon-trash"></i> Resetuj',['class'=>'btn btn-lg btn-danger','type'=>'reset'])!!}
-                    {!!Form::button('<i class="glyphicon glyphicon-floppy-disk"></i> Sačuvaj',['class'=>'btn btn-lg btn-success dodajNovuGaleriju'])!!}
+                    {!!Form::button('<i class="glyphicon glyphicon-floppy-disk"></i> Sačuvaj',['class'=>'btn btn-lg btn-success dodajNovuGaleriju','onclick'='function(){SubmitForm.check("novaGalerijaForma")}'])!!}
                 </div>
                 {!!Form::close()!!}
+                <script>
+                    function slugTest(el){
+                        $.post("/administracija/galerije/slug",
+                           {_token:'{{csrf_token()}}',
+                            slug:$(el).val()},function(data){
+                                SubmitForm.successTest(!JSON.parse(data),'slug');
+                            });
+                        }
+                </script>
             </div>
         </div>
     </div>

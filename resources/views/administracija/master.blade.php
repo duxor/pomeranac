@@ -15,18 +15,19 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>Administracija</title>
-        <link href="{{ URL::asset('css/templejt.css') }}" rel="stylesheet" >
-        <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet">
-        <link href="{{ URL::asset('css/parallax.css') }}" rel="stylesheet">
-        <link href="{{ URL::asset('css/dropzone.css') }}" rel="stylesheet">
+    {!!HTML::style('css/templejt.css')!!}
+    {!!HTML::style('css/bootstrap.min.css')!!}
+    {!!HTML::style('css/parallax.css')!!}
+    {!!HTML::style('css/dropzone.css')!!}
         <style>
         body {
           padding-top: 60px;
         }
         </style>
-    {!! HTML::style('css/fontello.css') !!}
-    {!! HTML::script('js/jquery-3.0.js') !!}
-    {!! HTML::script('tinymce/tinymce.min.js') !!}
+    {!!HTML::style('css/fontello.css')!!}
+    {!!HTML::script('js/jquery-3.0.js')!!}
+    {!!HTML::script('js/funkcije.js')!!}
+    {!!HTML::script('tinymce/tinymce.min.js')!!}
 </head>
     <body>
 

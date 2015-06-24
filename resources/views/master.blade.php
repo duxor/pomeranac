@@ -19,15 +19,15 @@
     <meta name="google-translate-customization" content="4b4d958b69d4c0b7-2ba8e64cf341c6a0-gd3bc2eb0107eaa06-10">
     <title>@yield('title')</title>
 
-    {!! HTML::style('css/bootstrap.min.css') !!}
-    {!! HTML::style('css/templejt.css') !!}
-    {!! HTML::style('css/parallax.css') !!}
-    {!! HTML::script('js/jquery-3.0.js') !!}
+    {!!HTML::style('css/bootstrap.min.css')!!}
+    {!!HTML::style('css/templejt.css')!!}
+    {!!HTML::style('css/parallax.css')!!}
+    {!!HTML::script('js/jquery-3.0.js')!!}
+    {!!HTML::script('js/funkcije.js')!!}
     @if(isset($x))
         <script>var mx="{!! $x !!}", my="{!! $y !!}";</script>
         {!! HTML::script('http://maps.googleapis.com/maps/api/js') !!}
         {!! HTML::script('js/gmap1.js') !!}
-        {!! HTML::script('js/funkcije.js') !!}
     @endif
     {!! HTML::style('css/fontello.css') !!}
 </head>

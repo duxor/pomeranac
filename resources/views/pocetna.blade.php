@@ -310,7 +310,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    {!! Form::button('<span class="glyphicon glyphicon-envelope"></span> Pošalji', ['class'=>'btn btn-lg btn-primary _tooltip', 'onClick'=>'SubmitForma.submit("kontaktForma")','title'=>'Kliknite za slanje poruke']) !!}
+                    {!! Form::button('<span class="glyphicon glyphicon-envelope"></span> Pošalji', ['class'=>'btn btn-lg btn-primary _tooltip', 'onClick'=>'SubmitForm.submit("kontaktForma")','title'=>'Kliknite za slanje poruke']) !!}
                     {!! Form::button('<span class="glyphicon glyphicon-trash"></span> Obriši sve', ['class'=>'btn btn-lg btn-danger _tooltip','type'=>'reset','title'=>'Obrišite kompletan unos']) !!}
                     {!! Form::close() !!}
                 </div>

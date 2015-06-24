@@ -52,6 +52,11 @@ class Galerija extends Controller {
 		if(!Korisnici::find(Session::get('id')))return Security::rediectToLogin();
 		return json_encode(['msg'=>(unlink(Input::get('link')))?'OK':'GRESKA']);
 	}
+	//Test
+	public function postSlug(){
+		if(!Security::autentifikacijaTest(4,'min')) return Security::rediectToLogin();
+		return json_encode(Sadrzaj::where('slug',Input::get('slug'))->exists());
+	}
 	//Upload fotografija
 	public function postUpload(){
 		if(!Security::autentifikacijaTest(2,'min')){
