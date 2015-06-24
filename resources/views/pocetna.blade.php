@@ -98,20 +98,24 @@
         <div id="pocetna">
             <div class="container paddingTop">
                 <div class="col-sm-5">
-                    <div class="jumbotron">
-                        <div class="col-sm-12">
+                    <div class="jumbotron" style="padding:10px 20px 40px 20px">
+                        <!--<div class="col-sm-12">
                             <h1>{!! $pocetnaNaslov !!}</h1>
                         </div>
                         <div class="col-sm-6">
                             {!! $pocetnaTekst !!}
                             <a href="#" class="scroll-link btn btn-lg btn-info" data-id="kontakt"><span class="glyphicon glyphicon-earphone"></span> Kontaktirajte nas</a>
-                        </div>
+                        </div>-->
+                        <h1 class="info scroll-link _tooltip" title="Pročitajte više o Pomerancu" style="font-size:200%;color:#5bc0ee;text-decoration:underline;cursor:pointer" data-id="rasa-pomeranac">Pomeranac</h1>
+                        <p>Od sada pas Boo rase Pomeranac pronašao je svoj dom u Srbiji. Odgajivačnica Kaličanin bogatija je sa novim članovima, reč je o rasi za kojom je poludela planeta...</p>
                         <br clear="all">
                     </div>
-                    <div class="krug krug-fb">f</div>
-                    <div class="krug krug-default">t</div>
-                    <div class="krug krug-gpp">g+</div>
-                    <div class="krug krug-mail">@</div>
+                    <div>
+                        <div class="krug krug-fb _tooltip" data-placement="bottom" title="Lajkujte nas na facebooku">f</div>
+                        <div class="krug krug-default _tooltip" data-placement="bottom" title="Pratite nas na twitteru">t</div>
+                        <div class="krug krug-gpp _tooltip" data-placement="bottom" title="Kontaktirajte naš google+">g+</div>
+                        <div class="krug krug-mail _tooltip" data-toggle="modal" data-placement="bottom" title="Pošaljite nam email" data-target="#posaljiMail">@</div>
+                    </div><br clear="all">
                 </div>
                 <div class="col-sm-7">
                     <div class="panel panel-default">
@@ -146,13 +150,13 @@
                         </div>
                         <p>
                             <h1>Prvi Pomeranac u Srbiji</h1>
-                            Imate čast da upoznate psa o kome se toliko priča i koji je prvi Pomeranac u Srbiji, a predstavlja izuzetno retku rasu, poreklom iz...</p>
+                            Imate čast da upoznate psa o kome se toliko priča i koji je prvi Pomeranac u Srbiji. Ova izuzetno popularna rasa, poreklom je iz...</p>
                         </div></div>
                     
                     
                     
                 </div>
-                <div id="scrollToTop" style="position:fixed;bottom:20px;right:20px"><button class="scroll-link btn btn-lg btn-info" data-id="top"><i class="glyphicon glyphicon-chevron-up"></i></button></div>
+                <div id="scrollToTop" style="position:fixed;bottom:20px;right:20px"><button class="scroll-link btn btn-lg btn-info _tooltip" data-id="top" title="Povratak na početak"><i class="glyphicon glyphicon-chevron-up"></i></button></div>
     <script>
         $(document).ready(function(){
             $('#scrollToTop').hide();
@@ -257,20 +261,11 @@
         <div class="gap gap-50"></div>
         {{--kontakt END::--}}
 
-        {{--footer START::--}}
-        <div class="content" id="done" style="height: 1px;">
-            <div class="container">
-                {{--<div class="col-sm-10">--}}
-                    {{--<p>Autor: Dušan Perišić</p>--}}
-                    {{--<a href="http://dusanperisic.com" target="_blank" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-briefcase"></span> <b><i>dusanperisic.com</i></b></a>--}}
-                {{--</div>--}}
-                {{--<div class="col-sm-2">--}}
-                    {{--<a href="{!! url('/administracija') !!}" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-cog"></span> Administracija</a>--}}
-                {{--</div>--}}
-        </div>
-        {{--footer END::--}}
+        {{--END START::--}}
+        <div class="content" id="done" style="height: 1px;"></div>
+        {{--END END::--}}
 
-    </div>
+    
 
     {{--MODAL:: posalji mail START::--}}
     <div class="modal fade" id="posaljiMail">
@@ -278,7 +273,7 @@
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <button type="button" class="close _tooltip" data-dismiss="modal" aria-hidden="true" title="Zatvorite formu za slanje" data-placement="bottom">&times;</button>
                     <h2>Kontaktirajte nas putem email-a</h2>
                 </div>
                 <div class="modal-body">
@@ -315,8 +310,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    {!! Form::button('<span class="glyphicon glyphicon-envelope"></span> Pošalji', ['class'=>'btn btn-lg btn-primary', 'onClick'=>'SubmitForma.submit("kontaktForma")']) !!}
-                    {!! Form::button('<span class="glyphicon glyphicon-trash"></span> Obriši sve', ['class'=>'btn btn-lg btn-danger', 'type'=>'reset']) !!}
+                    {!! Form::button('<span class="glyphicon glyphicon-envelope"></span> Pošalji', ['class'=>'btn btn-lg btn-primary _tooltip', 'onClick'=>'SubmitForma.submit("kontaktForma")','title'=>'Kliknite za slanje poruke']) !!}
+                    {!! Form::button('<span class="glyphicon glyphicon-trash"></span> Obriši sve', ['class'=>'btn btn-lg btn-danger _tooltip','type'=>'reset','title'=>'Obrišite kompletan unos']) !!}
                     {!! Form::close() !!}
                 </div>
             </div>

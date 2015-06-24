@@ -50,12 +50,12 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="navbar-btn"><a href="/#o-nama" class="scroll-link" data-id="o-nama"><span class="glyphicon glyphicon-user"></span> {!! $meni[1]['naslov'] !!}</a></li>
-                    <li class="navbar-btn"><a href="/#rasa-pomeranac" class="scroll-link" data-id="rasa-pomeranac"><i class="icon-guidedog" style="font-size: 20px"></i> {!! $meni[2]['naslov'] !!}</a></li>
-                    <li class="navbar-btn"><a href="/#pas-boo" class="scroll-link" data-id="pas-boo"><i class="icon-guidedog" style="font-size: 20px"></i> {!! $meni[3]['naslov'] !!}</a></li>
-                    <li class="navbar-btn"><a href="/#galerija" class="scroll-link" data-id="galerija"><span class="glyphicon glyphicon-picture"></span> {!! $meni[4]['naslov'] !!}</a></li>
-                    <li class="navbar-btn"><a href="/#kontakt" class="scroll-link" data-id="kontakt"><span class="glyphicon glyphicon-earphone"></span> {!! $meni[5]['naslov'] !!}</a></li>
-                    <li class="navbar-btn btn btn-default"><?php require_once'php/dugme-prevodioca.php'?></li>
+                    <li class="navbar-btn" title="Upoznajte naš tim" data-placement="bottom"><a href="/#o-nama" class="scroll-link" data-id="o-nama"><span class="glyphicon glyphicon-user"></span> {!! $meni[1]['naslov'] !!}</a></li>
+                    <li class="navbar-btn" title="Pročitajte odakle potiče rasa Pomeranac" data-placement="bottom"><a href="/#rasa-pomeranac" class="scroll-link" data-id="rasa-pomeranac"><i class="icon-guidedog" style="font-size: 20px"></i> {!! $meni[2]['naslov'] !!}</a></li>
+                    <li class="navbar-btn" title="Upoznajte našeg Boa" data-placement="bottom"><a href="/#pas-boo" class="scroll-link" data-id="pas-boo"><i class="icon-guidedog" style="font-size: 20px"></i> {!! $meni[3]['naslov'] !!}</a></li>
+                    <li class="navbar-btn" title="Pogledajte fotografije i video" data-placement="bottom"><a href="/#galerija" class="scroll-link" data-id="galerija"><span class="glyphicon glyphicon-picture"></span> {!! $meni[4]['naslov'] !!}</a></li>
+                    <li class="navbar-btn" title="Kontaktirajte nas i priuštite najlepšeg kućnog ljubimca" data-placement="bottom"><a href="/#kontakt" class="scroll-link" data-id="kontakt"><span class="glyphicon glyphicon-earphone"></span> {!! $meni[5]['naslov'] !!}</a></li>
+                    <li class="navbar-btn btn btn-default"><?php require_once'php/dugme-prevodioca.php'?></li><script>$(document).ready(function(){$('.navbar-btn').tooltip()})</script>
                 </ul>
             </div>
         </div>
@@ -73,14 +73,14 @@
             smoothScrolling: false,
             mobileDeceleration: 0.004
         });
+        $(document).ready(function(){$('._tooltip').tooltip()});
     </script>
     {!! HTML::script('js/bootstrap.min.js') !!}
 
     <div class="footer">
         <div class="container">
             <div class="col-sm-10">
-                <p>Autor: Dušan Perišić</p>
-                <a href="http://dusanperisic.com" target="_blank" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-briefcase"></span> <b><i>dusanperisic.com</i></b></a>
+                <a href="http://dusanperisic.com" target="_blank" class="btn btn-lg btn-primary _tooltip" title="Autor aplikacije"><span class="glyphicon glyphicon-briefcase"></span> <b><i>dusanperisic.com</i></b></a>
             </div>
             <div class="col-sm-2">
                 <a href="/administracija" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-cog"></span> Administracija</a>
