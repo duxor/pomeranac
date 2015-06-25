@@ -112,7 +112,7 @@
                     </div>
                     <div>
                         <div class="krug krug-fb _tooltip" data-placement="bottom" title="Lajkujte nas na facebooku">f</div>
-                        <div class="krug krug-default _tooltip" data-placement="bottom" title="Pratite nas na twitteru">t</div>
+                        <div class="krug krug-primary _tooltip" data-placement="bottom" title="Pratite nas na twitteru">t</div>
                         <div class="krug krug-gpp _tooltip" data-placement="bottom" title="Kontaktirajte naš google+">g+</div>
                         <div class="krug krug-mail _tooltip" data-toggle="modal" data-placement="bottom" title="Pošaljite nam email" data-target="#posaljiMail">@</div>
                     </div><br clear="all">
@@ -164,24 +164,28 @@
                 else $('#scrollToTop').fadeOut();
             });
         });
+        var skrollButton={
+            current:0,
+            plus:function(){
+                $('#scrollSledeci i').removeClass('glyphicon-chevron-up').removeClass('glyphicon-chevron-down');
+                if(this.current+1<this.slug.length){
+                    this.current=this.current+1;
+                    scrollToID('#' + this.slug[this.current], 750);
+                    if(this.current==this.slug.length-1){
+                        this.current=this.slug.length-3;
+                        $('#scrollSledeci i').addClass('glyphicon-chevron-up');
+                    }
+                    else $('#scrollSledeci i').addClass('glyphicon-chevron-down');
+                }
+            },
+            slug:['pocetna','o-nama','rasa-pomeranac','pas-boo','galerija','kontakt']
+        };
     </script>
             </div>
-
+        <div style="position:fixed;bottom:5px;width: 100%"><div id="scrollSledeci" class="krug krug-default" onclick="skrollButton.plus()"><i class="glyphicon glyphicon-chevron-down"></i></div></div>
         </div>
-        <div class="gap gap-100">
-            <!--
-            <div class="okvir col-sm-7">
-                <div class="col-sm-8">
 
-                </div>
-                <div class="col-sm-4">
-                    {!! $pocetnaNaslov !!}
-                    {!! $pocetnaTekst !!}
-                    <a href="#" class="scroll-link btn btn-info" data-id="kontakt"></a>
-                </div>
-
-            </div>-->
-        </div>
+        <div class="gap gap-100"></div>
         {{--pocetna END::--}}
 
         {{--O nama START::--}}
