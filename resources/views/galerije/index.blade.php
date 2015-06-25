@@ -157,8 +157,8 @@
         </div>
     </div>
 
-    {!! HTML::style('/dragdrop/css/fileinput.css') !!}
-    {!! HTML::script('/dragdrop/js/fileinput.min.js') !!}
+    {!!HTML::style('/dragdrop/css/fileinput.css')!!}
+    {!!HTML::script('/dragdrop/js/fileinput.min.js')!!}
     <script>
         $('._upload').click(function(){
             $('#input-700').fileinput('clear');
@@ -205,7 +205,7 @@
                 </div>
                 <div class="modal-footer">
                     {!!Form::button('<i class="glyphicon glyphicon-trash"></i> Resetuj',['class'=>'btn btn-lg btn-danger','type'=>'reset'])!!}
-                    {!!Form::button('<i class="glyphicon glyphicon-floppy-disk"></i> Sačuvaj',['class'=>'btn btn-lg btn-success dodajNovuGaleriju','onclick'='function(){SubmitForm.check("novaGalerijaForma")}'])!!}
+                    {!!Form::button('<i class="glyphicon glyphicon-floppy-disk"></i> Sačuvaj',['class'=>'btn btn-lg btn-success dodajNovuGaleriju','onclick'=>'function(){SubmitForm.check("novaGalerijaForma")}'])!!}
                 </div>
                 {!!Form::close()!!}
                 <script>

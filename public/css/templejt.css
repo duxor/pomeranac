@@ -55,7 +55,7 @@ nav li a, p{
     font-weight: bold
 }
 
-.krug-default{background-color: rgba(238,238,238,0.8); color: #5bc0de; padding: 0px 0px 0px 26px; line-height: 68px; margin:0 auto;  float: inherit;}
+.krug-default{background-color: rgba(238,238,238,0.8); color: #5bc0de; padding: 0px 0px 0px 26px; line-height: 50px; margin:0 auto; float: inherit;}
 .krug-primary{background-color: #5bc0de;}
 .krug-fb{background-color: #5ba5de;}
 .krug-gpp{background-color: #ff7a7a;}
@@ -93,4 +93,19 @@ nav li a, p{
 }
 @media(min-width:1125px){
     .paddingTop{padding-top: 5px}
+}
+
+/* scrollbar */
+::-webkit-scrollbar
+{
+  width: 0px;  /* vertikalni scrollBar */
+  height: 0px; /* horizontalni scrollBar */
+}
+::-webkit-scrollbar-track
+{
+  background: rgba(0, 0, 0, 0.1);
+}
+::-webkit-scrollbar-thumb
+{
+  background: rgba(0, 0, 0, 0.5);
 }

@@ -99,13 +99,6 @@
             <div class="container paddingTop">
                 <div class="col-sm-5">
                     <div class="jumbotron" style="padding:10px 20px 40px 20px">
-                        <!--<div class="col-sm-12">
-                            <h1>{!! $pocetnaNaslov !!}</h1>
-                        </div>
-                        <div class="col-sm-6">
-                            {!! $pocetnaTekst !!}
-                            <a href="#" class="scroll-link btn btn-lg btn-info" data-id="kontakt"><span class="glyphicon glyphicon-earphone"></span> Kontaktirajte nas</a>
-                        </div>-->
                         <h1 class="info scroll-link _tooltip" title="Pročitajte više o Pomerancu" style="font-size:200%;color:#5bc0ee;text-decoration:underline;cursor:pointer" data-id="rasa-pomeranac">Pomeranac</h1>
                         <p>Od sada pas Boo rase Pomeranac pronašao je svoj dom u Srbiji. Odgajivačnica Kaličanin bogatija je sa novim članovima, reč je o rasi za kojom je poludela planeta...</p>
                         <br clear="all">
@@ -155,34 +148,24 @@
                     
                     
                 </div>
-                <div id="scrollToTop" style="position:fixed;bottom:20px;right:20px"><button class="scroll-link btn btn-lg btn-info _tooltip" data-id="top" title="Povratak na početak"><i class="glyphicon glyphicon-chevron-up"></i></button></div>
+                <div id="scrollToTop" style="position:fixed;bottom:20px;right:20px;z-index:999"><div class="scroll-link krug krug-default _tooltip" data-id="top" title="Povratak na početak"><i class="glyphicon glyphicon-chevron-up"></i></div></div>
     <script>
         $(document).ready(function(){
             $('#scrollToTop').hide();
             $(document).scroll(function(){
-                if($(document).scrollTop()>200) $('#scrollToTop').fadeIn();
-                else $('#scrollToTop').fadeOut();
+                if($(document).scrollTop()>200){
+                    $('#scrollToTop').fadeIn();
+                    $('#scrollSledeci').fadeOut();
+                }
+                else{
+                    $('#scrollToTop').fadeOut();
+                    $('#scrollSledeci').fadeIn();
+                }
             });
         });
-        var skrollButton={
-            current:0,
-            plus:function(){
-                $('#scrollSledeci i').removeClass('glyphicon-chevron-up').removeClass('glyphicon-chevron-down');
-                if(this.current+1<this.slug.length){
-                    this.current=this.current+1;
-                    scrollToID('#' + this.slug[this.current], 750);
-                    if(this.current==this.slug.length-1){
-                        this.current=this.slug.length-3;
-                        $('#scrollSledeci i').addClass('glyphicon-chevron-up');
-                    }
-                    else $('#scrollSledeci i').addClass('glyphicon-chevron-down');
-                }
-            },
-            slug:['pocetna','o-nama','rasa-pomeranac','pas-boo','galerija','kontakt']
-        };
     </script>
             </div>
-        <div style="position:fixed;bottom:5px;width: 100%"><div id="scrollSledeci" class="krug krug-default" onclick="skrollButton.plus()"><i class="glyphicon glyphicon-chevron-down"></i></div></div>
+        <div style="position:fixed;bottom:5px;width: 100%;"><div id="scrollSledeci" class="scroll-link krug krug-default _tooltip" title="Sledeća stranica" data-id="o-nama"><i class="glyphicon glyphicon-chevron-down"></i></div></div>
         </div>
 
         <div class="gap gap-100"></div>
@@ -190,7 +173,7 @@
 
         {{--O nama START::--}}
         <div class="content" id="o-nama">
-            <div class="container">
+            <div class="container" style="height:100%;overflow:scroll">
                 <h1>{!! $oNamaNaslov !!}</h1>
                 {!! $oNamaTekst !!}
             </div>
@@ -198,29 +181,29 @@
         <div class="gap gap-100"></div>
         {{--O nama END::--}}
 
-        {{--Rasa pomeranac START::--}}
+        {{--Pomeranac START::--}}
         <div class="content content-full" id="rasa-pomeranac">
-            <div class="container">
+            <div class="container" style="height:100%;overflow:scroll">
                 <h1>{!! $rasaPomeranacNaslov !!}</h1>
                 {!! $rasaPomeranacTekst !!}
             </div>
         </div>
         <div class="gap gap-50"></div>
-        {{--Rasa pomeranac END::--}}
+        {{--Pomeranac END::--}}
 
-        {{--pas Boo START::--}}
+        {{--Boo START::--}}
         <div class="content" id="pas-boo">
-            <div class="container">
+            <div class="container" style="height:100%;overflow:scroll">
                 <h1>{!! $pasBooNaslov !!}</h1>
                 {!! $pasBooTekst !!}
             </div>
         </div>
         <div class="gap gap-100"></div>
-        {{--pas Boo END::--}}
+        {{--Boo END::--}}
 
         {{--galerija START::--}}
         <div class="content content-full" id="galerija">
-            <div class="container">
+            <div class="container" style="height:100%;overflow:scroll">
                 <h1>{!! $galerijaNaslov !!}</h1>
                 {!! $galerijaTekst !!}
                 @if($galerije)
@@ -250,7 +233,7 @@
 
         {{--kontakt START::--}}
         <div class="content" id="kontakt">
-            <div class="container" style="padding-top: 40px">
+            <div class="container"  style="padding-top: 40px">
                 <div class="col-sm-4">
                     <h1>{!! $kontaktNaslov !!}</h1>
                     {!! $kontaktTekst !!}
