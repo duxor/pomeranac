@@ -216,7 +216,7 @@ var Komunikacija = {
  ###                noFullScreenBtnTtl  - naslov dugmeta za nastavak bez moda punog ekrana
  ### ------------------------------------------------------------------
 #*/ 
-window.onload = function(){ fullScreen.showModal(); }
+//window.onload = function(){ fullScreen.showModal(); }
 var fullScreen ={
     title:'Najbolji ugođaj',
     content:'<p>Za najbolji ugođaj omogućili smo pregled web sajta u režimu punog ekrana. Za izlaz iz istog pritisnite dugme esc na Vašoj tastaturi.</p>',

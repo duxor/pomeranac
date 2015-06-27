@@ -1,6 +1,7 @@
 @extends('master')
 @section('title') Pomeranac @endsection
 @section('body')
+<script>window.onload = function(){ fullScreen.showModal(); }</script>
 {{-- pocetna --}}
     <div
             class="parallax-image-wrapper parallax-image-wrapper-100"
