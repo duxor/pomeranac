@@ -4,8 +4,16 @@
 @section('content')</br></br>
     <div class="col-sm-3">
 
+                    <li style="list-style-type:none; " class="dropdown">
+                          <a style="text-decoration:none;" id="pocetna"  href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Početna <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                              <li id="pocetna1" role="presentation"><a onclick="getPosalji('pocetna1')"><span class="glyphicon glyphicon-home">  </span> Pomeranac</a></li>
+                              <li id="pocetna2" role="presentation"><a onclick="getPosalji('pocetna2')"><span class="glyphicon glyphicon-user"> </span> Prvi Pomeranac u Srbiji</a></li>
+                          </ul>
+                      </li>
+
         <ul class="nav nav-pills nav-stacked">
-            <li id="pocetna" role="presentation"><a href="#" onclick="getPosalji('pocetna')">Početna</a></li>
+           {{--<li id="pocetna1" role="presentation"><a href="#" onclick="getPosalji('pocetna')">Početna<span class="caret"></span></a></li>--}} 
             <li id="o-nama" role="presentation"><a href="#" onclick="getPosalji('o-nama')">O nama</a></li>
             <li id="o-rasi" role="presentation"><a href="#" onclick="getPosalji('o-rasi')">O rasi</a></li>
             <li id="o-psu" role="presentation"><a href="#" onclick="getPosalji('o-psu')">O psu</a></li>
