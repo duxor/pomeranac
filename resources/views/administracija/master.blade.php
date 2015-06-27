@@ -48,22 +48,15 @@
                 @if(\App\Security::autentifikacijaTest(4,'min'))
                   <ul class="nav navbar-nav navbar-right">
 
-					<li><a href="/admin/sadrzaji"><span class="glyphicon glyphicon-off"></span> Sadržaji</a></li>
+
 
                       <li><a class="navbar-brand" href="/administracija"><span class="glyphicon glyphicon-home"></span></a></li>
 
-                      <li class="dropdown @yield('tekstovi')">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-text-size"></span>ekstovi <span class="caret"></span></a>
-                          <ul class="dropdown-menu">
-                              <li class="@yield('pocetna')"><a href="/administracija/sadrzaj/pocetna"><span class="glyphicon glyphicon-home"></span> Početna</a></li>
-                              <li class="@yield('o-nama')"><a href="/administracija/sadrzaj/o-nama"><span class="glyphicon glyphicon-user"></span> O nama</a></li>
-                              <li class="@yield('o-rasi')"><a href="/administracija/sadrzaj/o-rasi"><i class="icon-guidedog"></i> O rasi</a></li>
-                              <li class="@yield('o-psu')"><a href="/administracija/sadrzaj/o-psu"><i class="icon-guidedog"></i> O psu</a></li>
-                              <li class="@yield('kontakt')"><a href="/administracija/sadrzaj/kontakt"><span class="glyphicon glyphicon-earphone"></span> Kontakt</a></li>
-                          </ul>
+                      <li class="dropdown @yield('tekstovi')"><a href="/admin/sadrzaji" ><span class="glyphicon glyphicon-text-size"></span>ekstovi</a>
                       </li>
                       <li class="@yield('galerija')"><a href="/administracija/galerije"><span class="glyphicon glyphicon-picture"></span> Galerije</a></li>
                       <li><a href="#"><span class="glyphicon glyphicon-stats"></span> Analitika</a></li>
+                      <li class="@yield('kontakt')"><a href="/administracija/sadrzaj/kontakt"><span class="glyphicon glyphicon-earphone"></span> Kontakt</a></li>
                       <li><a href="/logout"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
                   </ul>
                 @endif

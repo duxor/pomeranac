@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Input;
 
 class Content extends Controller{
 	public function getIndex(){
-		$sadrzaj = Sadrzaj::where('slug','=','pocetna')->get(['id','naslov','slug','sadrzaj'])->first()->toArray();
+		$sadrzaj = Sadrzaj::where('slug','=','pocetna')->get(['id','naslov','slug','sadrzaj'])->first();
 		return Security::autentifikacija('administracija.sadrzaj',compact('sadrzaj'));
 
 	}
