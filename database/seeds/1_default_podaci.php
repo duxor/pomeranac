@@ -105,6 +105,28 @@ class DefaultPodaci extends Seeder{
                 'slug' => 'osnovni-slider',
                 'korisnici_id' => 1,
                 'tip_sadrzaja_id' => 5
+            ],
+            /////////////////
+            [
+                'naslov' => 'Facebook stranica',
+                'sadrzaj' => 'http://facebook.com',
+                'slug' => 'facebook',
+                'korisnici_id' => 1,
+                'tip_sadrzaja_id' => 3
+            ],
+            [
+                'naslov' => 'Twitter nalog',
+                'sadrzaj' => 'http://twitter.com',
+                'slug' => 'twitter',
+                'korisnici_id' => 1,
+                'tip_sadrzaja_id' => 3
+            ],
+            [
+                'naslov' => 'Google+ nalog',
+                'sadrzaj' => 'http://google.com',
+                'slug' => 'google',
+                'korisnici_id' => 1,
+                'tip_sadrzaja_id' => 3
             ]
         ]);
     }

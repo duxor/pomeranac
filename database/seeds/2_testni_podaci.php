@@ -10,21 +10,24 @@ class TestniPodaci extends Seeder {
                 'sadrzaj' => 'Testni tekst. Testni tekst. Testni tekst. Testni tekst. Testni tekst. Testni tekst. Testni tekst. Testni tekst. Testni tekst. Testni tekst. Testni tekst. Testni tekst. ',
                 'slug' => 'test-g-1',
                 'korisnici_id' => 1,
-                'tip_sadrzaja_id' => 5
+                'tip_sadrzaja_id' => 5,
+                'aktivan'=>1
             ],
             [
                 'naslov' => 'Test galerija 2',
                 'sadrzaj' => 'Testni tekst. Testni tekst. Testni tekst. Testni tekst. Testni tekst. Testni tekst. Testni tekst. Testni tekst. Testni tekst. Testni tekst. ',
                 'slug' => 'test-g-2',
                 'korisnici_id' => 1,
-                'tip_sadrzaja_id' => 5
+                'tip_sadrzaja_id' => 5,
+                'aktivan'=>1
             ],
             [
                 'naslov' => 'Test galerija 3',
                 'sadrzaj' => 'Testni tekst. Testni tekst. Testni tekst. Testni tekst. Testni tekst. Testni tekst. Testni tekst. Testni tekst. ',
                 'slug' => 'test-g-3',
                 'korisnici_id' => 1,
-                'tip_sadrzaja_id' => 5
+                'tip_sadrzaja_id' => 5,
+                'aktivan'=>1
             ]
         ];
         DB::table('sadrzaj')->insert($sadrzaji);

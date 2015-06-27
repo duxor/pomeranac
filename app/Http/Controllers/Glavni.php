@@ -13,10 +13,13 @@ class Glavni extends Controller {
 		$oNama = Sadrzaj::all(['slug', 'naslov', 'sadrzaj'])->where('slug','o-nama')->first();
 		$oRasi = Sadrzaj::all(['slug', 'naslov', 'sadrzaj'])->where('slug','o-rasi')->first();
 		$oPsu = Sadrzaj::all(['slug', 'naslov', 'sadrzaj'])->where('slug','o-psu')->first();
-		$galerija = Sadrzaj::all(['slug', 'naslov', 'sadrzaj'])->where('slug','galerija')->first();
+		$galerija = Sadrzaj::where('slug','galerija')->get(['slug', 'naslov', 'sadrzaj'])->first();
 
-		$galerije = Sadrzaj::where('aktivan','=',1)->where('tip_sadrzaja_id','=',5)->where('slug','<>','osnovni-slider')->orderBy('id','desc')->take(2)->get(['slug','naslov','sadrzaj'])->toArray();
-		for($i=0;$i<(sizeof($galerije)>2?2:sizeof($galerije));$i++) $galerije[$i]['foto'] = OsnovneMetode::listaFotografija('slike/galerije/'.$galerije[$i]['slug'])? OsnovneMetode::listaFotografija('slike/galerije/'.$galerije[$i]['slug'])[0]:null;
+		$galerije = Sadrzaj::where('aktivan','=',1)->where('tip_sadrzaja_id','=',5)->where('slug','<>','osnovni-slider')->orderBy('id','desc')->take(3)->get(['slug','naslov','sadrzaj'])->toArray();
+		for($i=0;$i<sizeof($galerije);$i++){
+            $foto=OsnovneMetode::listaFotografija('slike/galerije/'.$galerije[$i]['slug']);
+            $galerije[$i]['foto'] = sizeof($foto)?$foto[rand(0,sizeof($foto)-1)]:null;
+        }
 
 		$kontakt = Sadrzaj::all(['slug', 'naslov', 'sadrzaj'])->where('slug','kontakt')->first();
 		$x = Sadrzaj::all(['slug', 'sadrzaj'])->where('slug','x-koordinata')->first()->sadrzaj;
@@ -45,7 +48,8 @@ class Glavni extends Controller {
 			'x' => $x,
 			'y' => $y,
 			'sliderIMGs' => ['indikatori' => $sliderIMGsIndikatori, 'foto' => $sliderIMGsFoto],
-			'galerije' => $galerije
+			'galerije' => $galerije,
+            'drustveneMreze'=>Sadrzaj::where('tip_sadrzaja_id',3)->take(3)->get(['naslov','slug','sadrzaj'])->toArray()
 		]);
 	}
 	public function getGalerije(){

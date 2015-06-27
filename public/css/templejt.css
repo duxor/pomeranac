@@ -52,8 +52,10 @@ nav li a, p{
     padding: 10px 0 0 37px;
     border-color: #46b8da;
     cursor: pointer;
-    font-weight: bold
+    font-weight: bold;
 }
+a.krug:link,a.krug:visited,a.krug:hover,a.krug:active{text-decoration: none;color:#fff}
+
 
 .krug-default{background-color: rgba(238,238,238,0.8); color: #5bc0de; padding: 0px 0px 0px 26px; line-height: 50px; margin:0 auto; float: inherit;}
 .krug-primary{background-color: #5bc0de;}
