@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="form-group">
-            {!! Form::button('<span class="glyphicon glyphicon-envelope"></span> Pošalji',['id'=>'salji', 'class'=>'btn btn-lg btn-primary','onclick'=>'Komunikacija.posalji("/admin/sadrzaji/sadrzaj",\'zaSlanje\',\'poruka\',\'wait\',\'hgf\')' ]) !!}  
+            {!! Form::button('<span class="glyphicon glyphicon-envelope"></span> Pošalji',['id'=>'salji', 'class'=>'btn btn-lg btn-primary','onclick'=>'Komunikacija.posalji("/admin/sadrzaji/sadrzaj",\'zaSlanje\',\'poruka\',\'wait\',\'asd\')' ]) !!}  
             </div>
         </div>
     </div>
@@ -42,42 +42,33 @@
 $(document).ready(function() { 
     setActive('pocetna');
     getPosalji('pocetna');
-
    $('textarea.tinymce').tinymce({ 
       script_url : 'tinymce/jquery.tinymce.min.js',  
       theme : "modern",
       plugins: [
-                "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+                "autosave advlist autolink lists link image charmap print preview hr anchor pagebreak",
                 "searchreplace wordcount visualblocks visualchars code fullscreen",
                 "insertdatetime media nonbreaking save table contextmenu directionality",
                 "emoticons template paste textcolor colorpicker textpattern"
             ],
-
         toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
             toolbar2: "print preview media | forecolor backcolor emoticons",
             image_advtab: true,
             templates: [
                 {title: 'Test template 1', content: 'Test 1'},
                 {title: 'Test template 2', content: 'Test 2'}
-            ]
-                        
+            ]                        
    });
-
    $('#salji').click(function() {
     $('textarea:tinymce').tinymce().save();
-
 });
 
 });  
-
-
- 
 
    function setActive(ID){
             $('.active').removeClass('active');
             $('#'+ID).addClass('active');
         }
-
     function getPosalji(val){
         setActive(val);
             $('#zaSlanje').hide();
