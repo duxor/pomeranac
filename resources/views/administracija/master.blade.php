@@ -25,9 +25,11 @@
         }
         </style>
     {!!HTML::style('css/fontello.css')!!}
+    {!!HTML::style('css/animation.css')!!}
     {!!HTML::script('js/jquery-3.0.js')!!}
     {!!HTML::script('js/funkcije.js')!!}
     {!!HTML::script('tinymce/tinymce.min.js')!!}
+    {!!HTML::script('tinymce/jquery.tinymce.min.js')!!}
 </head>
     <body>
 
@@ -45,6 +47,7 @@
             <div id="navbar" class="collapse navbar-collapse">
                 @if(\App\Security::autentifikacijaTest(4,'min'))
                   <ul class="nav navbar-nav navbar-right">
+					<li><a href="/admin/sadrzaji"><span class="glyphicon glyphicon-off"></span> Sadržaji</a></li>
                       <li class="dropdown @yield('tekstovi')">
                           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-text-size"></span>ekstovi <span class="caret"></span></a>
                           <ul class="dropdown-menu">
