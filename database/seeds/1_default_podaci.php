@@ -37,41 +37,48 @@ class DefaultPodaci extends Seeder{
         ]);
         Sadrzaj::insert([
             [//1
-                'naslov' => 'Početna',
-                'sadrzaj' => '<p>Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. </p><p>Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. </p>',
-                'slug' => 'pocetna',
+                'naslov' => 'Pomeranac',
+                'sadrzaj' => '<p>Od sada pas Boo rase Pomeranac pronašao je svoj dom u Srbiji. Odgajivačnica Kaličanin bogatija je sa novim članovima, reč je o rasi za kojom je poludela planeta...(<u><b>vrlo kratak tekst</b></u> koji govori o uzgajivačnici)</p>',
+                'slug' => 'pocetna1',
                 'korisnici_id' => 1,
                 'tip_sadrzaja_id' => 1
             ],
             [//2
+                'naslov' => 'Prvi Pomeranac u Srbiji',
+                'sadrzaj' => '<p>Imate čast da upoznate psa o kome se toliko priča i koji je prvi Pomeranac u Srbiji. Ova izuzetno popularna rasa, poreklom je iz...</p>',
+                'slug' => 'pocetna2',
+                'korisnici_id' => 1,
+                'tip_sadrzaja_id' => 1
+            ],
+            [//3
                 'naslov' => 'O nama',
                 'sadrzaj' => '<p>Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. </p><p>Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. </p>',
                 'slug' => 'o-nama',
                 'korisnici_id' => 1,
                 'tip_sadrzaja_id' => 1
             ],
-            [//3
+            [//4
                 'naslov' => 'Pomeranac',
                 'sadrzaj' => '<p>Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. </p><p>Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. </p>',
                 'slug' => 'o-rasi',
                 'korisnici_id' => 1,
                 'tip_sadrzaja_id' => 1
             ],
-            [//4
+            [//5
                 'naslov' => 'Boo',
                 'sadrzaj' => '<p>Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. </p><p>Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. </p>',
                 'slug' => 'o-psu',
                 'korisnici_id' => 1,
                 'tip_sadrzaja_id' => 1
             ],
-            [//5
+            [//6
                 'naslov' => 'Galerija',
                 'sadrzaj' => '<p>Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. </p><p>Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. Tekst u pripremi. </p>',
                 'slug' => 'galerija',
                 'korisnici_id' => 1,
                 'tip_sadrzaja_id' => 1
             ],
-            [//6
+            [//7
                 'naslov' => 'Kontakt',
                 'sadrzaj' => '<p>Tekst u pripremi.</p>',
                 'slug' => 'kontakt',
