@@ -42,12 +42,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="/administracija/"><span class="glyphicon glyphicon-home"></span> Pomeranac</a>
+              <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-home"></span> Pomeranac</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 @if(\App\Security::autentifikacijaTest(4,'min'))
                   <ul class="nav navbar-nav navbar-right">
+
 					<li><a href="/admin/sadrzaji"><span class="glyphicon glyphicon-off"></span> Sadržaji</a></li>
+
+                      <li><a class="navbar-brand" href="/administracija"><span class="glyphicon glyphicon-home"></span></a></li>
+
                       <li class="dropdown @yield('tekstovi')">
                           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-text-size"></span>ekstovi <span class="caret"></span></a>
                           <ul class="dropdown-menu">

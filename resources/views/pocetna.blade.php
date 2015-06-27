@@ -99,50 +99,45 @@
             <div class="container paddingTop">
                 <div class="col-sm-5">
                     <div class="jumbotron" style="padding:10px 20px 40px 20px">
-                        <h1 class="info scroll-link _tooltip" title="Pročitajte više o Pomerancu" style="font-size:200%;color:#5bc0ee;text-decoration:underline;cursor:pointer" data-id="rasa-pomeranac">Pomeranac</h1>
-                        <p>Od sada pas Boo rase Pomeranac pronašao je svoj dom u Srbiji. Odgajivačnica Kaličanin bogatija je sa novim članovima, reč je o rasi za kojom je poludela planeta...</p>
-                        <br clear="all">
+                        <h1 class="info scroll-link _tooltip" title="Pročitajte više o Pomerancu" style="font-size:200%;color:#5bc0ee;text-decoration:underline;cursor:pointer" data-id="rasa-pomeranac">{!!$pocetna[0]['naslov']!!}</h1>
+                        {!!$pocetna[0]['sadrzaj']!!}
                     </div>
-                    <div>
-                        <div class="krug krug-fb _tooltip" data-placement="bottom" title="Lajkujte nas na facebooku">f</div>
-                        <div class="krug krug-primary _tooltip" data-placement="bottom" title="Pratite nas na twitteru">t</div>
-                        <div class="krug krug-gpp _tooltip" data-placement="bottom" title="Kontaktirajte naš google+">g+</div>
+                    <div style="margin-top:-20px">
+                        <a href="{{$drustveneMreze[0]['sadrzaj']}}" class="krug krug-fb _tooltip" data-placement="bottom" title="Lajkujte nas na facebooku">f</a>
+                        <a href="{{$drustveneMreze[1]['sadrzaj']}}" class="krug krug-primary _tooltip" data-placement="bottom" title="Pratite nas na twitteru">t</a>
+                        <a href="{{$drustveneMreze[2]['sadrzaj']}}" class="krug krug-gpp _tooltip" data-placement="bottom" title="Kontaktirajte naš google+">g+</a>
                         <div class="krug krug-mail _tooltip" data-toggle="modal" data-placement="bottom" title="Pošaljite nam email" data-target="#posaljiMail">@</div>
                     </div><br clear="all">
                 </div>
                 <div class="col-sm-7">
                     <div class="panel panel-default">
                     <div class="panel-body">
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                          <!-- Indicators -->
-                          <ol class="carousel-indicators">
-                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                          </ol>
+                        <div id="slajderFoto" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                {!!$sliderIMGs['indikatori']!!}
+                            </ol>
 
                           <!-- Wrapper for slides -->
                           <div class="carousel-inner" role="listbox">
-                            <div class="item active">
-                              <img src="/slike/galerije/osnovni-slider/1.jpg" alt="...">
-                            </div>
-                            <div class="item">
-                              <img src="/slike/galerije/osnovni-slider/2.jpg" alt="...">
-                            </div>
+                            <!--<div class="item active"><img src="/slike/galerije/osnovni-slider/1.jpg" alt="..."></div>
+                            <div class="item"><img src="/slike/galerije/osnovni-slider/2.jpg" alt="..."></div> -->
+                              {!!$sliderIMGs['foto']!!}
                           </div>
 
                           <!-- Controls -->
-                          <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                          <a class="left carousel-control" href="#slajderFoto" role="button" data-slide="prev">
                             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
                           </a>
-                          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                          <a class="right carousel-control" href="#slajderFoto" role="button" data-slide="next">
                             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                             <span class="sr-only">Next</span>
                           </a>
                         </div>
-                        <p>
-                            <h1>Prvi Pomeranac u Srbiji</h1>
-                            Imate čast da upoznate psa o kome se toliko priča i koji je prvi Pomeranac u Srbiji. Ova izuzetno popularna rasa, poreklom je iz...</p>
+                        
+                            <h1>{!!$pocetna[1]['naslov']!!}</h1>
+                            {!!$pocetna[1]['sadrzaj']!!}
                         </div></div>
                     
                     
@@ -204,29 +199,51 @@
         {{--galerija START::--}}
         <div class="content content-full" id="galerija">
             <div class="container" style="height:100%;overflow:scroll">
-                <h1>{!! $galerijaNaslov !!}</h1>
-                {!! $galerijaTekst !!}
-                @if($galerije)
-                <div class="row">
-                    @foreach($galerije as $g)
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img src="{{$g['foto']}}" data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
-                            <div class="caption">
-                                <h1>{{$g['naslov']}}</h1>
-                                <p>{{$g['sadrzaj']}}</p>
-                                <a href="/galerija/{{$g['slug']}}" type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-picture"></span> Pregled</a>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                    <a href="/galerije" class="btn btn-lg btn-primary">Prikaži sve</a>
+                <h1>{!!$galerijaNaslov!!}</h1>
+                <div class="col-sm-7">
+                    {!!$galerijaTekst!!}
                 </div>
-                @else
-                    <p>Ni jedna galerija nije unesena.</p>
-                @endif
+                <div class="col-sm-5">
+                    @if($galerije)
+                        @foreach($galerije as $g)
+                        <div class="col-sm-6 galerijaFoto" style="padding:0 1px 1px 0;marginr:0px" onmouseover="fotoEfect.showTitle(this)" onmouseout="fotoEfect.showTitle(this)">
+                            <img src="{{$g['foto']}}" style="height:100%;width:100%">
+                            <a href="#" class="naslov" onmouseout="fotoEfect.showTitle(this)" style="display:none;position:absolute;top:0px;left:0px;background-color:rgba(0,216,255,0.8);width:100%;height:100%;color:#fff"><p style="padding:5px;position:absolute;bottom:0px;left:0px">{{$g['naslov']}}</p></a>
+                        </div>
+                        @endforeach
+                        <div class="col-sm-6 galerijaFoto" style="padding:0 1px 0 0;marginr:0px;">
+                            <img src="{{$galerije[0]['foto']}}" style="height:100%;width:100%">
+                            <a href="#" class="naslov" style="position:absolute;top:0px;left:0px;background-color:rgba(0,216,255,0.8);width:100%;height:100%;color:#fff"><p style="padding:5px;position:absolute;bottom:0px;left:0px">Sve galerije</p></a>
+                        </div>
+                    @else
+                        <p style="margin-top:100px">Ni jedna galerija nije unesena.</p>
+                    @endif
+                </div>
             </div>
-
+            <script>
+                var fotoEfect = {
+                    fotoClass:'naslov',
+                    animationUpSpeed:100,
+                    animationDownSpeed:this.animationUpSpeed,
+                    showTitle:function(el){
+                        if($(el).is(':hover')){
+                            if($(el).children('.'+this.fotoClass).length)
+                                if(!$(el).children('.'+this.fotoClass).is(':visible'))
+                                    $(el).children('.'+this.fotoClass).stop().slideDown(this.animationDownSpeed);
+                            else 
+                                if(!$(el).is(':visible'))
+                                    $(el).stop().slideDown(this.animationDownSpeed);
+                        }else{
+                            if($(el).children('.'+this.fotoClass).length)
+                                if($(el).children('.'+this.fotoClass).is(':hover')) return;
+                                else $(el).children('.'+this.fotoClass).stop().slideUp(this.animationUpSpeed);
+                            else
+                                if($(el).is(':hover')) return;
+                                else $(el).stop().slideUp(this.animationUpSpeed);
+                        }
+                    }
+                }
+            </script>
         </div>
         <div class="gap gap-100"></div>
         {{--galerija END::--}}

@@ -48,9 +48,9 @@ class Galerija extends Controller {
 		return json_encode(['foto'=>OsnovneMetode::listaFotografija(Input::get('folder')),'video'=>OsnovneMetode::listaFajlovaSamoIme(Input::get('folder'))]);
 	}
 	public function postUkloniFoto(){
-		if(!Security::autentifikacijaTest(2,'min'))return Security::rediectToLogin();
+		if(!Security::autentifikacijaTest(4,'min'))return Security::rediectToLogin();
 		if(!Korisnici::find(Session::get('id')))return Security::rediectToLogin();
-		return json_encode(['msg'=>(unlink(Input::get('link')))?'OK':'GRESKA']);
+		return json_encode(['msg'=>(unlink(urldecode(Input::get('link'))))?'OK':'GRESKA']);
 	}
 	//Test
 	public function postSlug(){

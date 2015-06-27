@@ -59,7 +59,7 @@ public function getTest(){
             return Redirect::back();
         }
         return Security::rediectToLogin();
-    }
+    }/*
     public function getGalerije()
     {
         $galerije = Sadrzaj::where('tip_sadrzaja_id','=',5)->get(['naslov','slug','sadrzaj','aktivan'])->toArray();
@@ -108,11 +108,11 @@ public function getTest(){
     }
     public function postUkloniSliku(){
         if(Security::autentifikacijaTest()){
-            unlink(Input::get('slika'));
-            return Redirect::back();
+            $test=unlink(Input::get('slika'));
+            return ['msg'=>$test?'Uspešno ste uklonili fotografiju.':'Desila se greška, pokušajte ponovo. Ukoliko se problem bude ponovio kontaktirajte administratora.','check'=>$test?1:0];
         }
         return Security::rediectToLogin();
-    }
+    }*/
     public function getRefresh(){
         return Redirect::back();
     }

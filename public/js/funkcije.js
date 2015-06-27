@@ -199,3 +199,43 @@ var Komunikacija = {
         });
     }
 }
+
+/*#
+ ### Autor: Dusan Perisci
+ ### Home: dusanperisic.com
+ ###
+ ### Napomena: 	Klasa je pisana kao podrška kontrole fullscreen opcije
+ ###            za različite tipove browser-a.
+ ### ------------------------------------------------------------------
+ ### Primjer:
+#*/ 
+window.onload = function () {
+    fullScreen.showModal();
+}
+var fullScreen ={
+    title:'Najbolji ugođaj',
+    content:'<p>Za najbolji ugođaj omogućili smo pregled web sajta u režimu punog ekrana. Za izlaz iz istog pritisnite dugme esc na Vašoj tastaturi.</p>',
+    fullScreenBtnTtl:'Režim punog ekrana',
+    noFullScreenBtnTtl:'Nastavak u browser modu',
+    showModal:function(){
+        $('body').append('<div id="fullScreenModal" class="modal fade" style="background-color:rgba(0,0,0,0.8)"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button class="close" data-dismiss="modal">&times;</button><h2>'+this.title+'</h2></div><div class="modal-body">'+this.content+'<p><button class="btn btn-lg btn-primary" onclick="fullScreen.toggle()">'+this.fullScreenBtnTtl+'</button><button class="btn btn-lg btn-default" data-dismiss="modal">'+this.noFullScreenBtnTtl+'</button></p></div></div></div>');
+        $('#fullScreenModal').modal('show');
+    },
+    toggle:function(){
+        if ((document.fullScreenElement && document.fullScreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) 
+            if (document.documentElement.requestFullScreen)  
+                document.documentElement.requestFullScreen();  
+            else    if (document.documentElement.mozRequestFullScreen) 
+                        document.documentElement.mozRequestFullScreen();  
+                    else    if (document.documentElement.webkitRequestFullScreen) 
+                                document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);  
+                             else   if (document.cancelFullScreen)  
+                                        document.cancelFullScreen();  
+                                    else    if (document.mozCancelFullScreen)   
+                                                document.mozCancelFullScreen();  
+                                            else    if (document.webkitCancelFullScreen)  
+                                                    document.webkitCancelFullScreen();  
+        $('#fullScreenModal').modal('hide');
+    }
+  
+}

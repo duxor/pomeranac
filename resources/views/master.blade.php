@@ -33,7 +33,6 @@
 </head>
 
 <body>
-    
     {{--navigacija START::--}}
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -50,11 +49,11 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="navbar-btn" title="Upoznajte naš tim" data-placement="bottom"><a href="/#o-nama" class="scroll-link" data-id="o-nama"><span class="glyphicon glyphicon-user"></span> {!! $meni[1]['naslov'] !!}</a></li>
-                    <li class="navbar-btn" title="Pročitajte odakle potiče rasa Pomeranac" data-placement="bottom"><a href="/#rasa-pomeranac" class="scroll-link" data-id="rasa-pomeranac"><i class="icon-guidedog" style="font-size: 20px"></i> {!! $meni[2]['naslov'] !!}</a></li>
-                    <li class="navbar-btn" title="Upoznajte našeg Boa" data-placement="bottom"><a href="/#pas-boo" class="scroll-link" data-id="pas-boo"><i class="icon-guidedog" style="font-size: 20px"></i> {!! $meni[3]['naslov'] !!}</a></li>
-                    <li class="navbar-btn" title="Pogledajte fotografije i video" data-placement="bottom"><a href="/#galerija" class="scroll-link" data-id="galerija"><span class="glyphicon glyphicon-picture"></span> {!! $meni[4]['naslov'] !!}</a></li>
-                    <li class="navbar-btn" title="Kontaktirajte nas i priuštite najlepšeg kućnog ljubimca" data-placement="bottom"><a href="/#kontakt" class="scroll-link" data-id="kontakt"><span class="glyphicon glyphicon-earphone"></span> {!! $meni[5]['naslov'] !!}</a></li>
+                    <li class="navbar-btn" title="Upoznajte naš tim" data-placement="bottom"><a href="/#o-nama" class="scroll-link" data-id="o-nama"><span class="glyphicon glyphicon-user"></span> {!! $meni[0]['naslov'] !!}</a></li>
+                    <li class="navbar-btn" title="Pročitajte odakle potiče rasa Pomeranac" data-placement="bottom"><a href="/#rasa-pomeranac" class="scroll-link" data-id="rasa-pomeranac"><i class="icon-guidedog" style="font-size: 20px"></i> {!! $meni[1]['naslov'] !!}</a></li>
+                    <li class="navbar-btn" title="Upoznajte našeg Boa" data-placement="bottom"><a href="/#pas-boo" class="scroll-link" data-id="pas-boo"><i class="icon-guidedog" style="font-size: 20px"></i> {!! $meni[2]['naslov'] !!}</a></li>
+                    <li class="navbar-btn" title="Pogledajte fotografije i video" data-placement="bottom"><a href="/#galerija" class="scroll-link" data-id="galerija"><span class="glyphicon glyphicon-picture"></span> {!! $meni[3]['naslov'] !!}</a></li>
+                    <li class="navbar-btn" title="Kontaktirajte nas i obezbedite najlepšeg kućnog ljubimca" data-placement="bottom"><a href="/#kontakt" class="scroll-link" data-id="kontakt"><span class="glyphicon glyphicon-earphone"></span> {!! $meni[4]['naslov'] !!}</a></li>
                     <li class="navbar-btn btn btn-default"><?php require_once'php/dugme-prevodioca.php'?></li><script>$(document).ready(function(){$('.navbar-btn').tooltip()})</script>
                 </ul>
             </div>
@@ -87,6 +86,6 @@
             </div>
         </div>
     </div>
-
+    
 </body>
 </html>
