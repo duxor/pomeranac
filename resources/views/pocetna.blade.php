@@ -208,12 +208,14 @@
                         @foreach($galerije as $g)
                         <div class="col-sm-6 galerijaFoto" style="padding:0 1px 1px 0;marginr:0px" onmouseover="fotoEfect.showTitle(this)" onmouseout="fotoEfect.showTitle(this)">
                             <img src="{{$g['foto']}}" style="height:100%;width:100%">
-                            <a href="#" class="naslov" onmouseout="fotoEfect.showTitle(this)" style="display:none;position:absolute;top:0px;left:0px;background-color:rgba(0,216,255,0.8);width:100%;height:100%;color:#fff"><p style="padding:5px;position:absolute;bottom:0px;left:0px">{{$g['naslov']}}</p></a>
+                            <div onclick="duXorModal.show(this)" class="naslov" data-slug="{{$g['slug']}}" onmouseout="fotoEfect.showTitle(this)">
+                                <p>{{$g['naslov']}}</p>
+                            </div>
                         </div>
                         @endforeach
                         <div class="col-sm-6 galerijaFoto" style="padding:0 1px 0 0;marginr:0px;">
                             <img src="{{$galerije[0]['foto']}}" style="height:100%;width:100%">
-                            <a href="#" class="naslov" style="position:absolute;top:0px;left:0px;background-color:rgba(0,216,255,0.8);width:100%;height:100%;color:#fff"><p style="padding:5px;position:absolute;bottom:0px;left:0px">Sve galerije</p></a>
+                            <div onclick="duXorModal.show(this)" class="naslov" style="display:block"><p>Sve galerije</p></div>
                         </div>
                     @else
                         <p style="margin-top:100px">Ni jedna galerija nije unesena.</p>

@@ -86,6 +86,6 @@
             </div>
         </div>
     </div>
-    
+    {!!Form::hidden('_token',csrf_token(),['id'=>'_token'])!!}
 </body>
 </html>

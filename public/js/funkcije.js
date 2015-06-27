@@ -207,18 +207,23 @@ var Komunikacija = {
  ### Napomena: 	Klasa je pisana kao podrška kontrole fullscreen opcije
  ###            za različite tipove browser-a.
  ### ------------------------------------------------------------------
- ### Primjer:
+ ### Uputstvo:
+ ###            Sve što je potrebno uraditi je dodati: window.onload = function(){ fullScreen.showModal(); }
+ ###            u sastav JavaScript koda. Podaci koji mogu da mijenjaju su promjenjive:
+ ###                title               - naslov modal prozora sa pitanjem korisnika za izbor punog ekrana (u nastavku modal)
+ ###                content             - sadržaj modala, objašnjenje korisniku
+ ###                fullScreenBtnTtl    - naslov dugmeta za puni ekran
+ ###                noFullScreenBtnTtl  - naslov dugmeta za nastavak bez moda punog ekrana
+ ### ------------------------------------------------------------------
 #*/ 
-window.onload = function () {
-    fullScreen.showModal();
-}
+window.onload = function(){ fullScreen.showModal(); }
 var fullScreen ={
     title:'Najbolji ugođaj',
     content:'<p>Za najbolji ugođaj omogućili smo pregled web sajta u režimu punog ekrana. Za izlaz iz istog pritisnite dugme esc na Vašoj tastaturi.</p>',
     fullScreenBtnTtl:'Režim punog ekrana',
     noFullScreenBtnTtl:'Nastavak u browser modu',
     showModal:function(){
-        $('body').append('<div id="fullScreenModal" class="modal fade" style="background-color:rgba(0,0,0,0.8)"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button class="close" data-dismiss="modal">&times;</button><h2>'+this.title+'</h2></div><div class="modal-body">'+this.content+'<p><button class="btn btn-lg btn-primary" onclick="fullScreen.toggle()">'+this.fullScreenBtnTtl+'</button><button class="btn btn-lg btn-default" data-dismiss="modal">'+this.noFullScreenBtnTtl+'</button></p></div></div></div>');
+        $('body').append('<div id="fullScreenModal" class="modal fade" style="background-color:rgba(0,0,0,0.8)"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button class="close" data-dismiss="modal">&times;</button><h2>'+this.title+'</h2></div><div class="modal-body">'+this.content+'<p><button class="btn btn-lg btn-primary" onclick="fullScreen.toggle()"><i class="glyphicon glyphicon-fullscreen"></i> '+this.fullScreenBtnTtl+'</button><button class="btn btn-lg btn-default" data-dismiss="modal">'+this.noFullScreenBtnTtl+'</button></p></div></div></div></div>');
         $('#fullScreenModal').modal('show');
     },
     toggle:function(){
@@ -238,4 +243,43 @@ var fullScreen ={
         $('#fullScreenModal').modal('hide');
     }
   
+}
+//#MODAL
+var duXorModal ={
+    isInBody:false,
+    animateSpeed:400,
+    show:function(el){
+        $('body').append('<div id="duXorModal">'+
+                                '<div class="duXorModal-body">'+
+                                    '<button style="position:fixed;top:0px;right:0px;z-index:999" class="btn btn-xs btn-danger" onclick="duXorModal.hide()"><svg height="50" width="50"><line x1="0" y1="0" x2="50" y2="50" style="stroke:#fff;stroke-width:10" />  <line x1="0" y1="50" x2="50" y2="0" style="stroke:#fff;stroke-width:10" />Izvinjavamo se, Vaš browser ne podržava SVG.</svg></button>'+
+                                    '<div class="col-sm-3">'+
+                                        '<h2 style="padding-top:50px">'+
+                                            $(el).children('p').html()+
+                                        '</h2>'+
+                                        '<div class="text"></div>'+
+                                    '</div>'+
+                                '</div>'+
+                             '</div>');
+        this.isInBody=true;
+        $.post('/galerija',{_token:$('#_token').val(),slug:$(el).data('slug')},function(data){
+            var podaci = JSON.parse(data), indikatori = '', fotoHtml = '';console.log(podaci,podaci.foto.length);
+            for(var i=0; i<podaci.foto.length; i++){
+                indikatori += '<li data-target="#galerijaSlajderFoto" data-slide-to="'+i+'"'+(i==0?'class="active"':'')+'></li>';
+                fotoHtml += '<div class="item '+(i==0?'active':'')+'"><img style="width:100%" src="/'+podaci.foto[i]+'" alt="Pomeranac fotografija '+i+'"></div>';
+            }
+            $('#duXorModal').find('.text').html(podaci.text);console.log(indikatori,fotoHtml);
+            $('#duXorModal').children('.duXorModal-body').append('<div class="col-sm-9"><div id="galerijaSlajderFoto" class="carousel slide" data-ride="carousel"><ol class="carousel-indicators">'+indikatori+'</ol><div class="carousel-inner" role="listbox">'+fotoHtml+'</div><a class="left carousel-control" href="#galerijaSlajderFoto" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#galerijaSlajderFoto" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a></div></div>');
+            $('#galerijaSlajderFoto').carousel()
+            $('#duXorModal').slideDown();
+        });
+    },
+    hide:function(){
+        $('#duXorModal').slideUp(this.animateSpeed,function(){
+            $('#duXorModal').remove();
+        });
+        this.isInBody=false
+    },
+    disableScroll:function(){
+        event.preventDefault();
+    }
 }

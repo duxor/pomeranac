@@ -56,7 +56,6 @@ nav li a, p{
 }
 a.krug:link,a.krug:visited,a.krug:hover,a.krug:active{text-decoration: none;color:#fff}
 
-
 .krug-default{background-color: rgba(238,238,238,0.8); color: #5bc0de; padding: 0px 0px 0px 26px; line-height: 50px; margin:0 auto; float: inherit;}
 .krug-primary{background-color: #5bc0de;}
 .krug-fb{background-color: #5ba5de;}
@@ -110,4 +109,34 @@ a.krug:link,a.krug:visited,a.krug:hover,a.krug:active{text-decoration: none;colo
 ::-webkit-scrollbar-thumb
 {
   background: rgba(0, 0, 0, 0.5);
+}
+/*galerije*/
+.naslov{
+    display:none;
+    position:absolute;
+    top:0px;
+    left:0px;
+    background-color:rgba(0,216,255,0.8);
+    width:100%;
+    height:100%;
+    color:#fff;
+    cursor: pointer
+}
+.naslov p{
+    padding:5px;
+    position:absolute;
+    bottom:0px;
+    left:0px
+}
+/*duXorModal*/
+#duXorModal{
+    display:none;
+    position:fixed;
+    width:100%;
+    height:100%;
+    background-color:rgba(255,255,255,1);
+    top:0px;
+    left:0px;
+    z-index:9999;
+    overflow:scroll
 }

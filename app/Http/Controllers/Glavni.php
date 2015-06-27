@@ -3,6 +3,7 @@
 use App\OsnovneMetode;
 use App\Sadrzaj;
 use App\TextEditor as text;
+use Illuminate\Support\Facades\Input;
 
 class Glavni extends Controller {
 
@@ -15,7 +16,7 @@ class Glavni extends Controller {
 		$oPsu = Sadrzaj::all(['slug', 'naslov', 'sadrzaj'])->where('slug','o-psu')->first();
 		$galerija = Sadrzaj::where('slug','galerija')->get(['slug', 'naslov', 'sadrzaj'])->first();
 
-		$galerije = Sadrzaj::where('aktivan','=',1)->where('tip_sadrzaja_id','=',5)->where('slug','<>','osnovni-slider')->orderBy('id','desc')->take(3)->get(['slug','naslov','sadrzaj'])->toArray();
+		$galerije = Sadrzaj::where('aktivan','=',1)->where('tip_sadrzaja_id','=',5)->where('slug','<>','osnovni-slider')->orderBy('id','desc')->take(3)->get(['slug','naslov'])->toArray();
 		for($i=0;$i<sizeof($galerije);$i++){
             $foto=OsnovneMetode::listaFotografija('slike/galerije/'.$galerije[$i]['slug']);
             $galerije[$i]['foto'] = sizeof($foto)?$foto[rand(0,sizeof($foto)-1)]:null;
@@ -52,8 +53,8 @@ class Glavni extends Controller {
             'drustveneMreze'=>Sadrzaj::where('tip_sadrzaja_id',3)->take(3)->get(['naslov','slug','sadrzaj'])->toArray()
 		]);
 	}
-	public function getGalerije(){
-		$meni = $meni = Sadrzaj::get(['naslov'])->take(6)->toArray();
+	/*public function getGalerije(){
+		$meni = Sadrzaj::get(['naslov'])->take(6)->toArray();
 		$galerije = Sadrzaj::where('aktivan','=',1)->where('tip_sadrzaja_id','=',5)->where('slug','<>','osnovni-slider')->orderBy('id','desc')->get(['slug','naslov','sadrzaj'])->toArray();
 		for($i=0;$i<sizeof($galerije);$i++) $galerije[$i]['foto'] = OsnovneMetode::listaFotografija('slike/galerije/'.$galerije[$i]['slug'])? OsnovneMetode::listaFotografija('slike/galerije/'.$galerije[$i]['slug'])[0]:null;
 		$txt = Sadrzaj::where('slug','=','galerija')->get(['sadrzaj','naslov'])->first()->toArray();
@@ -64,7 +65,10 @@ class Glavni extends Controller {
 		$galerija = Sadrzaj::where('slug','=',$slug)->get(['naslov','slug','sadrzaj'])->first()->toArray();
 		$galerija['foto'] = OsnovneMetode::listaFotografija("slike/galerije/{$slug}");
 		return view('galerije.galerija',compact('meni','galerija'));
-	}
-	
+	}*/
+	public function postGalerija(){
+        return json_encode(['foto'=>OsnovneMetode::listaFotografija('slike/galerije/'.Input::get('slug')),
+                            'text'=>Sadrzaj::where('slug',Input::get('slug'))->get(['sadrzaj'])->first()->sadrzaj]);
+    }
 
 }
