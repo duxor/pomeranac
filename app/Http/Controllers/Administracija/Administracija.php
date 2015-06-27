@@ -35,12 +35,16 @@ public function getTest(){
     public function getSadrzaj($slug)
     {
         $sadrzaj = Sadrzaj::where('slug','=',$slug)->get(['id','naslov','slug','sadrzaj'])->first()->toArray();
-        if($slug=='kontakt') {
-            $sadrzaj['x'] = Sadrzaj::where('slug','=','x-koordinata')->get(['sadrzaj'])->first()->sadrzaj;
-            $sadrzaj['y'] = Sadrzaj::where('slug','=','y-koordinata')->get(['sadrzaj'])->first()->sadrzaj;
-        }
         return Security::autentifikacija('administracija.sadrzaji', compact('sadrzaj'));
     }
+    public function getKontakt()
+    {
+        $sadrzaj = Sadrzaj::where('slug','=','kontakt')->get(['id','naslov','slug','sadrzaj'])->first()->toArray();
+            $sadrzaj['x'] = Sadrzaj::where('slug','=','x-koordinata')->get(['sadrzaj'])->first()->sadrzaj;
+            $sadrzaj['y'] = Sadrzaj::where('slug','=','y-koordinata')->get(['sadrzaj'])->first()->sadrzaj;
+        return Security::autentifikacija('administracija.sadrzaji', compact('sadrzaj'));
+    }
+
     public function postSadrzaj()
     {
         if(Security::autentifikacijaTest()){

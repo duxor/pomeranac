@@ -19,11 +19,14 @@
     {!!HTML::style('css/bootstrap.min.css')!!}
     {!!HTML::style('css/parallax.css')!!}
     {!!HTML::style('css/dropzone.css')!!}
+    {!!HTML::style('css/gmaps-picker.css')!!}
         <style>
         body {
           padding-top: 60px;
         }
         </style>
+    {!!HTML::script('http://maps.googleapis.com/maps/api/js?sensor=false')!!}
+    {!!HTML::script('js/gmaps-picker.js')!!}
     {!!HTML::style('css/fontello.css')!!}
     {!!HTML::style('css/animation.css')!!}
     {!!HTML::script('js/jquery-3.0.js')!!}
@@ -56,7 +59,7 @@
                       </li>
                       <li class="@yield('galerija')"><a href="/administracija/galerije"><span class="glyphicon glyphicon-picture"></span> Galerije</a></li>
                       <li><a href="#"><span class="glyphicon glyphicon-stats"></span> Analitika</a></li>
-                      <li class="@yield('kontakt')"><a href="/administracija/sadrzaj/kontakt"><span class="glyphicon glyphicon-earphone"></span> Kontakt</a></li>
+                      <li class="@yield('kontakt')"><a href="/administracija/kontakt"><span class="glyphicon glyphicon-earphone"></span> Kontakt</a></li>
                       <li><a href="/logout"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
                   </ul>
                 @endif

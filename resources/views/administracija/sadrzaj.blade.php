@@ -48,8 +48,8 @@
 
 <script>
 $(document).ready(function() { 
-    setActive('pocetna');
-    getPosalji('pocetna');
+    setActive('pocetna1');
+    getPosalji('pocetna1');
    $('textarea.tinymce').tinymce({ 
       script_url : 'tinymce/jquery.tinymce.min.js',  
       theme : "modern",
