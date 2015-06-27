@@ -1,4 +1,4 @@
-var myCenter=new google.maps.LatLng(mx, my);
+var myCenter=new google.maps.LatLng(my, mx);
 var marker;
 
 function initialize()
@@ -8,7 +8,7 @@ function initialize()
         navigationControl: false,
         mapTypeControl: false,
         scaleControl: false,
-        draggable: false,
+        draggable: true,
 
         center:myCenter,
         zoom:15,
