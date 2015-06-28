@@ -30,6 +30,7 @@
         {!! HTML::script('js/gmap1.js') !!}
     @endif
     {!! HTML::style('css/fontello.css') !!}
+    {!!HTML::style('css/animation.css')!!}
 </head>
 
 <body>

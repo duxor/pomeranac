@@ -183,7 +183,7 @@
         {{--Boo END::--}}
 
         {{--galerija START::--}}
-        <div class="content content-full" id="galerija">
+        <div class="content content-full" id="galerija"><i class="icon-spin6 animate-spin" style="rgba(0,0,0,0);font-size:1px"></i>
             <div class="container" style="height:100%;overflow:scroll">
                 <h1>{!!$galerijaNaslov!!}</h1>
                 <div class="col-sm-7">

@@ -202,11 +202,13 @@ var Komunikacija = {
 }
 
 /*#
+ ### Name: FullScreenMode
  ### Autor: Dusan Perisci
  ### Home: dusanperisic.com
  ###
  ### Napomena: 	Klasa je pisana kao podrška kontrole fullscreen opcije
- ###            za različite tipove browser-a.
+ ###            za različite tipove browser-a. A koristi se za upit 
+ ###            korisnika i prelaz u fullscreen mod.
  ### ------------------------------------------------------------------
  ### Uputstvo:
  ###            Sve što je potrebno uraditi je dodati: window.onload = function(){ fullScreen.showModal(); }
@@ -217,7 +219,6 @@ var Komunikacija = {
  ###                noFullScreenBtnTtl  - naslov dugmeta za nastavak bez moda punog ekrana
  ### ------------------------------------------------------------------
 #*/ 
-//window.onload = function(){ fullScreen.showModal(); }
 var fullScreen ={
     title:'Najbolji ugođaj',
     content:'<p>Za najbolji ugođaj omogućili smo pregled web sajta u režimu punog ekrana. Za izlaz iz istog pritisnite dugme esc na Vašoj tastaturi.</p>',
@@ -245,13 +246,36 @@ var fullScreen ={
     }
   
 }
-//#MODAL
+/*#
+ ### Name: duXorModal
+ ### Autor: Dusan Perisci
+ ### Home: dusanperisic.com
+ ###
+ ### Napomena: 	Klasa je pisana kao podrška kontrole modal opcije
+ ###            pri čemu je korištem post metoda za pribavljanje 
+ ###            podataka.
+ ###            Ukoliko je to potrebno na vrlo jednostavan način moguće
+ ###            urediti funkciju za rad u lokalu. Prema osnovnoj zamisli
+ ###            potrebno je izvršiti uređivanje rasporeda podataka na modalu.
+ ### ------------------------------------------------------------------
+ ### Uputstvo:
+ ###            Sve što je potrebno uraditi je dodati: window.onload = function(){ fullScreen.showModal(); }
+ ###            u sastav JavaScript koda. Podaci koji mogu da mijenjaju su promjenjive:
+ ###                targetURL           - URL za prenos post metodom
+ ###                isInBody            - prikazuje da li se modal nalazi u dokumentu
+ ###                animateSpeed        - brzina animacija [fadeIn, fadeOut]
+ ### ------------------------------------------------------------------
+#*/ 
 var duXorModal ={
+    targetURL:'/galerija',
     isInBody:false,
     animateSpeed:400,
     show:function(el){
         $('body').append('<div id="duXorModal">'+
-                                '<div class="duXorModal-body">'+
+                                '<div id="wait" style="margin-top:100px">'+
+                                    '<center><i class="icon-spin6 animate-spin" style="font-size: 350%;color:#000"></i></center>'+
+                                '</div>'+
+                                '<div id="duXorModal-body">'+
                                     '<button style="position:fixed;top:0px;right:0px;z-index:999" class="btn btn-xs btn-danger" onclick="duXorModal.hide()"><svg height="50" width="50"><line x1="0" y1="0" x2="50" y2="50" style="stroke:#fff;stroke-width:10" />  <line x1="0" y1="50" x2="50" y2="0" style="stroke:#fff;stroke-width:10" />Izvinjavamo se, Vaš browser ne podržava SVG.</svg></button>'+
                                     '<div class="col-sm-3">'+
                                         '<h2 style="padding-top:50px">'+
@@ -261,17 +285,35 @@ var duXorModal ={
                                     '</div>'+
                                 '</div>'+
                              '</div>');
+        $('#duXorModal-body').hide();
+        $('#duXorModal').slideDown();
         this.isInBody=true;
-        $.post('/galerija',{_token:$('#_token').val(),slug:$(el).data('slug')},function(data){
-            var podaci = JSON.parse(data), indikatori = '', fotoHtml = '';console.log(podaci,podaci.foto.length);
-            for(var i=0; i<podaci.foto.length; i++){
-                indikatori += '<li data-target="#galerijaSlajderFoto" data-slide-to="'+i+'"'+(i==0?'class="active"':'')+'></li>';
-                fotoHtml += '<div class="item '+(i==0?'active':'')+'"><img style="width:100%" src="/'+podaci.foto[i]+'" alt="Pomeranac fotografija '+i+'"></div>';
-            }
-            $('#duXorModal').find('.text').html(podaci.text);console.log(indikatori,fotoHtml);
-            $('#duXorModal').children('.duXorModal-body').append('<div class="col-sm-9"><div id="galerijaSlajderFoto" class="carousel slide" data-ride="carousel"><ol class="carousel-indicators">'+indikatori+'</ol><div class="carousel-inner" role="listbox">'+fotoHtml+'</div><a class="left carousel-control" href="#galerijaSlajderFoto" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#galerijaSlajderFoto" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a></div></div>');
-            $('#galerijaSlajderFoto').carousel()
-            $('#duXorModal').slideDown();
+        $.post(duXorModal.targetURL,
+               {
+                    _token:$('#_token').val(),
+                    slug:$(el).data('slug')
+               },function(data){
+                    var podaci = JSON.parse(data), 
+///#########
+//########## Uređenje rasporeda rezultujućih podataka 
+//########## START::
+//##########        
+                        indikatori = '', 
+                        fotoHtml = '';
+                    for(var i=0; i<podaci.foto.length; i++){
+                        indikatori += '<li data-target="#galerijaSlajderFoto" data-slide-to="'+i+'"'+(i==0?'class="active"':'')+'></li>';
+                        fotoHtml += '<div class="item '+(i==0?'active':'')+'"><img style="width:100%" src="/'+podaci.foto[i]+'" alt="Pomeranac fotografija '+i+'"></div>';
+                    }
+                    $('#duXorModal').find('.text').html(podaci.text);
+                    $('#duXorModal').children('#duXorModal-body').append('<div class="col-sm-9"><div id="galerijaSlajderFoto" class="carousel slide" data-ride="carousel"><ol class="carousel-indicators">'+indikatori+'</ol><div class="carousel-inner" role="listbox">'+fotoHtml+'</div><a class="left carousel-control" href="#galerijaSlajderFoto" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#galerijaSlajderFoto" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a></div></div>');
+                    $('#galerijaSlajderFoto').carousel()
+                    
+///#########
+//########## ::END
+//########## Uređenje rasporeda rezultujućih podataka 
+//##########
+                    $('#wait').hide();
+                    $('#duXorModal-body').fadeIn(duXorModal.animateSpeed);
         });
     },
     hide:function(){
@@ -285,7 +327,23 @@ var duXorModal ={
     }
 }
 
-//NAVIGARE
+/*#
+ ### Name: navigare
+ ### Autor: Dusan Perisci
+ ### Home: dusanperisic.com
+ ###
+ ### Napomena: 	
+ ### ------------------------------------------------------------------
+ ### Uputstvo:
+ ###            Sve što je potrebno uraditi je dodati: window.onload = function(){ fullScreen.showModal(); }
+ ###            u sastav JavaScript koda. Podaci koji mogu da mijenjaju su promjenjive:
+ ###                currentPage         - 
+ ###                topScrollHeight     - 
+ ###                fadeAnimationSpeed  - 
+ ###                scrollSpeed         - 
+ ###                pageIds             - 
+ ### ------------------------------------------------------------------
+#*/ 
 $(document).ready(function(){
     navigare.start()
 });
