@@ -4,13 +4,13 @@
 @section('content')</br></br>
     <div class="col-sm-3">
 
-                    <li style="list-style-type:none; " class="dropdown">
-                          <a style="text-decoration:none;" id="pocetna"  href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Početna <span class="caret"></span></a>
-                          <ul class="dropdown-menu">
-                              <li id="pocetna1" role="presentation"><a onclick="getPosalji('pocetna1')"><span class="glyphicon glyphicon-home">  </span> Pomeranac</a></li>
-                              <li id="pocetna2" role="presentation"><a onclick="getPosalji('pocetna2')"><span class="glyphicon glyphicon-user"> </span> Prvi Pomeranac u Srbiji</a></li>
-                          </ul>
-                      </li>
+        <li style="list-style-type:none; margin-left:15px; " class="dropdown">
+          <a style="text-decoration:none;" id="pocetna"  href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Početna <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+              <li id="pocetna1" role="presentation"><a onclick="getPosalji('pocetna1')"><i class="icon-guidedog">  </i> Pomeranac</a></li>
+              <li id="pocetna2" role="presentation"><a onclick="getPosalji('pocetna2')"><span class="glyphicon glyphicon-user"> </span> Prvi Pomeranac u Srbiji</a></li>
+          </ul>
+        </li>
 
         <ul class="nav nav-pills nav-stacked">
            {{--<li id="pocetna1" role="presentation"><a href="#" onclick="getPosalji('pocetna')">PoÄ�etna<span class="caret"></span></a></li>--}} 
@@ -41,15 +41,18 @@
                 </div>
             </div>
             <div class="form-group">
-            {!! Form::button('<span class="glyphicon glyphicon-envelope"></span> PoÅ¡alji',['id'=>'salji', 'class'=>'btn btn-lg btn-primary','onclick'=>'Komunikacija.posalji("/admin/sadrzaji/sadrzaj",\'zaSlanje\',\'poruka\',\'wait\',\'asd\')' ]) !!}  
+            {!! Form::button('<span class="glyphicon glyphicon-envelope"></span> Pošalji',['id'=>'salji', 'class'=>'btn btn-lg btn-primary','onclick'=>'Komunikacija.posalji("/admin/sadrzaji/sadrzaj",\'zaSlanje\',\'poruka\',\'wait\',\'asd\')' ]) !!}  
             </div>
         </div>
     </div>
 
 <script>
-$(document).ready(function() { 
-    setActive('pocetna1');
+$(window).load(function() {
+setActive('pocetna1');
     getPosalji('pocetna1');
+});
+$(document).ready(function() { 
+    
    $('textarea.tinymce').tinymce({ 
       script_url : 'tinymce/jquery.tinymce.min.js',  
       theme : "modern",
@@ -67,6 +70,8 @@ $(document).ready(function() {
                 {title: 'Test template 2', content: 'Test 2'}
             ]                        
    });
+    
+
    $('#salji').click(function() {
     $('textarea:tinymce').tinymce().save();
 });
@@ -81,7 +86,7 @@ $(document).ready(function() {
         setActive(val);
             $('#zaSlanje').hide();
             $('#wait').show();   
-            
+            $('#slug').val(val);
             $.post('/admin/sadrzaji/area',{
                     _token:'{{csrf_token()}}' ,
                     tip:val        
@@ -93,7 +98,7 @@ $(document).ready(function() {
              );
             $('#wait').hide();
             $('#zaSlanje').fadeIn();
-            $('#slug').val(val);
+            
     }
 </script>
 
