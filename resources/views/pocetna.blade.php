@@ -249,7 +249,9 @@
                     <h2>Kontaktirajte nas putem email-a</h2>
                 </div>
                 <div class="modal-body">
-                    {!! Form::open(['url'=>'/posalji-email','class'=>'form-horizontal','id'=>'kontaktForma']) !!}
+                    <div id="poruka" style="display: none"></div>
+                    <div id="wait" style="display:none"><center><i class='icon-spin6 animate-spin' style="font-size: 350%"></i></center></div>
+                    {!! Form::open(['class'=>'form-horizontal','id'=>'kontaktForma']) !!}
                     <div id="dk_ime" class="form-group has-feedback">
                         {!! Form::label('lime','Ime',['class'=>'control-label col-sm-2']) !!}
                         <div class="col-sm-10">
@@ -282,9 +284,15 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    {!! Form::button('<span class="glyphicon glyphicon-envelope"></span> Pošalji', ['class'=>'btn btn-lg btn-primary _tooltip', 'onClick'=>'SubmitForm.submit("kontaktForma")','title'=>'Kliknite za slanje poruke']) !!}
+                    {!! Form::button('<span class="glyphicon glyphicon-envelope"></span> Pošalji', ['class'=>'btn btn-lg btn-primary _tooltip', 'onClick'=>'posaljiEmailKontakt()','title'=>'Kliknite za slanje poruke']) !!}
                     {!! Form::button('<span class="glyphicon glyphicon-trash"></span> Obriši sve', ['class'=>'btn btn-lg btn-danger _tooltip','type'=>'reset','title'=>'Obrišite kompletan unos']) !!}
                     {!! Form::close() !!}
+                    <script>
+                        function posaljiEmailKontakt(){
+                            if(!SubmitForm.check('kontaktForma')){ alert('Popunite sve podatke i pokušajte ponovo.'); return; }
+                            Komunikacija.posalji('/posalji-mail','kontaktForma','poruka','wait','kontaktForma');
+                        }
+                    </script>
                 </div>
             </div>
         </div>
