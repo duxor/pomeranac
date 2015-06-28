@@ -34,6 +34,8 @@ class CreateDatabaseTables extends Migration {
             $table->string('password', 100);
             $table->string('token', 255)->nullable();
             $table->boolean('online')->default(false);
+            $table->string('adresa',255)->nullable();
+            $table->string('grad',50)->nullable();
             $table->tinyInteger('aktivan')->default(1);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->nullable();
