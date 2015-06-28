@@ -6,6 +6,6 @@ class Korisnici extends Model {
 
 	protected $table = 'korisnici';
 
-    protected $fillable = ['id', 'prava_pristupa', 'prezime', 'ime', 'email', 'username', 'password', 'token', 'online', 'create_at', 'update_at'];
+    protected $fillable = ['id', 'prava_pristupa', 'prezime', 'ime', 'email', 'username', 'password', 'token', 'online', 'adresa', 'grad', 'create_at', 'update_at'];
 
 }

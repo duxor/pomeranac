@@ -7,9 +7,11 @@ use Illuminate\Support\Facades\Input;
 
 class Glavni extends Controller {
 
+    private function meni(){
+        return Sadrzaj::skip(2)->take(5)->get(['naslov'])->toArray();
+    }
 	public function getIndex()
 	{
-		$meni = Sadrzaj::skip(2)->take(5)->get(['naslov'])->toArray();
 		$pocetna = Sadrzaj::where('slug','Like','pocetna%')->get(['slug','naslov','sadrzaj'])->toArray();
 		$oNama = Sadrzaj::all(['slug', 'naslov', 'sadrzaj'])->where('slug','o-nama')->first();
 		$oRasi = Sadrzaj::all(['slug', 'naslov', 'sadrzaj'])->where('slug','o-rasi')->first();
@@ -33,7 +35,7 @@ class Glavni extends Controller {
             $sliderIMGsFoto .= '<div class="item '.($k==0?'active':'').'"><img src="'.$foto.'" alt="Pomeranac fotografija '.$k.'"></div>';
         }
 		return view('pocetna', [
-			'meni' => $meni,
+			'meni' => $this->meni(),
 			'pozadina' => [1 => 'slike/9.jpg', 2 => 'slike/8.jpg', 3 => 'slike/3.jpg', 4 => 'slike/4.jpg', 5 => 'slike/11.jpg', 6 => 'slike/10.jpg' ],
 			'pocetna' => $pocetna,
 			'oNamaNaslov' => $oNama->naslov,
@@ -66,6 +68,16 @@ class Glavni extends Controller {
 		$galerija['foto'] = OsnovneMetode::listaFotografija("slike/galerije/{$slug}");
 		return view('galerije.galerija',compact('meni','galerija'));
 	}*/
+	public function getSveGalerije(){
+        $galerija = Sadrzaj::where('slug','galerija')->get(['slug', 'sadrzaj'])->first();
+        $galerije = Sadrzaj::where('aktivan','=',1)->where('tip_sadrzaja_id','=',5)->where('slug','<>','osnovni-slider')->orderBy('id','desc')->get(['slug','naslov'])->toArray();
+		for($i=0;$i<sizeof($galerije);$i++){
+            $foto=OsnovneMetode::listaFotografija('slike/galerije/'.$galerije[$i]['slug']);
+            $galerije[$i]['foto'] = sizeof($foto)?$foto[rand(0,sizeof($foto)-1)]:null;
+        }
+        $meni=$this->meni();
+        return view('galerije.pregled-svih',compact('galerija','galerije','meni'));
+    }
 	public function postGalerija(){
         return json_encode(['foto'=>OsnovneMetode::listaFotografija('slike/galerije/'.Input::get('slug')),
                             'text'=>Sadrzaj::where('slug',Input::get('slug'))->get(['sadrzaj'])->first()->sadrzaj]);

@@ -1,7 +1,12 @@
 @extends('master')
 @section('title') Pomeranac @endsection
 @section('body')
-<script>window.onload = function(){ fullScreen.showModal(); }</script>
+<script>
+    window.onload = function(){
+        fullScreen.showModal(); 
+        navigare.start()
+    }
+</script>
 {{-- pocetna --}}
     <div
             class="parallax-image-wrapper parallax-image-wrapper-100"
@@ -192,46 +197,22 @@
                 <div class="col-sm-5">
                     @if($galerije)
                         @foreach($galerije as $g)
-                        <div class="col-sm-6 galerijaFoto" style="padding:0 1px 1px 0;marginr:0px" onmouseover="fotoEfect.showTitle(this)" onmouseout="fotoEfect.showTitle(this)">
+                        <div class="col-sm-6 galerijaFoto" style="padding:0 1px 1px 0;marginr:0px" onmouseover="duXorFotoEfect.showTitle(this)" onmouseout="duXorFotoEfect.showTitle(this)">
                             <img src="{{$g['foto']}}" style="height:100%;width:100%">
-                            <div onclick="duXorModal.show(this)" class="naslov" data-slug="{{$g['slug']}}" onmouseout="fotoEfect.showTitle(this)">
+                            <div onclick="duXorModal.show(this)" class="naslov" data-slug="{{$g['slug']}}" onmouseout="duXorFotoEfect.showTitle(this)">
                                 <p>{{$g['naslov']}}</p>
                             </div>
                         </div>
                         @endforeach
                         <div class="col-sm-6 galerijaFoto" style="padding:0 1px 0 0;marginr:0px;">
                             <img src="{{$galerije[0]['foto']}}" style="height:100%;width:100%">
-                            <div onclick="duXorModal.show(this)" class="naslov" style="display:block"><p>Sve galerije</p></div>
+                            <a href="/sve-galerije" class="naslov" style="display:block"><p>Sve galerije</p></a>
                         </div>
                     @else
                         <p style="margin-top:100px">Ni jedna galerija nije unesena.</p>
                     @endif
                 </div>
             </div>
-            <script>
-                var fotoEfect = {
-                    fotoClass:'naslov',
-                    animationUpSpeed:100,
-                    animationDownSpeed:this.animationUpSpeed,
-                    showTitle:function(el){
-                        if($(el).is(':hover')){
-                            if($(el).children('.'+this.fotoClass).length)
-                                if(!$(el).children('.'+this.fotoClass).is(':visible'))
-                                    $(el).children('.'+this.fotoClass).stop().slideDown(this.animationDownSpeed);
-                            else 
-                                if(!$(el).is(':visible'))
-                                    $(el).stop().slideDown(this.animationDownSpeed);
-                        }else{
-                            if($(el).children('.'+this.fotoClass).length)
-                                if($(el).children('.'+this.fotoClass).is(':hover')) return;
-                                else $(el).children('.'+this.fotoClass).stop().slideUp(this.animationUpSpeed);
-                            else
-                                if($(el).is(':hover')) return;
-                                else $(el).stop().slideUp(this.animationUpSpeed);
-                        }
-                    }
-                }
-            </script>
         </div>
         <div class="gap gap-100"></div>
         {{--galerija END::--}}

@@ -1,19 +1,31 @@
 $(document).ready(function() {
 	// navigation click actions	
 	$('.scroll-link').on('click', function(event){
-		event.preventDefault();
 		var sectionID = $(this).attr("data-id");
-		scrollToID('#' + sectionID, 750);
+		try{
+            scrollToID('#' + sectionID, 750);
+        }catch(e){
+            return;
+        }        
+		event.preventDefault();
 	});
 	// scroll to top action
 	$('.scroll-top').on('click', function(event) {
+		try{
+            $('html, body').animate({scrollTop:0}, 'slow');
+        }catch(e){
+            return;
+        }        
 		event.preventDefault();
-		$('html, body').animate({scrollTop:0}, 'slow');
 	});
 	// mobile nav toggle
 	$('#nav-toggle').on('click', function (event) {
+		try{
+            $('#main-nav').toggleClass("open");
+        }catch(e){
+            return;
+        }        
 		event.preventDefault();
-		$('#main-nav').toggleClass("open");
 	});
 });
 // scroll function
@@ -344,9 +356,6 @@ var duXorModal ={
  ###                pageIds             - 
  ### ------------------------------------------------------------------
 #*/ 
-$(document).ready(function(){
-    navigare.start()
-});
 var navigare = {
     currentPage:0,
     topScrollHeight:200,
@@ -423,5 +432,42 @@ var navigare = {
             }
             e.preventDefault(); // prevent the default action (scroll / move caret)
         });
+    }
+}
+
+/*#
+ ### Name: duXorFotoEfect
+ ### Autor: Dusan Perisci
+ ### Home: dusanperisic.com
+ ###
+ ### Napomena: 	
+ ### ------------------------------------------------------------------
+ ### Uputstvo:
+ ###            Podaci koji mogu da mijenjaju su promjenjive:
+ ###                fotoClass           - 
+ ###                animationUpSpeed    - 
+ ###                animationDownSpeed  - 
+ ### ------------------------------------------------------------------
+#*/ 
+var duXorFotoEfect = {
+    fotoClass:'naslov',
+    animationUpSpeed:100,
+    animationDownSpeed:this.animationUpSpeed,
+    showTitle:function(el){
+        if($(el).is(':hover')){
+            if($(el).children('.'+this.fotoClass).length)
+                if(!$(el).children('.'+this.fotoClass).is(':visible'))
+                    $(el).children('.'+this.fotoClass).stop().slideDown(this.animationDownSpeed);
+            else 
+                if(!$(el).is(':visible'))
+                    $(el).stop().slideDown(this.animationDownSpeed);
+        }else{
+            if($(el).children('.'+this.fotoClass).length)
+                if($(el).children('.'+this.fotoClass).is(':hover')) return;
+                else $(el).children('.'+this.fotoClass).stop().slideUp(this.animationUpSpeed);
+            else
+                if($(el).is(':hover')) return;
+                else $(el).stop().slideUp(this.animationUpSpeed);
+        }
     }
 }

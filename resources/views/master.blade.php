@@ -30,6 +30,7 @@
         {!! HTML::script('js/gmap1.js') !!}
     @endif
     {!! HTML::style('css/fontello.css') !!}
+    {!! HTML::style('css/fontello-ie7.css') !!}
     {!!HTML::style('css/animation.css')!!}
 </head>
 
@@ -61,7 +62,7 @@
         </div>
     </nav>
     {{--navigacija END::--}}
-    <div class="container">
+    <div id="container" class="container">
         @yield('content')
     </div>
 
