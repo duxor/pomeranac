@@ -55,19 +55,6 @@ class Glavni extends Controller {
             'drustveneMreze'=>Sadrzaj::where('tip_sadrzaja_id',3)->take(3)->get(['naslov','slug','sadrzaj'])->toArray()
 		]);
 	}
-	/*public function getGalerije(){
-		$meni = Sadrzaj::get(['naslov'])->take(6)->toArray();
-		$galerije = Sadrzaj::where('aktivan','=',1)->where('tip_sadrzaja_id','=',5)->where('slug','<>','osnovni-slider')->orderBy('id','desc')->get(['slug','naslov','sadrzaj'])->toArray();
-		for($i=0;$i<sizeof($galerije);$i++) $galerije[$i]['foto'] = OsnovneMetode::listaFotografija('slike/galerije/'.$galerije[$i]['slug'])? OsnovneMetode::listaFotografija('slike/galerije/'.$galerije[$i]['slug'])[0]:null;
-		$txt = Sadrzaj::where('slug','=','galerija')->get(['sadrzaj','naslov'])->first()->toArray();
-		return view('galerije.galerije',compact('meni','galerije','txt'));
-	}
-	public function getGalerija($slug){
-		$meni = $meni = Sadrzaj::get(['naslov'])->take(6)->toArray();
-		$galerija = Sadrzaj::where('slug','=',$slug)->get(['naslov','slug','sadrzaj'])->first()->toArray();
-		$galerija['foto'] = OsnovneMetode::listaFotografija("slike/galerije/{$slug}");
-		return view('galerije.galerija',compact('meni','galerija'));
-	}*/
 	public function getSveGalerije(){
         $galerija = Sadrzaj::where('slug','galerija')->get(['slug', 'sadrzaj'])->first();
         $galerije = Sadrzaj::where('aktivan','=',1)->where('tip_sadrzaja_id','=',5)->where('slug','<>','osnovni-slider')->orderBy('id','desc')->get(['slug','naslov'])->toArray();
@@ -82,5 +69,7 @@ class Glavni extends Controller {
         return json_encode(['foto'=>OsnovneMetode::listaFotografija('slike/galerije/'.Input::get('slug')),
                             'text'=>Sadrzaj::where('slug',Input::get('slug'))->get(['sadrzaj'])->first()->sadrzaj]);
     }
-
+    public function postPosaljiMail(){
+        return json_encode(['msg'=>'Uspešno ste poslali poruku.','check'=>1]);
+    }
 }
