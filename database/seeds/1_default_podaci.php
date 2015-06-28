@@ -87,14 +87,14 @@ class DefaultPodaci extends Seeder{
             ],
             [
                 'naslov' => null,
-                'sadrzaj' => '44.796885',
+                'sadrzaj' => '20.4700183',
                 'slug' => 'x-koordinata',
                 'korisnici_id' => 1,
                 'tip_sadrzaja_id' => 6
             ],
             [
                 'naslov' => null,
-                'sadrzaj' => '20.4700183',
+                'sadrzaj' => '44.796885',
                 'slug' => 'y-koordinata',
                 'korisnici_id' => 1,
                 'tip_sadrzaja_id' => 6
