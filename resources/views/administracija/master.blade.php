@@ -26,10 +26,10 @@
         }
         </style>
     {!!HTML::script('http://maps.googleapis.com/maps/api/js?sensor=false')!!}
-    {!!HTML::script('js/gmaps-picker.js')!!}
     {!!HTML::style('css/fontello.css')!!}
     {!!HTML::style('css/animation.css')!!}
     {!!HTML::script('js/jquery-3.0.js')!!}
+    {!!HTML::script('js/gmaps-picker.js')!!}
     {!!HTML::script('js/funkcije.js')!!}
     {!!HTML::script('tinymce/tinymce.min.js')!!}
     {!!HTML::script('tinymce/jquery.tinymce.min.js')!!}
