@@ -28,7 +28,7 @@ function scrollToID(id, speed){
 	}
 }
 //funkcija za zadrzavanje aktivnog taba na strani registracija
-$(document).ready(function() {
+/*$(document).ready(function() {
  $('a[data-toggle="tab"]').on('click', function (e) {
     localStorage.setItem('lastTab', $(e.target).attr('href'));
   });
@@ -36,7 +36,8 @@ $(document).ready(function() {
   if (lastTab) {
       $('a[href="'+lastTab+'"]').click();
   }
-});
+});*/
+
 /*#
  ### Autor: Dusan Perisci
  ### Home: dusanperisic.com
@@ -281,5 +282,88 @@ var duXorModal ={
     },
     disableScroll:function(){
         event.preventDefault();
+    }
+}
+
+//NAVIGARE
+$(document).ready(function(){
+    navigare.start()
+});
+var navigare = {
+    currentPage:0,
+    topScrollHeight:200,
+    fadeAnimationSpeed:400,
+    scrollSpeed:750,
+    pageIds:['#pocetna','#o-nama','#rasa-pomeranac','#pas-boo','#galerija','#kontakt'],
+    start:function(){
+        $('#scrollToTop').hide();
+        this.scrollAction();
+        this.keyNav();
+    },
+    scrollAction:function(){
+        $(document).scroll(function(){
+            navigare.detectElement();
+            if($(document).scrollTop()>navigare.topScrollHeight){
+                if(!$('#scrollToTop').is(':visible')) $('#scrollToTop').stop().fadeIn(navigare.fadeAnimationSpeed);
+                if($('#scrollSledeci').css('left')!='20px')
+                    $('#scrollSledeci').stop().fadeOut(navigare.fadeAnimationSpeed,function(){
+                        $('#scrollSledeci').css('position','absolute').css('bottom','20px').css('left','20px');
+                        $('#scrollSledeci').fadeIn(navigare.fadeAnimationSpeed);
+                    });
+                else 
+                    if($(document).scrollTop()>$(document).height()-$(window).height()-navigare.topScrollHeight*2){
+                        if($('#scrollSledeci').is(':visible')) $('#scrollSledeci').stop().fadeOut(navigare.fadeAnimationSpeed);
+                    }else $('#scrollSledeci').stop().fadeIn(navigare.fadeAnimationSpeed);
+            }
+            else{
+                if($('#scrollToTop').is(':visible')) $('#scrollToTop').fadeOut(navigare.fadeAnimationSpeed);
+                if($('#scrollSledeci').css('left')=='20px')
+                    $('#scrollSledeci').stop().fadeOut(navigare.fadeAnimationSpeed,function(){
+                        $('#scrollSledeci').css('position','relative').css('bottom','5px').css('left','auto');
+                        $('#scrollSledeci').fadeIn(navigare.fadeAnimationSpeed);
+                    });
+            }
+        });
+    },
+    nextPage:function(){
+        if(this.currentPage==this.pageIds.length-1){
+            if($('#scrollSledeci').is(':visible')) $('#scrollSledeci').stop().fadeOut(this.fadeAnimationSpeed);
+        }else this.currentPage++;
+        this.scrollToID(this.pageIds[this.currentPage]);
+    },
+    previewPage:function(){
+        if(this.currentPage>0) this.currentPage--;
+        this.scrollToID(this.pageIds[this.currentPage]);
+    },
+    scrollToID:function(id){
+        var offSet = 70;
+        var targetOffset = $(id).offset().top - offSet;
+        $('html,body').animate({scrollTop:targetOffset}, this.scrollSpeed);
+    },
+    detectElement:function(){
+        var height=$(document).height();
+        for(var i=this.pageIds.length-1; i>-1; i--){
+            if($(document).scrollTop() >= $(this.pageIds[i]).position().top-$(this.pageIds[i]).height()){
+                this.currentPage=i;
+                return;
+            }
+        }
+    },
+    keyNav:function(){
+        $(document).keydown(function(e) {
+            switch(e.which) {
+                case 39: // right
+                case 40: // down
+                    navigare.nextPage();
+                break;
+                    
+                case 37: // left
+                case 38: // up
+                    navigare.previewPage();
+                break;
+                default: return; // other key
+            }
+            e.preventDefault(); // prevent the default action (scroll / move caret)
+        });
     }
 }

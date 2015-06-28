@@ -145,23 +145,8 @@
                     
                 </div>
                 <div id="scrollToTop" style="position:fixed;bottom:20px;right:20px;z-index:999"><div class="scroll-link krug krug-default _tooltip" data-id="top" title="Povratak na početak"><i class="glyphicon glyphicon-chevron-up"></i></div></div>
-    <script>
-        $(document).ready(function(){
-            $('#scrollToTop').hide();
-            $(document).scroll(function(){
-                if($(document).scrollTop()>200){
-                    $('#scrollToTop').fadeIn();
-                    $('#scrollSledeci').fadeOut();
-                }
-                else{
-                    $('#scrollToTop').fadeOut();
-                    $('#scrollSledeci').fadeIn();
-                }
-            });
-        });
-    </script>
             </div>
-        <div style="position:fixed;bottom:5px;width: 100%;"><div id="scrollSledeci" class="scroll-link krug krug-default _tooltip" title="Sledeća stranica" data-id="o-nama"><i class="glyphicon glyphicon-chevron-down"></i></div></div>
+        <div style="position:fixed;bottom:5px;width: 100%;"><div id="scrollSledeci" onclick="navigare.nextPage()" class="krug krug-default _tooltip" title="Sledeća stranica"><i class="glyphicon glyphicon-chevron-down"></i></div></div>
         </div>
 
         <div class="gap gap-100"></div>

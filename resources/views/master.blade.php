@@ -47,7 +47,7 @@
                     <img src="/slike/logo.png" style="margin-top:-30px">
                 </a>
             </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse" id="navDux">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="navbar-btn" title="Upoznajte naš tim" data-placement="bottom"><a href="/#o-nama" class="scroll-link" data-id="o-nama"><span class="glyphicon glyphicon-user"></span> {!! $meni[0]['naslov'] !!}</a></li>
                     <li class="navbar-btn" title="Pročitajte odakle potiče rasa Pomeranac" data-placement="bottom"><a href="/#rasa-pomeranac" class="scroll-link" data-id="rasa-pomeranac"><i class="icon-guidedog" style="font-size: 20px"></i> {!! $meni[1]['naslov'] !!}</a></li>
