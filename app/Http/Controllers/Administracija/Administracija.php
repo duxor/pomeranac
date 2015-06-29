@@ -2,6 +2,7 @@
 use App\Http\Controllers\Controller; 
 
 use App\Sadrzaj;
+use App\Korisnici;
 use App\TipSadrzaja;
 use App\OsnovneMetode;
 use App\Security;
@@ -34,15 +35,16 @@ public function getTest(){
 //
     public function getSadrzaj($slug)
     {
-        $sadrzaj = Sadrzaj::where('slug','=',$slug)->get(['id','naslov','slug','sadrzaj'])->first()->toArray();
+        $sadrzaj = Sadrzaj::where('slug','=',$slug)->get(['id','naslov','slug','sadrzaj'])->first()->toArray();  
         return Security::autentifikacija('administracija.sadrzaji', compact('sadrzaj'));
     }
     public function getKontakt()
     {
+        $korisnici=Korisnici::where('id','=',1)->get(['grad','adresa'])->first();
         $sadrzaj = Sadrzaj::where('slug','=','kontakt')->get(['id','naslov','slug','sadrzaj'])->first()->toArray();
-            $sadrzaj['x'] = Sadrzaj::where('slug','=','x-koordinata')->get(['sadrzaj'])->first()->sadrzaj;
-            $sadrzaj['y'] = Sadrzaj::where('slug','=','y-koordinata')->get(['sadrzaj'])->first()->sadrzaj;
-        return Security::autentifikacija('administracija.sadrzaji', compact('sadrzaj'));
+        $sadrzaj['x'] = Sadrzaj::where('slug','=','x-koordinata')->get(['sadrzaj'])->first()->sadrzaj;
+        $sadrzaj['y'] = Sadrzaj::where('slug','=','y-koordinata')->get(['sadrzaj'])->first()->sadrzaj;
+        return Security::autentifikacija('administracija.sadrzaji', compact('sadrzaj','korisnici'));
     }
 
     public function postSadrzaj()

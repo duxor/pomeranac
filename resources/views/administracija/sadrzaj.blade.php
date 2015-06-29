@@ -1,19 +1,14 @@
 @extends('administracija.master')
-
-
 @section('content')</br></br>
     <div class="col-sm-3">
-
-        <li style="list-style-type:none; margin-left:15px; " class="dropdown">
+        <li style="list-style-type:none; margin-left:15px;" class="dropdown">
           <a style="text-decoration:none;" id="pocetna"  href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Početna <span class="caret"></span></a>
           <ul class="dropdown-menu">
               <li id="pocetna1" role="presentation"><a onclick="getPosalji('pocetna1')"><i class="icon-guidedog">  </i> Pomeranac</a></li>
               <li id="pocetna2" role="presentation"><a onclick="getPosalji('pocetna2')"><span class="glyphicon glyphicon-user"> </span> Prvi Pomeranac u Srbiji</a></li>
           </ul>
         </li>
-
         <ul class="nav nav-pills nav-stacked">
-           {{--<li id="pocetna1" role="presentation"><a href="#" onclick="getPosalji('pocetna')">PoÄ�etna<span class="caret"></span></a></li>--}} 
             <li id="o-nama" role="presentation"><a href="#" onclick="getPosalji('o-nama')">O nama</a></li>
             <li id="o-rasi" role="presentation"><a href="#" onclick="getPosalji('o-rasi')">O rasi</a></li>
             <li id="o-psu" role="presentation"><a href="#" onclick="getPosalji('o-psu')">O psu</a></li>
@@ -45,15 +40,13 @@
             </div>
         </div>
     </div>
-
 <script>
 $(window).load(function() {
-setActive('pocetna1');
+    setActive('pocetna1');
     getPosalji('pocetna1');
 });
-$(document).ready(function() { 
-    
-   $('textarea.tinymce').tinymce({ 
+$(document).ready(function() {    
+    $('textarea.tinymce').tinymce({ 
       script_url : 'tinymce/jquery.tinymce.min.js',  
       theme : "modern",
       plugins: [
@@ -70,19 +63,16 @@ $(document).ready(function() {
                 {title: 'Test template 2', content: 'Test 2'}
             ]                        
    });
-    
-
-   $('#salji').click(function() {
-    $('textarea:tinymce').tinymce().save();
-    Komunikacija.posalji("/admin/sadrzaji/sadrzaj","zaSlanje","poruka","wait","asd");
-});
-
+    $('#salji').click(function() {
+        $('textarea:tinymce').tinymce().save();
+        Komunikacija.posalji("/admin/sadrzaji/sadrzaj","zaSlanje","poruka","wait","asd");
+    });
 });  
 
    function setActive(ID){
             $('.active').removeClass('active');
             $('#'+ID).addClass('active');
-        }
+    }
     function getPosalji(val){
         setActive(val);
             $('#zaSlanje').hide();
@@ -98,12 +88,9 @@ $(document).ready(function() {
                 }
              );
             $('#wait').hide();
-            $('#zaSlanje').fadeIn();
-            
+            $('#zaSlanje').fadeIn();         
     }
 </script>
-
 @endsection
 @section('body')
-
 @endsection

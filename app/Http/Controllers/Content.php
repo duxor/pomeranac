@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Security;
 use App\Sadrzaj;
+use App\Korisnici;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
@@ -24,6 +25,15 @@ class Content extends Controller{
     $podaci=$_POST['tip'];
    $sad=Sadrzaj::where('slug','=',$podaci)->get(['naslov','slug','sadrzaj'])->first();
     return json_encode($sad);
+    }
+    public function postKontakt()
+    {
+    $podaci=json_decode(Input::get('podaci'));
+    Sadrzaj::where('id','=',$podaci->id)->update(['naslov'=>$podaci->naslov,'sadrzaj'=>$podaci->sadrzaj]);
+    Sadrzaj::where('slug','=','x-koordinata')->update(['sadrzaj'=>$podaci->x]);
+    Sadrzaj::where('slug','=','y-koordinata')->update(['sadrzaj'=>$podaci->y]);
+    Korisnici::where('id','=',1)->update(['grad'=>$podaci->grad,'adresa'=>$podaci->adresa]);
+    return json_encode(['msg'=>'Uspešno ste izvršili dodavanje.','check'=>1]);
     }
 
 

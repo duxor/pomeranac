@@ -13,7 +13,11 @@
         <hr/>
     <div class=" row">
         <div class="col-md-8"> 
-            {!! Form::open(['url' => '/administracija/sadrzaj', 'class'=>'form-horizontal']) !!}
+        <i class='icon-spin6 animate-spin' style="color: rgba(0,0,0,0)"></i>
+         <div id="wait" style="display:none"><center><i class='icon-spin6 animate-spin' style="font-size: 200%"></i></center></div>
+         <div id="poruka" style="display: none"></div>
+         <div id="zaSlanje" class="form-horizontal">
+         {!!Form::hidden('_token',csrf_token())!!}
                 {!! Form::hidden('id', $sadrzaj['id']) !!}
                 <div class="form-group">
                     {!! Form::label('lnaslov','Naslov', ['class'=>'col-sm-3']) !!}
@@ -32,17 +36,17 @@
                     <div class="form-group">
                         {!! Form::label('lx','X koordinata', ['class'=>'form-label col-sm-3']) !!}
                         <div class="col-sm-9">
-                            {!! Form::text('x',$sadrzaj['x'],['class'=>'form-control']) !!}
+                            {!! Form::text('x',$sadrzaj['x'],['class'=>'form-control','readonly'=>'readonly']) !!}
                         </div>
                     </div>
                     <div class="form-group">
                         {!! Form::label('ly','Y koordinata', ['class'=>'form-label col-sm-3']) !!}
                         <div class="col-sm-9">
-                            {!! Form::text('y',$sadrzaj['y'],['class'=>'form-control']) !!}
+                            {!! Form::text('y',$sadrzaj['y'],['class'=>'form-control','readonly'=>'readonly']) !!}
                         </div>
                     </div>
                     <div class="form-group">
-                        {!! Form::label('ly','Y koordinata', ['class'=>'form-label col-sm-3']) !!}
+                        {!! Form::label('ly','Z koordinata', ['class'=>'form-label col-sm-3']) !!}
                         <div class="col-sm-9">
                             {!!Form::text('z',null,['class'=>'form-control','placeholder'=>'z','id'=>'z','readonly'=>'readonly'])!!}
                         </div>
@@ -50,25 +54,34 @@
                     <div class="form-group">
                         {!! Form::label('lgrad','Grad', ['class'=>'form-label col-sm-3']) !!}
                         <div class="col-sm-9">
-                            {!! Form::text('grad',null,['class'=>'form-control']) !!}
+                            {!! Form::text('grad',$korisnici['grad'],['class'=>'form-control']) !!}
                         </div>
                     </div>
                     <div class="form-group">
-                        {!! Form::label('ulica','Ulica i broj', ['class'=>'form-label col-sm-3']) !!}
+                        {!! Form::label('ladresa','Ulica i broj', ['class'=>'form-label col-sm-3']) !!}
                         <div class="col-sm-9">
-                            {!! Form::text('ulica',null,['class'=>'form-control']) !!}
+                            {!! Form::text('adresa',$korisnici['adresa'],['class'=>'form-control']) !!}
                         </div>
                     </div>
 
                 @endif
 
                 <div class="form-group">
-                    {!! Form::button('<span class="glyphicon glyphicon-floppy-disk"></span> Sačuvaj', ['class' => 'btn btn-primary btn-lg','type'=>'submit']) !!}
+                   {!! Form::button('<span class="glyphicon glyphicon-envelope"></span> Pošalji',['id'=>'salji', 'class'=>'btn btn-lg btn-primary']) !!}
                 </div>
-            {!! Form::close() !!}
+         </div>
+         <script>
+         $(document).ready(function(){
+            $('#salji').click(function(){
+                $('textarea:tinymce').tinymce().save();
+                Komunikacija.posalji("/admin/sadrzaji/kontakt","zaSlanje","poruka","wait","salji");
+            });
+         });
+         </script>
+
         </div>
          @if(isset($sadrzaj['x']))
-            <div class="gllpLatlonPicker col-md-4" id="mapPick">
+           <div class="gllpLatlonPicker col-md-4" id="mapPick">
                 <h4>Pomerite marker, ili kliknite na mapu.</h4>
                 <div class="row">
                     <div class="col-sm-8">
@@ -88,8 +101,6 @@
 
     </div>
 </div>
-@endsection
-@section('body')
 <script type="text/javascript">
 tinymce.init({
     selector: "textarea",
@@ -109,4 +120,7 @@ tinymce.init({
     ]
 });
 </script>
-@stop
+@endsection
+@section('body')
+
+@endsection
