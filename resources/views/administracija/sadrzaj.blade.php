@@ -4,8 +4,8 @@
         <li style="list-style-type:none; margin-left:15px;" class="dropdown">
           <a style="text-decoration:none;" id="pocetna"  href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Početna <span class="caret"></span></a>
           <ul class="dropdown-menu">
-              <li id="pocetna1" role="presentation"><a onclick="getPosalji('pocetna1')"><i class="icon-guidedog">  </i> Pomeranac</a></li>
-              <li id="pocetna2" role="presentation"><a onclick="getPosalji('pocetna2')"><span class="glyphicon glyphicon-user"> </span> Prvi Pomeranac u Srbiji</a></li>
+              <li id="pocetna1" role="presentation"><a href="#" onclick="getPosalji('pocetna1')"><i class="icon-guidedog">  </i> Pomeranac</a></li>
+              <li id="pocetna2" role="presentation"><a href="#" onclick="getPosalji('pocetna2')"><span class="glyphicon glyphicon-user"> </span> Prvi Pomeranac u Srbiji</a></li>
           </ul>
         </li>
         <ul class="nav nav-pills nav-stacked">
@@ -65,7 +65,7 @@ $(document).ready(function() {
    });
     $('#salji').click(function() {
         $('textarea:tinymce').tinymce().save();
-        Komunikacija.posalji("/admin/sadrzaji/sadrzaj","zaSlanje","poruka","wait","asd");
+        Komunikacija.posalji("/administracija/sadrzaji/sadrzaj","zaSlanje","poruka","wait","zaSlanje");
     });
 });  
 
@@ -75,20 +75,19 @@ $(document).ready(function() {
     }
     function getPosalji(val){
         setActive(val);
-            $('#zaSlanje').hide();
-            $('#wait').show();   
-            $('#slug').val(val);
-            $.post('/admin/sadrzaji/area',{
-                    _token:'{{csrf_token()}}' ,
-                    tip:val        
-                },function(data){
-                 var podaci = $.parseJSON(data);          
-                  $('textarea:tinymce').html(podaci.sadrzaj);
-                  $('#naslov').val(podaci.naslov);
-                }
-             );
-            $('#wait').hide();
-            $('#zaSlanje').fadeIn();         
+        $('#zaSlanje').hide();
+        $('#wait').show();   
+        $('#slug').val(val);
+        $.post('/administracija/sadrzaji/area',{
+                _token:'{{csrf_token()}}' ,
+                tip:val        
+            },function(data){
+                var podaci = $.parseJSON(data);          
+                $('textarea:tinymce').html(podaci.sadrzaj);
+                $('#naslov').val(podaci.naslov);
+                $('#wait').hide();
+                $('#zaSlanje').fadeIn();    
+            });     
     }
 </script>
 @endsection

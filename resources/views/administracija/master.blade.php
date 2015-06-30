@@ -55,7 +55,7 @@
 
                       <li><a class="navbar-brand" href="/administracija"><span class="glyphicon glyphicon-home"></span></a></li>
 
-                      <li class="dropdown @yield('tekstovi')"><a href="/admin/sadrzaji" ><span class="glyphicon glyphicon-text-size"></span>ekstovi</a>
+                      <li class="dropdown @yield('tekstovi')"><a href="/administracija/sadrzaji" ><span class="glyphicon glyphicon-text-size"></span>ekstovi</a>
                       </li>
                       <li class="@yield('galerija')"><a href="/administracija/galerije"><span class="glyphicon glyphicon-picture"></span> Galerije</a></li>
                       <li><a href="#"><span class="glyphicon glyphicon-stats"></span> Analitika</a></li>

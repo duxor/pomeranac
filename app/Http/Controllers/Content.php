@@ -18,7 +18,7 @@ class Content extends Controller{
     {
     	$podaci=json_decode(Input::get('podaci'));
         $galerija=Sadrzaj::where('slug','=',$podaci->slug)->update(['naslov'=>$podaci->naslov,'sadrzaj'=>$podaci->sadrzaj]);
-        return json_encode(['msg'=>'Uspešno ste izvršili dodavanje.','check'=>1]);
+        return json_encode(['msg'=>'Uspešno ste izvršili ažuriranje.','check'=>1]);
     }
     public function postArea()
     {
