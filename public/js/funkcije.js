@@ -284,7 +284,7 @@ var duXorModal ={
     animateSpeed:400,
     show:function(el){
         $('body').append('<div id="duXorModal">'+
-                                '<div id="wait" style="margin-top:100px">'+
+                                '<div id="duXorModal-wait" style="margin-top:100px">'+
                                     '<center><i class="icon-spin6 animate-spin" style="font-size: 350%;color:#000"></i></center>'+
                                 '</div>'+
                                 '<div id="duXorModal-body">'+
@@ -318,13 +318,13 @@ var duXorModal ={
                     }
                     $('#duXorModal').find('.text').html(podaci.text);
                     $('#duXorModal').children('#duXorModal-body').append('<div class="col-sm-9"><div id="galerijaSlajderFoto" class="carousel slide" data-ride="carousel"><ol class="carousel-indicators">'+indikatori+'</ol><div class="carousel-inner" role="listbox">'+fotoHtml+'</div><a class="left carousel-control" href="#galerijaSlajderFoto" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#galerijaSlajderFoto" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a></div></div>');
-                    $('#galerijaSlajderFoto').carousel()
+                    $('#galerijaSlajderFoto').carousel();
                     
 ///#########
 //########## ::END
 //########## Uređenje rasporeda rezultujućih podataka 
 //##########
-                    $('#wait').hide();
+                    $('#duXorModal-wait').hide();console.log(111);
                     $('#duXorModal-body').fadeIn(duXorModal.animateSpeed);
         });
     },
