@@ -403,7 +403,7 @@ var navigare = {
         this.scrollToID(this.pageIds[this.currentPage]);
     },
     scrollToID:function(id){
-        var offSet = 70;
+        var offSet = 65;
         var targetOffset = $(id).offset().top - offSet;
         $('html,body').animate({scrollTop:targetOffset}, this.scrollSpeed);
     },
