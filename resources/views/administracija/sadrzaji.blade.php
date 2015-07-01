@@ -79,15 +79,15 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    {!! Form::button('<span class="glyphicon glyphicon-envelope"></span> Pošalji',['id'=>'salji', 'class'=>'btn btn-lg btn-primary col-md-offset-1']) !!}
+                    {!! Form::button('<span class="glyphicon glyphicon-ok"></span> Sačuvaj',['id'=>'sacuvaj', 'class'=>'btn btn-lg btn-primary col-md-offset-1']) !!}
                 </div>
             </div>{{--kraj md-4--}}
         </div>{{--za slanje kraj--}}
         <script>
              $(document).ready(function(){
-                $('#salji').click(function(){
+                $('#sacuvaj').click(function(){
                     $('textarea:tinymce').tinymce().save();
-                    Komunikacija.posalji("/administracija/sadrzaji/kontakt","zaSlanje","poruka","wait","salji");
+                    Komunikacija.posalji("/administracija/sadrzaji/kontakt","zaSlanje","poruka","wait","sacuvaj");
                 });
              });
         </script>
