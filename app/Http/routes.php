@@ -9,5 +9,4 @@ Route::get('/login','Log@getLogin');
 Route::get('/logout','Log@getLogout');
 Route::controller('/log','Log');
 
-
 Route::controller('/','Glavni');

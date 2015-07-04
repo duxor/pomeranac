@@ -56,7 +56,7 @@
                     <li class="navbar-btn" title="Upoznajte našeg Boa" data-placement="bottom"><a href="/#pas-boo" class="scroll-link" data-id="pas-boo"><i class="icon-guidedog" style="font-size: 20px"></i> {!! $meni[2]['naslov'] !!}</a></li>
                     <li class="navbar-btn" title="Pogledajte fotografije i video" data-placement="bottom"><a href="/#galerija" class="scroll-link" data-id="galerija"><span class="glyphicon glyphicon-picture"></span> {!! $meni[3]['naslov'] !!}</a></li>
                     <li class="navbar-btn" title="Kontaktirajte nas i obezbedite najlepšeg kućnog ljubimca" data-placement="bottom"><a href="/#kontakt" class="scroll-link" data-id="kontakt"><span class="glyphicon glyphicon-earphone"></span> {!! $meni[4]['naslov'] !!}</a></li>
-                    <li class="navbar-btn btn btn-default"><?php require_once'php/dugme-prevodioca.php'?></li><script>$(document).ready(function(){$('.navbar-btn').tooltip()})</script>
+                    <li class="navbar-btn btn btn-default">@include('dodaci.dugme-prevodioca')</li><script>$(document).ready(function(){$('.navbar-btn').tooltip()})</script>
                 </ul>
             </div>
         </div>
